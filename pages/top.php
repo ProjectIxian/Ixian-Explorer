@@ -1,0 +1,46 @@
+<?php
+/*
+* Ixian Block Explorer
+* Website: www.ixian.io 
+*/
+
+$page = new Template();
+
+
+db_connect();
+$data = db_fetch("SELECT * FROM ixi_addresses ORDER BY amount DESC LIMIT 20", [ ]);
+if ($data != 0) {
+
+}
+
+$totalAmount = 0;
+foreach($data as $addr) {
+    $totalAmount += $addr["amount"];
+}
+
+$page->totalAmount = number_format($totalAmount);
+$page->data = $data;
+
+$laststat = db_fetch("SELECT * FROM ixi_nodestats ORDER BY blockheight DESC LIMIT 1", [])[0];
+if ($laststat != 0) {
+
+}
+$page->supply = number_format($laststat['totalixi']);
+
+$lockedPremine = 1600000000;
+$unlockedPremine = 400000000;
+$totalAmountWoPremine = $totalAmount - ($lockedPremine + $unlockedPremine);
+$num = 100 / $laststat['totalixi'];
+$w100num = $num * $totalAmountWoPremine;
+$lockedpreminenum = $num * $lockedPremine;
+$unlockedpreminenum = $num * $unlockedPremine;
+$othernum = 100 - $w100num - $lockedpreminenum - $unlockedpreminenum;
+
+$page->w100num = number_format($w100num,2);
+$page->othernum = number_format($othernum, 2);
+$page->lockedpreminenum = number_format($lockedpreminenum, 2);
+$page->unlockedpreminenum = number_format($unlockedpreminenum, 2);
+
+$page->render('page_top.tpl');
+
+?>

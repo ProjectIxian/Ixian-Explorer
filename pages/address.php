@@ -1,0 +1,52 @@
+<?php
+/*
+* Ixian Block Explorer
+* Website: www.ixian.io 
+*/
+
+$page = new Template();
+
+$walid = "";
+if(isset($_GET['id']) && $_GET['id'] != "") {
+    $walid = $_GET['id'];
+/*    if(ctype_alnum($txid))
+    {
+        $page->render('page_error.tpl');
+        return;
+    }*/
+}
+else 
+{
+    $page->render('page_error.tpl');
+    return;
+}
+
+$page->walletid = $walid;
+
+
+db_connect();
+
+$dbc = db_fetch("SELECT * FROM ixi_addresses WHERE address = :a LIMIT 1", [":a" => $walid]);
+
+if($dbc == null) {
+    $page->render('page_error.tpl');
+    return;
+}
+
+$dba = $dbc[0];
+
+
+$page->balance = $dba["amount"];
+$page->adx = $dba["id"];
+//$page->txcount = $dba["txcount"];
+
+$dbc = db_fetch("SELECT count(idx) as txc FROM ixi_txidx WHERE aidx = :a LIMIT 1", [":a" => $page->adx]);
+$dba = $dbc[0];
+$page->txcount = $dba["txc"];
+
+
+
+$page->render('page_address.tpl');
+
+
+?>

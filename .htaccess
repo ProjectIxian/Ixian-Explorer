@@ -1,0 +1,8 @@
+RewriteEngine on
+
+RewriteRule ^(block|cache)($|/) - [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^([^/]+)/?$ index.php?page=block&block=$1 [L,QSA]
