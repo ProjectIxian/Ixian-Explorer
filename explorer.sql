@@ -74,17 +74,6 @@ CREATE TABLE `ixi_nodestats` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ixi_signatures`
---
-
-CREATE TABLE `ixi_signatures` (
-  `blockNr` bigint(100) NOT NULL,
-  `signature` varchar(512) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `ixi_transactions`
 --
 
@@ -93,7 +82,7 @@ CREATE TABLE `ixi_transactions` (
   `txid` varchar(100) NOT NULL,
   `blockNr` bigint(20) NOT NULL,
   `nonce` varchar(16) NOT NULL,
-  `signature` varchar(2048) NOT NULL,
+  `signature` blob(2048) NOT NULL,
   `data` text NOT NULL,
   `timestamp` varchar(16) NOT NULL,
   `type` varchar(100) NOT NULL,
@@ -150,12 +139,6 @@ ALTER TABLE `ixi_blocks`
 --
 ALTER TABLE `ixi_nodestats`
   ADD PRIMARY KEY (`blockheight`);
-
---
--- Indexes for table `ixi_signatures`
---
-ALTER TABLE `ixi_signatures`
-  ADD PRIMARY KEY (`blockNr`,`signature`);
 
 --
 -- Indexes for table `ixi_transactions`
