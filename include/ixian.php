@@ -3,7 +3,7 @@
 * Ixian Block Explorer
 * Website: www.ixian.io 
 */
-require_once("../include/ixianlib.php");
+require_once("ixianlib.php");
 
 function insertTxIndex($walletidx, $txidx, $amountdelta)
 {
