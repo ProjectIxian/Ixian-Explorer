@@ -22,18 +22,24 @@ if (flock($fp, LOCK_EX | LOCK_NB))
 
 	db_connect();
 	
-	$laststat = db_fetch("SELECT * FROM ixi_nodestats ORDER BY blockheight DESC LIMIT 1", [])[0];
+	$laststat = db_fetch("SELECT * FROM ixi_nodestats ORDER BY blockheight DESC LIMIT 1", []);
 	if ($laststat == null)
 	{
-		die("laststat");
+		$laststat = array("blockheight" => 0);
+	}else
+	{
+		$laststat = $laststat[0];
 	}
 
 	$networkbh = $laststat['blockheight'];
 
-	$laststat = db_fetch("SELECT * FROM ixi_blocks ORDER BY id DESC LIMIT 1", [])[0];
+	$laststat = db_fetch("SELECT * FROM ixi_blocks ORDER BY id DESC LIMIT 1", []);
 	if ($laststat == null)
 	{
-		die("laststat");
+		$laststat = array("id" => 0, "timestamp" => time());
+	}else
+	{
+		$laststat = $laststat[0];
 	}
 
 	$currentbh = $laststat['id'];
