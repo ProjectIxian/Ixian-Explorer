@@ -82,7 +82,7 @@ $page->c = $laststat['nodes-c'];
 
 $page->miningreward = number_format(calculateMiningRewardForBlock($page->bh),2);
 
-$page->blockstake = calculateStakingReward($laststat['totalixi']);
+$page->blockstake = calculateStakingReward($laststat['blockheight'], $laststat['totalixi']);
 $page->stakers = $stakers;
 $page->stakerprofit = number_format($page->blockstake / $stakers, 8);
 

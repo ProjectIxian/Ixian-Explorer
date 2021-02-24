@@ -172,62 +172,61 @@ function verifyRSASignature($data, $signature, $pubKey)
 }
 
 
-function calculateMiningRewardForBlock($bh)
+function calculateMiningRewardForBlock($blockNum)
 {
-    $pow_reward = 0;
+    $reward = 0;
     
-    if ($bh < 1051200) // first year
+    if($blockNum < 1051200) // first year
     {
-        $pow_reward = ($bh * 9) + 9; // +0.009 IXI
-    }
-    else if ($bh < 2102400) // second year
+        $reward = ((($blockNum * 0.009) + 0.009) / 2) + 10;
+    }else if($blockNum < 1802000) // second year, until first adjustment
     {
-        $pow_reward = (1051200 * 9);
-    }
-    else if ($bh < 3153600) // third year
+        $reward = ((1051200 * 0.009) / 2) + 10;
+    }else if($blockNum < 6307200) // up to first halving
     {
-        $pow_reward = (1051200 * 9) + (($bh - 2102400) * 9) + 9; // +0.009 IXI
-    }
-    else if ($bh < 4204800) // fourth year
+        $reward = 2304;
+    }else if($blockNum < 9460800) // up to second halving
     {
-        $pow_reward = (2102400 * 9) + (($bh - 3153600) * 2) + 2; // +0.0020 IXI
-    }
-    else if ($bh < 5256001) // fifth year
+        $reward = 1152;
+    }else if($blockNum < 12614400) // up to final reward
     {
-        $pow_reward = (2102400 * 9) + (1051200 * 2) + (($bh - 4204800) * 9) + 9; // +0.009 IXI
-    }
-    else // after fifth year if mining is still operational
+        $reward = 576;
+    
+    }else if ($blockNum < 105120000)
     {
-        $pow_reward = ((3153600 * 9) + (1051200 * 2)) / 2;
+        $reward = 18;
     }
-    $pow_reward = ($pow_reward / 2 + 10000)/1000;
-    return $pow_reward;
+    
+    return $reward;
 }
 
 
-function calculateStakingReward($totalIxis)
+function calculateStakingReward($blockNum, $totalSupply)
 {
-    $newIxis = 0;
-    
-    $inflationPA = 5;
-    
-    if ($totalIxis > 100000000000)
+    $reward = 0;
+    if($blockNum <= 86400)
     {
-        $newIxis = 1000;
-    }
-    else if ($totalIxis > 50000000000)
+        $reward = ($totalSupply * 0.1) / 100000000; // 0.1%
+    }else if($blockNum < 1802000)
     {
-        // Set the annual inflation to 1% after 50bn IXIs in circulation 
-        $inflationPA = 1;
-        $newIxis = $totalIxis * $inflationPA / 100000000; // approximation of 2*60*24*365*100
-    }
-    else
+        $reward = ($totalSupply * 5) / 100000000; // 5%
+    }else if($blockNum < 6307200)
     {
-        // Calculate the amount of new IXIs to be minted
-        $newIxis = $totalIxis * $inflationPA / 100000000; // approximation of 2*60*24*365*100
+        $reward = 576;
+    }else if($blockNum < 9460800)
+    {
+        $reward = 288;
+    }else if($blockNum < 12614400)
+    {
+        $reward = 144;
+    }else if($blockNum < 15768000)
+    {
+        $reward = 72;
+    }else
+    {
+        $reward = 36; // 36 per block after block num > 15768000 (15 years)
     }
-    
-    return $newIxis;
+    return $reward;
 }
 
 
