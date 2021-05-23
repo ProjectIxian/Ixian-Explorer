@@ -160,8 +160,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div data-toggle="tooltip" title="The block signing reward is split equally between all signers of the block" class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Block Signing Reward
-                        <i  class="fas fa-info-circle"></i>
+                      <div data-toggle="tooltip" title="The block signing reward is split equally between up to 1000 signers of the block" class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Block Signing Reward
+                        <i class="fas fa-info-circle"></i>
                         </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->blockstake;?> IXI</div>
                                 </div>
@@ -177,7 +177,9 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Current Signers</div>
+                      <div data-toggle="tooltip" title="The first 1000 signers receive an equal split of the block reward" class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Current Signers
+                        <i class="fas fa-info-circle"></i>
+                        </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->stakers;?></div>
                                 </div>
                             </div>

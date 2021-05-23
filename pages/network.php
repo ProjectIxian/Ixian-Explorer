@@ -84,7 +84,10 @@ $page->miningreward = number_format(calculateMiningRewardForBlock($page->bh),2);
 
 $page->blockstake = calculateStakingReward($laststat['blockheight'], $laststat['totalixi']);
 $page->stakers = $stakers;
-$page->stakerprofit = number_format($page->blockstake / $stakers, 8);
+$block_stakers = $page->stakers;
+if($block_stakers > 1000)
+    $block_stakers = 1000;
+$page->stakerprofit = number_format($page->blockstake / $block_stakers, 8);
 
 $page->render('page_network.tpl');
 
