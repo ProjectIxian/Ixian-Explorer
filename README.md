@@ -41,6 +41,7 @@ $dlt_host = "http://localhost:8081"; // DLT Node that the explorer connects to
 ```
 crontab -l | { cat; echo "*/1 * * * * cd /var/www/html/internal && /usr/bin/php fetchstatus.php > /dev/null"; } | crontab -
 crontab -l | { cat; echo "*/1 * * * * cd /var/www/html/internal && /usr/bin/php sync.php > /dev/null"; } | crontab -
+crontab -l | { cat; echo "*/5 * * * * cd /var/www/html/internal && /usr/bin/php updatetxstats.php > /dev/null"; } | crontab -
 ```
 
 ## Usage

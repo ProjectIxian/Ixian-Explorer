@@ -28,7 +28,7 @@ $page->cpage = $current_page;
 
 $page->q = "";
 if(isset($_GET['q']))
-    $page->q = $_GET['q'];
+    $page->q = htmlspecialchars($_GET['q']);
 
 $page->render('header.tpl'); 
 

@@ -60,6 +60,64 @@
 </div>
     
     
+        <!-- Transaction stats -->
+          <p class="mb-4"></p>
+            
+            <div class="row">
+     
+            <!-- Card -->
+            <div class="col-xl-4 col-md-4 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div data-toggle="tooltip" title="The total amount of transactions recorded by the block explorer" class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Total Transactions
+                        <i class="fas fa-info-circle"></i>
+                        </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->txtotal;?></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>     
+             
+           
+            <!-- Card -->
+            <div class="col-xl-4 col-md-4 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div data-toggle="tooltip" title="The number of transactions in the past 24 hours" class="text-xs font-weight-bold text-secondary text-uppercase mb-1">24h Transactions
+                        <i class="fas fa-info-circle"></i>
+                        </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->tx24;?></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+             
+     
+            <!-- Card -->
+            <div class="col-xl-4 col-md-4 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div data-toggle="tooltip" title="The average number of transactions per day for the past 30 days" class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Average per Day
+                        <i class="fas fa-info-circle"></i>
+                        </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->txavg;?></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                
+</div>
+
+
     
 <h4>Blocks</h4>
 <div class="table-aresponsive">
