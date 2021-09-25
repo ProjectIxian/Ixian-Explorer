@@ -105,7 +105,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div data-toggle="tooltip" title="The average number of transactions per day for the past 30 days" class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Average per Day
+                      <div data-toggle="tooltip" title="The average number of transactions per day for the past 30 days" class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Average transactions per Day
                         <i class="fas fa-info-circle"></i>
                         </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->txavg;?></div>
