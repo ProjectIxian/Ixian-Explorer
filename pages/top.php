@@ -27,8 +27,8 @@ if ($laststat != 0) {
 }
 $page->supply = number_format($laststat['totalixi']);
 
-$lockedPremine = 1600000000;
-$unlockedPremine = 400000000;
+$lockedPremine = 1200000000;
+$unlockedPremine = 800000000;
 $totalAmountWoPremine = $totalAmount - ($lockedPremine + $unlockedPremine);
 $num = 100 / $laststat['totalixi'];
 $w100num = $num * $totalAmountWoPremine;

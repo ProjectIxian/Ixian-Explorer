@@ -1,7 +1,7 @@
 <?php
 /*
 * Ixian Block Explorer
-* Website: www.ixian.io 
+* Website: www.ixian.io
 */
 include_once("include/ixian.php");
 
@@ -21,7 +21,7 @@ $page->m = $laststat['nodes-m'];
 $page->hashrate = number_format($laststat['hashrate']);
 
 $page->miningreward = number_format(calculateMiningRewardForBlock($page->bh),2);
-$page->blockstake = calculateStakingReward($laststat['totalixi']);
+$page->blockstake = calculateStakingReward($page->bh, $laststat['totalixi']);
 
 
 $page->render('page_emissions.tpl');
