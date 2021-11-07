@@ -6,6 +6,7 @@
 
 include_once("config.php");
 include_once("include/template.php");
+include_once("wallets.php");
 
 $current_page = "home";
 
@@ -15,7 +16,7 @@ if(isset($_GET['p']))
     
     if($new_page === 'search' || $new_page === 'address' || $new_page === 'block' || $new_page === 'transaction'
       || $new_page === 'network' || $new_page === 'top' || $new_page === 'emissions'
-      || $new_page === 'devblocks' || $new_page === 'swap'   
+      || $new_page === 'devblocks' || $new_page === 'nodes'   
       )
     {
         $current_page = $new_page;

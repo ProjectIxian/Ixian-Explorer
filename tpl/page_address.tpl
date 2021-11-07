@@ -18,7 +18,16 @@
                   <tbody>
                     <tr>
                       <td>Address</td>
-                        <td class="text-wrap" style="max-width: 100px;"><b><code><?php echo $this->walletid; ?></code></b></td>
+                      <?php
+                      $tag = "";
+                      // known_wallets
+                      if(array_key_exists($this->walletid, $this->known_wallets)) {
+                        $tag_name = $this->known_wallets[$this->walletid][0];
+                        $tag_color = $this->known_wallets[$this->walletid][1];
+                        $tag = "<span class=\"badge badge-$tag_color\">$tag_name</span>";
+                      }
+                      ?>
+                        <td class="text-wrap" style="max-width: 100px;"><?php echo $tag;?> <b><code><?php echo $this->walletid; ?></code></b></td>
                     </tr>
                     <tr>
                       <td>QR Code</td>

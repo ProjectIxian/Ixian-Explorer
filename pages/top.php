@@ -40,7 +40,7 @@ $page->w100num = number_format($w100num,2);
 $page->othernum = number_format($othernum, 2);
 $page->lockedpreminenum = number_format($lockedpreminenum, 2);
 $page->unlockedpreminenum = number_format($unlockedpreminenum, 2);
-
+$page->known_wallets = $known_wallets;
 $page->render('page_top.tpl');
 
 ?>

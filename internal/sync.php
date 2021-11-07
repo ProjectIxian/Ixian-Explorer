@@ -80,6 +80,12 @@ if (flock($fp, LOCK_EX | LOCK_NB))
 
 	}
 
+	// Get all node versions
+	$cache_file = "../cache/nodes.ixi";
+	$data = callIxianAPI($ssh, "countnodeversions");
+	$data = json_encode($data);
+	file_put_contents($cache_file, $data);
+
 	if($dlt_connect_mode == "ssh")
 	{
 		$ssh->disconnect();

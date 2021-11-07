@@ -78,10 +78,21 @@
             <tbody>
                 <?php
                     $pos = 1;
-                    foreach($this->data as $addr) { ?>
+                    foreach($this->data as $addr) { 
+                      $tag = "";
+                      // known_wallets
+                      $address = $addr['address'];
+                      if(array_key_exists($address, $this->known_wallets)) {
+                        $tag_name = $this->known_wallets[$address][0];
+                        $tag_color = $this->known_wallets[$address][1];
+                        $tag = "<span class=\"badge badge-$tag_color\">$tag_name</span>";
+                      }
+                      ?>
                         <tr>
                             <td>#<?php echo $pos;?></td>
-                            <td class="text-truncate" style="max-width: 300px;"><a  href="index.php?p=address&id=<?php echo $addr['address'];?>"><?php echo $addr["address"];?></a></td>
+                            <td class="text-truncate" style="max-width: 300px;">
+                              <?php echo $tag;?> <a href="index.php?p=address&id=<?php echo $address;?>"><?php echo $address;?></a>
+                              </td>
                             <td class="text-right"><?php echo number_format($addr["amount"], 8)." IXI";?></td>
                         </tr>
 

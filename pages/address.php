@@ -38,14 +38,13 @@ $dba = $dbc[0];
 
 $page->balance = $dba["amount"];
 $page->adx = $dba["id"];
-//$page->txcount = $dba["txcount"];
 
 $dbc = db_fetch("SELECT count(idx) as txc FROM ixi_txidx WHERE aidx = :a LIMIT 1", [":a" => $page->adx]);
 $dba = $dbc[0];
 $page->txcount = $dba["txc"];
 
 
-
+$page->known_wallets = $known_wallets;
 $page->render('page_address.tpl');
 
 

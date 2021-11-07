@@ -34,7 +34,14 @@ if($dlt_connect_mode == "ssh")
 
 
 $nextblock = $networkbh;
-addBlock($ssh, $nextblock, 0);// $currentbtimestamp);
+addBlock($ssh, $nextblock, 0);
+
+// Get all node versions
+$cache_file = "../cache/nodes.ixi";
+
+$data = callIxianAPI($ssh, "countnodeversions");
+$data = json_encode($data);
+file_put_contents($cache_file, $data);
 
 if($dlt_connect_mode == "ssh")
 {

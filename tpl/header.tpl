@@ -41,7 +41,7 @@
       <div id="content">
           
           
-        <nav class="navbar navbar-expand-md navbar-light bg-white  mb-4  shadow sticky-top"> 
+        <nav class="navbar navbar-expand-lg navbar-light bg-white  mb-4  shadow sticky-top"> 
                   <a class="navbar-brand" href="index.php">
                       <img src="gfx/ixi.png" style="padding: 0px; height: 24px; vertical-align: middle;"/>
                       Ixian Block Explorer</a>
@@ -66,7 +66,10 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link text-primary" href="index.php">Blocks</a>
-            </li>             
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-primary" href="?p=nodes">Nodes</a>
+            </li>        
             <li class="nav-item">
                 <a class="nav-link text-primary" href="?p=network">Statistics</a>
             </li>

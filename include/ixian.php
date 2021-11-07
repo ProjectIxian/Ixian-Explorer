@@ -7,14 +7,12 @@ require_once("ixianlib.php");
 
 function insertTxIndex($walletidx, $txidx, $amountdelta)
 {
-    //echo "instx: $walletidx - $txidx<br/>";
     db_fetch("INSERT INTO `ixi_txidx` (`aidx`, `txidx`, `amountdelta`) VALUES (:1, :2, :3)",
             [ ":1" => $walletidx, ":2" => $txidx, ":3" => $amountdelta]);
 }
 
 function updateAddress($ssh, $walletid, $blockNum) 
 {
-    //echo "Updating: $walletid<br/>";
     $adx = 0;
     $justupdate = false;
     $res = db_fetch("SELECT id, lastblock from `ixi_addresses` WHERE address = :1 LIMIT 1", [ ":1" => $walletid]);
@@ -65,16 +63,12 @@ function addBlock($ssh, $num, $prevBlockTimestamp = 0, $updateNextBlockTime = fa
         return false;
     }
 
-//    echo "<pre>";
-//    print_r($data);
-//    echo "</pre>";
-
     $blockNum = $data["Block Number"];
     $res = db_fetch("SELECT id from `ixi_blocks` WHERE id = :1 LIMIT 1", [ ":1" => $blockNum]);
     if($res != null)
     {
         // Block already exists
-	echo "Block already exists";
+	    echo "Block already exists";
         return false;
     }
     
@@ -110,9 +104,6 @@ function addBlock($ssh, $num, $prevBlockTimestamp = 0, $updateNextBlockTime = fa
 			echo "Error getting transaction $txid";
             return false;
         }
-        //echo "<pre>";
-        //print_r($txdata);
-        //echo "</pre>";
 
         $encodedArr = encodeFromAddresses($txdata["from"], $txdata["pubKey"]);
         $from = $encodedArr[0];
@@ -134,10 +125,6 @@ function addBlock($ssh, $num, $prevBlockTimestamp = 0, $updateNextBlockTime = fa
         {
             // Transaction now exists
             $txidx = $res[0]["id"];
-            
-            //echo "txidx: $txidx";
-            //print_r($from);
-
             
             foreach($from as $fromaddr => $fromamount) {
                 $adx = 0;
@@ -217,16 +204,14 @@ function callIxianAPI($ssh, $call)
 	$timeout = 1800;
 	
 	if($dlt_connect_mode == "ssh")
-	{
-//    $stream = $ssh->exec("curl http://localhost:8081/$call -o call.out");
-//    $res = $ssh->readStream($stream);
-//    $stream = $ssh->exec("cat call.out");   
+	{   
 		$stream = $ssh->exec("curl -vs http://localhost:8081/$call");
 		$res = $ssh->readStream($stream, $timeout);
     
 		$plStream = json_decode($res, true)["result"];
 		return $plStream;
-	}else
+	}
+    else
 	{
 		$url = $dlt_host."/".$call;
 		$ch = curl_init();
@@ -262,9 +247,6 @@ function singleCallIxianAPI($call)
 		{
 			if($ssh->authKey($ssh_username, $ssh_public_key, $ssh_private_key, $ssh_password))
 			{
-				//$stream = $ssh->exec("curl http://localhost:8081/$call -o call.out");
-				//$ssh->readStream($stream);
-				//$stream = $ssh->exec("cat call.out");
 				$stream = $ssh->exec("curl -vs http://localhost:8081/$call");
 				$plStream = json_decode($ssh->readStream($stream, 1800), true)["result"];
 				
