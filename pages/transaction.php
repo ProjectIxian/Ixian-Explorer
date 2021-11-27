@@ -21,10 +21,6 @@ else
     return;
 }
 
-
-
-db_connect();
-
 $dba = db_fetch("SELECT * FROM ixi_transactions WHERE txid = :bh LIMIT 1", [":bh" => $txid]);
 
 if($dba == null) {

@@ -7,7 +7,6 @@
 $page = new Template();
 
 
-db_connect();
 $data = db_fetch("SELECT * FROM ixi_addresses ORDER BY amount DESC LIMIT 20", [ ]);
 if ($data != 0) {
 

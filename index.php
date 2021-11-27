@@ -23,6 +23,8 @@ if(isset($_GET['p']))
     }
 }
 
+db_connect();
+
 $page = new Template();
 
 $page->cpage = $current_page;
@@ -31,6 +33,37 @@ $page->q = "";
 if(isset($_GET['q']))
     $page->q = htmlspecialchars($_GET['q']);
 
+
+// Fetch the current network blockheight
+$laststat = db_fetch("SELECT * FROM ixi_nodestats ORDER BY blockheight DESC LIMIT 1", []);
+if ($laststat == null)
+{
+	$laststat = array("blockheight" => 0);
+}
+else
+{
+	$laststat = $laststat[0];
+}
+$networkbh = $laststat['blockheight'];
+
+// Fetch tha lastest stored block
+$laststat = db_fetch("SELECT * FROM ixi_blocks ORDER BY id DESC LIMIT 1", []);
+if ($laststat == null)
+{
+	$laststat = array("id" => 0);
+}else
+{
+	$laststat = $laststat[0];
+}
+$explorerbh = $laststat['id'];
+
+
+$page->alert = 0;
+// If the explorer is more than 10 blocks behind the network blockheight, show the synchronizing alert
+if($explorerbh < $networkbh - 10)
+{
+    $page->alert = 1; // Synchronizing
+}
 $page->render('header.tpl'); 
 
 include_once('pages/'.$current_page.'.php');

@@ -6,7 +6,6 @@
 
 $page = new Template();
 
-db_connect();
 $laststat = db_fetch("SELECT * FROM ixi_nodestats ORDER BY blockheight DESC LIMIT 1", [])[0];
 if ($laststat != 0) {
 

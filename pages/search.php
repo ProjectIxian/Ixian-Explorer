@@ -19,8 +19,6 @@ else {
     return;
 }
 
-db_connect();
-
 if(!ctype_digit($query))
 {
     $data = db_fetch("SELECT * FROM ixi_addresses WHERE BINARY address = :1  LIMIT 1", [ ":1" => $query ]);

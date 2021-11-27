@@ -24,7 +24,6 @@ else
 $page->walletid = $walid;
 
 
-db_connect();
 
 $dbc = db_fetch("SELECT * FROM ixi_addresses WHERE address = :a LIMIT 1", [":a" => $walid]);
 

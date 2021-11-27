@@ -23,7 +23,6 @@ else
     return;
 }
 
-db_connect();
 $dba = db_fetch("SELECT * FROM ixi_blocks WHERE id = :bh LIMIT 1", [":bh" => $blockid]);
 if($dba == null) {
     $page->render('page_error.tpl');

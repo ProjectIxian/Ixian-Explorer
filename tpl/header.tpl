@@ -83,3 +83,11 @@
            
      </div>
     </nav>
+
+<?php if($this->alert > 0) {?>
+  <div class="container-fluid">
+  <div class="alert alert-danger border-bottom-danger" role="alert">
+      <i class="fas fa-exclamation-triangle"></i> Block Explorer Ixian DLT node is synchronizing. Data shown is not up-to-date.
+  </div>
+  </div>
+<?php }?>

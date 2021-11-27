@@ -11,7 +11,6 @@ $numblocks = 500;
 
 $page->numblocks = $numblocks;
 
-db_connect();
 $data = db_fetch("SELECT * FROM ixi_blocks ORDER BY id DESC LIMIT $numblocks", [ ]);
 if ($data != 0) {
 
