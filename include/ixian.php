@@ -198,6 +198,61 @@ function addBlock($ssh, $num, $prevBlockTimestamp = 0, $updateNextBlockTime = fa
     return true;
 }
 
+function updateBlockSignature($ssh, $num)
+{
+    if($num < 0)
+    {
+        return;
+    }
+
+    $api_url = "getblock?num=$num";
+	$data = callIxianAPI($ssh, $api_url); 
+	
+    if(!$data)
+    {
+        return false;
+    }
+
+    $blockNum = $data["Block Number"];
+    $res = db_fetch("SELECT id, sigCount from `ixi_blocks` WHERE id = :1 LIMIT 1", [ ":1" => $blockNum]);
+    if($res == null)
+    {
+        // Block doesn't exist in the database
+        return;
+    }
+    $previousSigCount = $res[0]["sigCount"];
+    $newSigCount = $data["Signature count"];
+
+    db_fetch("UPDATE ixi_blocks SET sigFreezeChecksum = :1, sigCount = :2 WHERE id = :3 LIMIT 1", 
+    [ ":1" => $data["Sig freeze Checksum"], ":2" => $newSigCount, ":3" => $blockNum]); 
+}
+
+function rollbackBlock($ssh, $num)
+{
+    echo "\n!!! Rolling back block #$num... ";
+    // Fetch all transactions and remove indices first
+    $res = db_fetch("SELECT * from `ixi_transactions` WHERE blockNr = :1", [ ":1" => $num]);
+    if($res != null)
+    {
+        // Go through each transaction
+        foreach($res as $tx)
+        {        
+            $txidx = $tx["id"];
+            $txid = $tx["txid"];
+            echo "$txid; ";
+
+            // First delete all related indices
+            db_fetch("DELETE from `ixi_txidx` WHERE txidx = :1", [ ":1" => $txidx]);
+            // Now delete the transaction itself
+            db_fetch("DELETE FROM `ixi_transactions` WHERE txid = :1", [ ":1" => $txid]);
+        }
+    }
+
+    // Delete the block
+    db_fetch("DELETE FROM `ixi_blocks` WHERE id = :1", [ ":1" => $num]);
+    echo "DONE\n";
+}
+
 function callIxianAPI($ssh, $call)
 {
 	global $dlt_connect_mode, $dlt_host;

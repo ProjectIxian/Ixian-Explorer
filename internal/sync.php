@@ -60,7 +60,6 @@ if (flock($fp, LOCK_EX | LOCK_NB))
 		$ssh = connectToIxianServer();
 	}
 
-
 	while($currentbh < $networkbh)
 	{
 		$nextblock = $currentbh + 1;
@@ -71,13 +70,30 @@ if (flock($fp, LOCK_EX | LOCK_NB))
 			echo "Error adding block.\n";
 			break;
 		}
-		$laststat = db_fetch("SELECT * FROM ixi_blocks ORDER BY id DESC LIMIT 1", [])[0];
-		if ($laststat == null) {
+		$laststat = db_fetch("SELECT * FROM ixi_blocks ORDER BY id DESC LIMIT 3", []);
+		if ($laststat[0] == null) {
 			die("laststat");
 		}
-		$currentbh = $laststat['id'];
-		$currentbtimestamp = $laststat['timestamp'];
 
+		// Check for potential forks
+		$previousblockchecksum = $laststat[1]['blockChecksum'];
+		$lastblockchecksum = $laststat[0]['lastBlockChecksum'];
+		if(strcasecmp($previousblockchecksum, $lastblockchecksum) != 0)
+		{
+			echo "\nFork detected, rolling back!\n";
+			rollbackBlock($ssh, $nextblock);
+			rollbackBlock($ssh, $nextblock-1);
+
+			$currentbh = $laststat[2]['id'];
+			$currentbtimestamp = $laststat[2]['timestamp'];
+			continue;
+		}
+
+		$currentbh = $laststat[0]['id'];
+		$currentbtimestamp = $laststat[0]['timestamp'];
+
+		// Update the sigfreeze checksum and signature count for the sigfreeze'd block
+		updateBlockSignature($ssh, $currentbh - 5);
 	}
 
 	// Get all node versions
