@@ -72,6 +72,33 @@ function addBlock($ssh, $num, $prevBlockTimestamp = 0, $updateNextBlockTime = fa
         return false;
     }
     
+    if($blockNum > 6)
+    {
+        $sigfreezeBlockNum = $blockNum - 5;
+        $res = db_fetch("SELECT * FROM ixi_blocks WHERE id = :1 LIMIT 1", [ ":1" => $sigfreezeBlockNum])[0];
+        if ($res != null) 
+        {
+            $sigChecksum = $res["sigChecksum"];
+            $sigFreeze = $data["Sig freeze Checksum"];
+
+            if (strcmp($sigChecksum, $sigFreeze) !== 0) 
+            {
+                $sbtimestamp = 0;
+                $resPrev = db_fetch("SELECT * FROM ixi_blocks WHERE id = :1 LIMIT 1", [ ":1" => $sigfreezeBlockNum-1])[0];
+                if ($resPrev != null)
+                {
+                    $sbtimestamp = $resPrev['timestamp'];
+                }
+
+                rollbackBlock($ssh, $sigfreezeBlockNum);
+                addBlock($ssh, $sigfreezeBlockNum, $sbtimestamp);
+
+                return false;
+            }
+        }
+    }
+
+
     $blockVer = $data["Version"];
     $txids = json_decode($data["TX IDs"], true);
 
@@ -175,8 +202,9 @@ function addBlock($ssh, $num, $prevBlockTimestamp = 0, $updateNextBlockTime = fa
     }
     
     // Insert the actual block
-    db_fetch("INSERT INTO `ixi_blocks` (`id`, `blockChecksum`, `lastBlockChecksum`, `wsChecksum`, `sigFreezeChecksum`, `powField`, `difficulty`, `sigCount`, `txCount`, `txAmount`, `timestamp`, `version`, `hashrate`, `blocktime`) VALUES (:1, :2, :3, :4, :5, :6, :7, :8, :9, :10, :11, :12, :13, :14)", [":1" => $blockNum, ":2" => $data["Block Checksum"], ":3" => $data["Last Block Checksum"], ":4" => $data["Wallet State Checksum"], ":5" => $data["Sig freeze Checksum"], ":6" => $data["PoW field"], ":7" => $data["Difficulty"], ":8" => $data["Signature count"], ":9" => $data["Transaction count"], ":10" => $data["Transaction amount"], ":11" => $data["Timestamp"], ":12" => $blockVer,
-    ":13" => $data["Hashrate"], ":14" => $blocktime]);
+    db_fetch("INSERT INTO `ixi_blocks` (`id`, `blockChecksum`, `lastBlockChecksum`, `wsChecksum`, `sigFreezeChecksum`, `powField`, `difficulty`, `sigCount`, `txCount`, `txAmount`, `timestamp`, `version`, `hashrate`, `blocktime`, `totalSignerDifficulty`, `sigRequired`, `requiredSignerDifficulty`, `sigChecksum`) VALUES (:1, :2, :3, :4, :5, :6, :7, :8, :9, :10, :11, :12, :13, :14, :15, :16, :17, :18)", 
+    [":1" => $blockNum, ":2" => $data["Block Checksum"], ":3" => $data["Last Block Checksum"], ":4" => $data["Wallet State Checksum"], ":5" => $data["Sig freeze Checksum"], ":6" => $data["PoW field"], ":7" => $data["Difficulty"], ":8" => $data["Signature count"], ":9" => $data["Transaction count"], ":10" => $data["Transaction amount"], ":11" => $data["Timestamp"], ":12" => $blockVer,
+    ":13" => $data["Hashrate"], ":14" => $blocktime, ":15" => $data["Total Signer Difficulty"], ":16" => $data["Required Signature count"], ":17" => $data["Required Signer Difficulty"], ":18" => $data["Sig Checksum"]]);
 
     $res = db_fetch("SELECT id from `ixi_blocks` WHERE id = :1 LIMIT 1", [ ":1" => $blockNum]);
     if($res == null)
@@ -246,6 +274,14 @@ function rollbackBlock($ssh, $num)
             // Now delete the transaction itself
             db_fetch("DELETE FROM `ixi_transactions` WHERE txid = :1", [ ":1" => $txid]);
         }
+    }
+
+    // Move block to rollback table
+    $block = db_fetch("SELECT * FROM ixi_blocks WHERE id = :1 LIMIT 1", [ ":1" => $num])[0];
+    if ($block != null) {
+        db_fetch("INSERT INTO `ixi_blocks_rollback` (`rollback_date`,`id`, `blockChecksum`, `lastBlockChecksum`, `wsChecksum`, `sigFreezeChecksum`, `powField`, `difficulty`, `sigCount`, `txCount`, `txAmount`, `timestamp`, `version`, `hashrate`, `blocktime`, `totalSignerDifficulty`, `sigRequired`, `requiredSignerDifficulty`, `sigChecksum`) VALUES (NOW(), :1, :2, :3, :4, :5, :6, :7, :8, :9, :10, :11, :12, :13, :14, :15, :16, :17, :18)", 
+        [":1" => $block["id"], ":2" => $block["blockChecksum"], ":3" => $block["lastBlockChecksum"], ":4" => $block["wsChecksum"], ":5" => $block["sigFreezeChecksum"], ":6" => $block["powField"], ":7" => $block["difficulty"], ":8" => $block["sigCount"], ":9" => $block["txCount"], ":10" => $block["txAmount"], ":11" => $block["timestamp"], ":12" => $block["version"],
+        ":13" => $block["hashrate"], ":14" => $block["blocktime"], ":15" => $block["totalSignerDifficulty"], ":16" => $block["sigRequired"], ":17" => $block["requiredSignerDifficulty"], ":18" => $block["sigChecksum"]]);
     }
 
     // Delete the block

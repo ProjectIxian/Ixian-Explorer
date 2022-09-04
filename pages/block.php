@@ -51,9 +51,12 @@ $page->blockage = humanTiming($dbblock["timestamp"]);
 $page->blockdate = gmdate("Y-m-d H:i:s", $dbblock["timestamp"]);
 $page->blockversion = $dbblock["version"];
 $page->blocksigs = $dbblock["sigCount"];
+$page->requiredsigs = $dbblock["sigRequired"];
 $page->blocktxs = $dbblock["txCount"];
 $page->blocktime = $dbblock["blocktime"];
 $page->miningreward = number_format(calculateMiningRewardForBlock($page->blocknum),2);
+$page->totalsignerdifficulty = $dbblock["totalSignerDifficulty"];
+$page->requiredsignerdifficulty = $dbblock["requiredSignerDifficulty"];
 
 $page->render('page_block.tpl');
 

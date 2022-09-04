@@ -37,6 +37,18 @@ function sha512quTrunc($data, $offset = 0, $count = 0, $hashLength = 32)
     return substr(hash("sha512", hash("sha512", hash("sha512", hash("sha512", $data, true), true), true), true), 0, $hashLength);
 }
 
+function sha3_512sqTrunc($data, $offset = 0, $count = 0, $hashLength = 44)
+{
+    if($count == 0)
+    {
+        $count = strlen($data) - $offset;
+    }
+    $data = substr($data, $offset, $count);
+    return substr(hash("sha3-512", hash("sha3-512", $data, true), true), 0, $hashLength);
+}
+
+
+
 function addressFromNonce($addressOrPubKey, $nonce)
 {
     $version = -1;
@@ -51,10 +63,16 @@ function addressFromNonce($addressOrPubKey, $nonce)
     if($version == 0)
     {
         return addressFromNonce_v0($addressOrPubKey, $nonce);
-    }else if($version == 1)
+    }
+    else if($version == 1)
     {
         return addressFromNonce_v1($addressOrPubKey, $nonce);
-    }else
+    }
+    else if($version == 2)
+    {
+        return addressFromNonce_v2($addressOrPubKey, $nonce);
+    }
+    else
     {
         // error
         echo "Unknown address version ".$version." from pubkey/nonce".PHP_EOL;
@@ -110,6 +128,28 @@ function addressFromNonce_v1($addressOrPubKey, $nonce)
         $rawAddress = "\x01".sha512sqTrunc($baseAddress.$nonce, 5);
         $binAddress = addAddressChecksum($rawAddress);
         return $binAddress;
+    }
+}
+
+function addressFromNonce_v2($addressOrPubKey, $nonce)
+{
+    $baseAddress = null;
+    if(strlen($addressOrPubKey) == 48)
+    {
+        $baseAddress = $addressOrPubKey;
+    }else
+    {
+        $rawAddress = "\x02".sha3_512sqTrunc($addressOrPubKey, 1);
+        $baseAddress = $rawAddress;
+    }
+    
+    if(($nonce == 0 && strlen($nonce) == 1) || ($nonce == "" && strlen($nonce) == 0))
+    {
+        return $baseAddress;
+    }else
+    {
+        $rawAddress = "\x02".sha3_512sqTrunc($baseAddress.$nonce, 0);      
+        return $rawAddress;
     }
 }
     

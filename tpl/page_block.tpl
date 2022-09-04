@@ -60,6 +60,10 @@
                       <td><?php echo $this->blocksigs;?></td>
                     </tr>   
                     <tr>
+                      <td>Signatures Required</td>
+                      <td><?php echo $this->requiredsigs;?></td>
+                    </tr>   
+                    <tr>
                       <td>Transactions</td>
                       <td><?php echo $this->blocktxs;?></td>
                     </tr>
@@ -71,6 +75,17 @@
                       <td>Mining Reward</td>
                       <td><?php echo $this->miningreward;?> IXI</td>
                     </tr>
+
+                    <?php if($this->blockversion >= 10) {?>
+                    <tr>
+                      <td>Signer Difficulty Total </td>
+                      <td><?php echo $this->totalsignerdifficulty;?></td>
+                    </tr>  
+                    <tr>
+                      <td>Signer Difficulty Required</td>
+                      <td><?php echo $this->requiredsignerdifficulty;?></td>
+                    </tr>
+                    <?php } ?>
                       <?php if($this->blocklasthash != "null") {?>
                     <tr>
                       <td>Previous Block</td>

@@ -23,6 +23,9 @@ $hash = "";
 $blocktime = "";
 $txcount = "";
 $sigcount = "";
+$reqsigcount = "";
+$totalsigdiff = "";
+$reqsigdiff = "";
 
 //$totalAmount = 0;
 foreach($data as $block) {
@@ -43,7 +46,14 @@ foreach($data as $block) {
         
     $sig = $block['sigCount'];
     $sigcount = " $sig, ".$sigcount;
-        
+    $sig = $block['sigRequired'];
+    $reqsigcount = " $sig, ".$reqsigcount;    
+    
+    $sdiff = $block['totalSignerDifficulty'];
+    $totalsigdiff = " $sdiff, ".$totalsigdiff;    
+    $sdiff = $block['requiredSignerDifficulty'];
+    $reqsigdiff = " $sdiff, ".$reqsigdiff;       
+    
 }
 $diff = $diff." ";
 $page->diff = $diff;
@@ -57,12 +67,16 @@ $page->hash = $hash;
 $page->blocktime = $blocktime;
 $page->txcount = $txcount;
 $page->sigcount = $sigcount;
-
+$page->reqsigcount = $reqsigcount;
+$page->totalsigdiff = $totalsigdiff;
+$page->reqsigdiff = $reqsigdiff;
 
 $stakers = 0;
+$requiredsigners = 0;
 $data = db_fetch("SELECT * FROM ixi_blocks ORDER BY id DESC LIMIT 1", [ ]);
 if ($data != 0) {
     $stakers = $data[0]["sigCount"];
+    $requiredsigners = $data[0]["sigRequired"];
 }
 
 $laststat = db_fetch("SELECT * FROM ixi_nodestats ORDER BY blockheight DESC LIMIT 1", [])[0];
@@ -83,10 +97,7 @@ $page->miningreward = number_format(calculateMiningRewardForBlock($page->bh),2);
 
 $page->blockstake = calculateStakingReward($laststat['blockheight'], $laststat['totalixi']);
 $page->stakers = $stakers;
-$block_stakers = $page->stakers;
-if($block_stakers > 1000)
-    $block_stakers = 1000;
-$page->stakerprofit = number_format($page->blockstake / $block_stakers, 8);
+$page->requiredsigners = $requiredsigners;
 
 $page->render('page_network.tpl');
 

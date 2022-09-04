@@ -1,18 +1,24 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Dec 27, 2020 at 11:05 PM
--- Server version: 5.7.31-log
--- PHP Version: 7.4.10
+-- Host: 127.0.0.1
+-- Generation Time: Sep 04, 2022 at 08:15 AM
+-- Server version: 10.5.11-MariaDB
+-- PHP Version: 7.4.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
--- Database: `explorer01`
+-- Database: `explorer`
 --
 
 -- --------------------------------------------------------
@@ -50,7 +56,40 @@ CREATE TABLE `ixi_blocks` (
   `timestamp` varchar(16) NOT NULL,
   `version` int(11) NOT NULL,
   `hashrate` varchar(128) NOT NULL,
-  `blocktime` int(11) NOT NULL DEFAULT '0'
+  `blocktime` int(11) NOT NULL DEFAULT 0,
+  `totalSignerDifficulty` decimal(30,8) NOT NULL DEFAULT 0.00000000,
+  `sigRequired` int(11) NOT NULL,
+  `requiredSignerDifficulty` decimal(30,8) NOT NULL,
+  `sigChecksum` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ixi_blocks_rollback`
+--
+
+CREATE TABLE `ixi_blocks_rollback` (
+  `rollback_id` int(11) NOT NULL,
+  `rollback_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `id` bigint(20) NOT NULL,
+  `blockChecksum` varchar(256) NOT NULL,
+  `lastBlockChecksum` varchar(256) NOT NULL,
+  `wsChecksum` varchar(128) NOT NULL,
+  `sigFreezeChecksum` varchar(128) NOT NULL,
+  `powField` varchar(128) NOT NULL,
+  `difficulty` varchar(128) NOT NULL,
+  `sigCount` int(11) NOT NULL,
+  `txCount` int(11) NOT NULL,
+  `txAmount` decimal(30,8) NOT NULL,
+  `timestamp` varchar(16) NOT NULL,
+  `version` int(11) NOT NULL,
+  `hashrate` int(128) NOT NULL,
+  `blocktime` int(11) NOT NULL,
+  `totalSignerDifficulty` decimal(30,8) NOT NULL DEFAULT 0.00000000,
+  `sigRequired` int(11) NOT NULL,
+  `requiredSignerDifficulty` decimal(30,8) NOT NULL,
+  `sigChecksum` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -61,7 +100,7 @@ CREATE TABLE `ixi_blocks` (
 
 CREATE TABLE `ixi_nodestats` (
   `blockheight` bigint(20) NOT NULL,
-  `date` timestamp NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `totalixi` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `hashrate` bigint(20) NOT NULL,
   `difficulty` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -82,7 +121,7 @@ CREATE TABLE `ixi_transactions` (
   `txid` varchar(100) NOT NULL,
   `blockNr` bigint(20) NOT NULL,
   `nonce` varchar(16) NOT NULL,
-  `signature` blob(2048) NOT NULL,
+  `signature` blob NOT NULL,
   `data` text NOT NULL,
   `timestamp` varchar(16) NOT NULL,
   `type` varchar(100) NOT NULL,
@@ -106,7 +145,7 @@ CREATE TABLE `ixi_txidx` (
   `idx` int(11) NOT NULL,
   `aidx` bigint(20) NOT NULL COMMENT 'Address index',
   `txidx` bigint(20) NOT NULL COMMENT 'Transaction index',
-  `amountdelta` decimal(30,8) NOT NULL DEFAULT '0.00000000'
+  `amountdelta` decimal(30,8) NOT NULL DEFAULT 0.00000000
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Transaction indices to optimize lookup';
 
 --
@@ -133,6 +172,12 @@ ALTER TABLE `ixi_blocks`
   ADD KEY `difficulty` (`difficulty`),
   ADD KEY `timestamp` (`timestamp`),
   ADD KEY `txCount` (`txCount`);
+
+--
+-- Indexes for table `ixi_blocks_rollback`
+--
+ALTER TABLE `ixi_blocks_rollback`
+  ADD PRIMARY KEY (`rollback_id`);
 
 --
 -- Indexes for table `ixi_nodestats`
@@ -174,6 +219,12 @@ ALTER TABLE `ixi_addresses`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Index used for lookups';
 
 --
+-- AUTO_INCREMENT for table `ixi_blocks_rollback`
+--
+ALTER TABLE `ixi_blocks_rollback`
+  MODIFY `rollback_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `ixi_nodestats`
 --
 ALTER TABLE `ixi_nodestats`
@@ -191,3 +242,7 @@ ALTER TABLE `ixi_transactions`
 ALTER TABLE `ixi_txidx`
   MODIFY `idx` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
