@@ -1,4 +1,5 @@
-<script src="vendor/chart.js/Chart.min.js"></script>
+<script src="vendor/chart.js/chart.min.js"></script>
+<script src="vendor/chart.js/chartjs-plugin-zoom.min.js"></script>
 		
         <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -206,8 +207,12 @@
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
-    
-    
+
+const decimation = {
+  enabled: true,
+  algorithm: 'min-max',
+};
+
 var ctx = document.getElementById("chart-0");
 var mininStatsChart = new Chart(ctx, {
   type: 'line',
@@ -215,10 +220,10 @@ var mininStatsChart = new Chart(ctx, {
     labels: [<?php echo $this->difflabels;?>],
     datasets: [{
       label: "Difficulty",
-      lineTension: 0.10,
+      lineTension: 0,
       backgroundColor: "rgba(78, 115, 223, 0.05)",
       borderColor: "rgba(78, 115, 223, 1)",
-      pointRadius: 1,
+      pointRadius: 0,
       pointBackgroundColor: "rgba(78, 115, 223, 1)",
       pointBorderColor: "rgba(78, 115, 223, 1)",
       pointHoverRadius: 1,
@@ -227,15 +232,15 @@ var mininStatsChart = new Chart(ctx, {
       pointHitRadius: 1,
       pointBorderWidth: 1,
       data: [<?php echo $this->diff; ?>],
-        yAxisID: 'y-axis-1',
+      yAxisID: 'yaxis1',
     },
               
 {
       label: "Hashrate",
-      lineTension: 0.3,
+      lineTension: 0,
       backgroundColor: "rgba(78, 223, 115, 0.05)",
       borderColor: "rgba(78, 223, 115, 1)",
-      pointRadius: 1,
+      pointRadius: 0,
       pointBackgroundColor: "rgba(78, 223, 115, 1)",
       pointBorderColor: "rgba(78, 223, 115, 1)",
       pointHoverRadius: 1,
@@ -244,13 +249,15 @@ var mininStatsChart = new Chart(ctx, {
       pointHitRadius: 1,
       pointBorderWidth: 1,
       data: [<?php echo $this->hash; ?>],
-    yAxisID: 'y-axis-2',
+      yAxisID: 'yaxis2',
     }              
               
               ],
   },
   options: {
     maintainAspectRatio: false,
+    animation: false,
+    spanGaps: true,
     layout: {
       padding: {
         left: 10,
@@ -259,59 +266,50 @@ var mininStatsChart = new Chart(ctx, {
         bottom: 0
       }
     },
+    responsive: true,
+    interaction: {
+      mode: 'index',
+      intersect: false,
+    },
+    plugins: {
+      decimation: decimation
+    },
     scales: {
-      xAxes: [{
-        time: {
-          unit: 'date'
-        },
+      x: {
+        type: 'linear',
+        bounds: 'data',
         gridLines: {
           display: true,
           drawBorder: true
         },
         ticks: {
-          maxTicksLimit: 7
+          count: 10,
+          precision: 0,
+          callback: function(value, index, values) {
+                        return "#"+value;
+            } 
         }
-      }],
-      yAxes: [{
-							type: 'linear',
-							display: false,
-							position: 'left',
-							id: 'y-axis-1',
-						}, {
-							type: 'linear', 
-							display: false,
-							id: 'y-axis-2',
-
-							gridLines: {
+      },
+      yaxis1: {
+            type: 'linear',
+            display: false,
+						position: 'left',
+          },
+      yaxis2: {
+            type: 'linear',
+            display: false,
+            gridLines: {
 								drawOnChartArea: false,
-							},
-						}],
+							}
+          },
     },
     legend: {
       display: true
-    },
-    tooltips: {
-      backgroundColor: "rgb(255,255,255)",
-      bodyFontColor: "#858796",
-      titleMarginBottom: 10,
-      titleFontColor: '#6e707e',
-      titleFontSize: 14,
-      borderColor: '#dddfeb',
-      borderWidth: 1,
-      xPadding: 15,
-      yPadding: 15,
-      displayColors: false,
-      intersect: false,
-      mode: 'index',
-      caretPadding: 10
-      
     }
   }
 }); 
     
-    
-    
-    
+
 var ctx2 = document.getElementById("chart-1");
 var blockStatsChart = new Chart(ctx2, {
   type: 'line',
@@ -319,10 +317,10 @@ var blockStatsChart = new Chart(ctx2, {
     labels: [<?php echo $this->difflabels;?>],
     datasets: [{
       label: "Block Time",
-      lineTension: 0.10,
+      lineTension: 0,
       backgroundColor: "rgba(78, 115, 223, 0.05)",
       borderColor: "rgba(78, 115, 223, 1)",
-      pointRadius: 1,
+      pointRadius: 0,
       pointBackgroundColor: "rgba(78, 115, 223, 1)",
       pointBorderColor: "rgba(78, 115, 223, 1)",
       pointHoverRadius: 1,
@@ -331,15 +329,15 @@ var blockStatsChart = new Chart(ctx2, {
       pointHitRadius: 1,
       pointBorderWidth: 1,
       data: [<?php echo $this->blocktime; ?>],
-        yAxisID: 'y-axis-1',
+      yAxisID: 'yaxis1',
     },
               
 {
       label: "Transactions",
-      lineTension: 0.3,
+      lineTension: 0,
       backgroundColor: "rgba(78, 223, 115, 0.05)",
       borderColor: "rgba(78, 223, 115, 1)",
-      pointRadius: 1,
+      pointRadius: 0,
       pointBackgroundColor: "rgba(78, 223, 115, 1)",
       pointBorderColor: "rgba(78, 223, 115, 1)",
       pointHoverRadius: 1,
@@ -348,15 +346,15 @@ var blockStatsChart = new Chart(ctx2, {
       pointHitRadius: 1,
       pointBorderWidth: 1,
       data: [<?php echo $this->txcount; ?>],
-    yAxisID: 'y-axis-2',
+      yAxisID: 'yaxis2',
     },
               
 {
       label: "Signers",
-      lineTension: 0.3,
+      lineTension: 0,
       backgroundColor: "rgba(223, 223, 115, 0.05)",
       borderColor: "rgba(223, 223, 115, 1)",
-      pointRadius: 1,
+      pointRadius: 0,
       pointBackgroundColor: "rgba(223, 223, 115, 1)",
       pointBorderColor: "rgba(223, 223, 115, 1)",
       pointHoverRadius: 1,
@@ -365,13 +363,14 @@ var blockStatsChart = new Chart(ctx2, {
       pointHitRadius: 1,
       pointBorderWidth: 1,
       data: [<?php echo $this->sigcount; ?>],
-    yAxisID: 'y-axis-3',
+      yAxisID: 'yaxis3',
     }           
               
               ],
   },
   options: {
     maintainAspectRatio: false,
+    animation: false,
     layout: {
       padding: {
         left: 10,
@@ -380,60 +379,52 @@ var blockStatsChart = new Chart(ctx2, {
         bottom: 0
       }
     },
+    responsive: true,
+    interaction: {
+      mode: 'index',
+      intersect: false,
+    },
+    plugins: {
+      decimation: decimation
+    },
     scales: {
-      xAxes: [{
-        time: {
-          unit: 'date'
-        },
-        gridLines: {
-          display: true,
-          drawBorder: true
-        },
-        ticks: {
-          maxTicksLimit: 7
-        }
-      }],
-      yAxes: [{
-							type: 'linear',
-							display: false,
-							position: 'left',
-							id: 'y-axis-1',
-						}, {
-							type: 'linear', 
-							display: false,
-							id: 'y-axis-2',
-
-							gridLines: {
+      x: {
+          type: 'linear',
+          bounds: 'data',
+          gridLines: {
+            display: true,
+            drawBorder: true
+          },
+          ticks: {
+            count: 10,
+            precision: 0,
+            callback: function(value, index, values) {
+                        return "#"+value;
+            } 
+          }
+      },
+          yaxis1: {
+            type: 'linear',
+            display: false,
+						position: 'left',
+          },
+          yaxis2: {
+            type: 'linear',
+            display: false,
+            gridLines: {
 								drawOnChartArea: false,
-							}}, {
-							type: 'linear', 
-							display: false,
-							id: 'y-axis-3',
-
-							gridLines: {
+							}
+          },
+          yaxis3: {
+            type: 'linear',
+            display: false,
+            gridLines: {
 								drawOnChartArea: false,
-							},
-						}],
-        
+							}
+          },        
     },
     legend: {
       display: true
-    },
-    tooltips: {
-      backgroundColor: "rgb(255,255,255)",
-      bodyFontColor: "#858796",
-      titleMarginBottom: 10,
-      titleFontColor: '#6e707e',
-      titleFontSize: 14,
-      borderColor: '#dddfeb',
-      borderWidth: 1,
-      xPadding: 15,
-      yPadding: 15,
-      displayColors: false,
-      intersect: false,
-      mode: 'index',
-      caretPadding: 10
-      
     }
   }
 }); 
@@ -446,10 +437,10 @@ var signingStatsChart = new Chart(ctx3, {
     labels: [<?php echo $this->difflabels;?>],
     datasets: [{
       label: "Total Signer Difficulty",
-      lineTension: 0.3,
+      lineTension: 0,
       backgroundColor: "rgba(78, 223, 115, 0.05)",
       borderColor: "rgba(78, 223, 115, 1)",
-      pointRadius: 1,
+      pointRadius: 0,
       pointBackgroundColor: "rgba(78, 223, 115, 1)",
       pointBorderColor: "rgba(78, 223, 115, 1)",
       pointHoverRadius: 1,
@@ -458,15 +449,15 @@ var signingStatsChart = new Chart(ctx3, {
       pointHitRadius: 1,
       pointBorderWidth: 1,
       data: [<?php echo $this->totalsigdiff; ?>],
-        yAxisID: 'y-axis-1',
+      yAxisID: 'yaxis1',
     },
               
-{
+    {
       label: "Required Signer Difficulty",
-      lineTension: 0.3,
+      lineTension: 0,
       backgroundColor: "rgba(8, 153, 45, 0.05)",
       borderColor: "rgba(8, 153, 45, 1)",
-      pointRadius: 1,
+      pointRadius: 0,
       pointBackgroundColor: "rgba(8, 153, 45, 1)",
       pointBorderColor: "rgba(8, 153, 45, 1)",
       pointHoverRadius: 1,
@@ -475,15 +466,15 @@ var signingStatsChart = new Chart(ctx3, {
       pointHitRadius: 1,
       pointBorderWidth: 1,
       data: [<?php echo $this->reqsigdiff; ?>],
-    yAxisID: 'y-axis-1',
+      yAxisID: 'yaxis1',
     },
               
-{
+    {
       label: "Signers",
-      lineTension: 0.3,
+      lineTension: 0,
       backgroundColor: "rgba(223, 223, 115, 0.05)",
       borderColor: "rgba(223, 223, 115, 1)",
-      pointRadius: 1,
+      pointRadius: 0,
       pointBackgroundColor: "rgba(223, 223, 115, 1)",
       pointBorderColor: "rgba(223, 223, 115, 1)",
       pointHoverRadius: 1,
@@ -492,30 +483,30 @@ var signingStatsChart = new Chart(ctx3, {
       pointHitRadius: 1,
       pointBorderWidth: 1,
       data: [<?php echo $this->sigcount; ?>],
-    yAxisID: 'y-axis-3',
+      yAxisID: 'yaxis2',
     },
               
-      {
-          label: "Required Signers",
-          lineTension: 0.3,
-                    backgroundColor: "rgba(223, 183, 115, 0.05)",
-                    borderColor: "rgba(223, 183, 115, 1)",
-                    pointRadius: 1,
-                    pointBackgroundColor: "rgba(223, 183, 115, 1)",
-                    pointBorderColor: "rgba(223, 183, 115, 1)",
-                    pointHoverRadius: 1,
-                    pointHoverBackgroundColor: "rgba(223, 115, 223, 1)",
-                    pointHoverBorderColor: "rgba(223, 115, 223, 1)",
-                    pointHitRadius: 1,
-                    pointBorderWidth: 1,
-                    data: [<?php echo $this->reqsigcount; ?>],
-                  yAxisID: 'y-axis-3',
-                  }              
-              
-              ],
+    {
+      label: "Required Signers",
+      lineTension: 0,
+      backgroundColor: "rgba(223, 183, 115, 0.05)",
+      borderColor: "rgba(223, 183, 115, 1)",
+      pointRadius: 0,
+      pointBackgroundColor: "rgba(223, 183, 115, 1)",
+      pointBorderColor: "rgba(223, 183, 115, 1)",
+      pointHoverRadius: 1,
+      pointHoverBackgroundColor: "rgba(223, 115, 223, 1)",
+      pointHoverBorderColor: "rgba(223, 115, 223, 1)",
+      pointHitRadius: 1,
+      pointBorderWidth: 1,
+      data: [<?php echo $this->reqsigcount; ?>],
+      yAxisID: 'yaxis2',
+    }          
+    ],
   },
   options: {
     maintainAspectRatio: false,
+    animation: false,
     layout: {
       padding: {
         left: 10,
@@ -524,70 +515,45 @@ var signingStatsChart = new Chart(ctx3, {
         bottom: 0
       }
     },
+    responsive: true,
+    interaction: {
+      mode: 'index',
+      intersect: false,
+    },
+    plugins: {
+      decimation: decimation
+    },
     scales: {
-      xAxes: [{
-        time: {
-          unit: 'date'
-        },
+      x: {
+          type: 'linear',
+          bounds: 'data',
+          gridLines: {
+            display: true,
+            drawBorder: true
+          },
+          ticks: {
+            count: 10,
+            precision: 0,
+            callback: function(value, index, values) {
+                        return "#"+value;
+            } 
+          }
+      },
+      yaxis1: {
+        type: 'linear',
+        display: false,
+				position: 'left',
+      },
+      yaxis2: {
+        type: 'linear',
+        display: false,
         gridLines: {
-          display: true,
-          drawBorder: true
-        },
-        ticks: {
-          maxTicksLimit: 7
-        }
-      }],
-      yAxes: [{
-							type: 'linear',
-							display: false,
-							position: 'left',
-							id: 'y-axis-1',
-						}, {
-							type: 'linear', 
-							display: false,
-							id: 'y-axis-2',
-
-							gridLines: {
-								drawOnChartArea: false,
-							}}, 
-              {
-							type: 'linear', 
-							display: false,
-							id: 'y-axis-3',
-
-							gridLines: {
-								drawOnChartArea: false,
-							}}, 
-              
-              {
-							type: 'linear', 
-							display: false,
-							id: 'y-axis-4',
-
-							gridLines: {
-								drawOnChartArea: false,
-							}},
-						],
-        
+					drawOnChartArea: false,
+				}
+      },        
     },
     legend: {
       display: true
-    },
-    tooltips: {
-      backgroundColor: "rgb(255,255,255)",
-      bodyFontColor: "#858796",
-      titleMarginBottom: 10,
-      titleFontColor: '#6e707e',
-      titleFontSize: 14,
-      borderColor: '#dddfeb',
-      borderWidth: 1,
-      xPadding: 15,
-      yPadding: 15,
-      displayColors: false,
-      intersect: false,
-      mode: 'index',
-      caretPadding: 10
-      
     }
   }
 }); 

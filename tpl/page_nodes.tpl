@@ -155,13 +155,9 @@
     
 
 <script>
-    
-
-    Chart.defaults.global.defaultFontColor = '#858796';
-    
     var ctx = document.getElementById("chart-0");
     var dltChart = new Chart(ctx, {
-      type: 'doughnut',
+      type: 'pie',
       data: {
         labels: [<?php foreach($this->dltnodes as $nodeagent => $nodecount) { echo "\"".$nodeagent."\","; } ?>],
         datasets: [{
@@ -192,7 +188,7 @@
 
     ctx = document.getElementById("chart-1");
     var s2Chart = new Chart(ctx, {
-      type: 'doughnut',
+      type: 'pie',
       data: {
         labels: [<?php foreach($this->s2nodes as $nodeagent => $nodecount) { echo "\"".$nodeagent."\","; } ?>],
         datasets: [{

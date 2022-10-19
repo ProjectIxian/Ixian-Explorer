@@ -111,9 +111,6 @@
 
 
 <script>
-    
-
-Chart.defaults.global.defaultFontColor = '#858796';
 
 var ctx = document.getElementById("chart-0");
 var myPieChart = new Chart(ctx, {

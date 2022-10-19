@@ -7,7 +7,7 @@ include_once("include/ixian.php");
 
 $page = new Template();
 
-$numblocks = 500;
+$numblocks = 1000;
 
 $page->numblocks = $numblocks;
 
