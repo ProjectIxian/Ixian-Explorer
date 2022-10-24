@@ -1,4 +1,4 @@
-<script src="vendor/chart.js/chart.min.js"></script>
+<script src="vendor/chart.js/Chart.min.js"></script>
 <script src="vendor/chart.js/chartjs-plugin-zoom.min.js"></script>
 		
         <!-- Begin Page Content -->
