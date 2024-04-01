@@ -259,7 +259,7 @@ function rollbackBlock($ssh, $num)
 {
     echo "\n!!! Rolling back block #$num... ";
     // Fetch all transactions and remove indices first
-    $res = db_fetch("SELECT * from `ixi_transactions` WHERE blockNr = :1", [ ":1" => $num]);
+    $res = db_fetch("SELECT * from `ixi_transactions` WHERE applied = :1", [ ":1" => $num]);
     if($res != null)
     {
         // Go through each transaction
