@@ -34,7 +34,7 @@
                     </tr>
                     <tr>
                       <td>Block</td>
-                        <td><a href="?p=block&id=<?php echo $this->txblock;?>"><?php echo $this->txblock;?></a></td>
+                        <td><a href="?p=block&id=<?php echo $this->txapplied;?>"><?php echo $this->txapplied;?></a></td>
                     </tr>   
                     <tr>
                       <td>Type</td>

@@ -32,6 +32,7 @@ $dbtx = $dba[0];
 
 $page->txid = $txid;
 $page->txblock = $dbtx["blockNr"];
+$page->txapplied = $dbtx["applied"];
 $page->txage = humanTiming($dbtx["timestamp"]);
 $page->txdate = gmdate("Y-m-d H:i:s", $dbtx["timestamp"]);
 $page->txversion = $dbtx["version"];
