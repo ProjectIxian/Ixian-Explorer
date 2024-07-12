@@ -16,7 +16,7 @@ if(isset($_GET['p']))
     
     if($new_page === 'search' || $new_page === 'address' || $new_page === 'block' || $new_page === 'transaction'
       || $new_page === 'network' || $new_page === 'top' || $new_page === 'emissions'
-      || $new_page === 'devblocks' || $new_page === 'nodes'   
+      || $new_page === 'devblocks' || $new_page === 'nodes' || $new_page === 'superblocks'   
       )
     {
         $current_page = $new_page;

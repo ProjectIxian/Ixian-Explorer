@@ -78,7 +78,7 @@ if (flock($fp, LOCK_EX | LOCK_NB))
 		// Check for potential forks
 		$previousblockchecksum = $laststat[1]['blockChecksum'];
 		$lastblockchecksum = $laststat[0]['lastBlockChecksum'];
-		if(strcasecmp($previousblockchecksum, $lastblockchecksum) != 0)
+		if($nextblock != 1 && strcasecmp($previousblockchecksum, $lastblockchecksum) != 0)
 		{
 			echo "\nFork detected, rolling back!\n";
 			rollbackBlock($ssh, $nextblock);

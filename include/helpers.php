@@ -37,10 +37,13 @@ function humanTiming ($time)
     }
 }
 
-// Compatibility for PHP versions lower than 8
-function str_starts_with($str, $startstr) 
+if (!function_exists("str_starts_with"))
 {
-    return strpos($str, $startstr) === 0;
+    // Compatibility for PHP versions lower than 8
+    function str_starts_with($str, $startstr) 
+    {
+        return strpos($str, $startstr) === 0;
+    }
 }
 
 function timestampToDate($timestamp)
