@@ -1,158 +1,113 @@
 <script src="vendor/chart.js/Chart.min.js"></script>
+<link rel="stylesheet" href="css/nodes.css"/>
 <!-- Begin Page Content -->
-<div class="container-fluid">
-            
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Ixian Nodes</h1>
-    <p class="mb-4"></p>
 
-      
-      
-   <div class="row">
-
-      <!-- Card -->
-      <div class="col-xl-4 col-md-4 mb-4">
-        <div class="card border-left-success shadow h-100 py-2">
-          <div class="card-body">
-            <div class="row no-gutters align-items-center">
-              <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Active DLT Nodes</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->m;?></div>
-                          </div>
-                          <div class="col-auto">
-                              <i class="fas fa-server fa-2x text-gray-300"></i>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>     
-       
-      <!-- Card -->
-      <div class="col-xl-4 col-md-4 mb-4">
-        <div class="card border-left-warning shadow h-100 py-2">
-          <div class="card-body">
-            <div class="row no-gutters align-items-center">
-              <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Active S2 Nodes</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->r;?></div>
-                          </div>
-                          <div class="col-auto">
-                              <i class="fas fa-satellite-dish fa-2x text-gray-300"></i>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div> 
-       
-      <!-- Card -->
-      <div class="col-xl-4 col-md-4 mb-4">
-        <div class="card border-left-danger shadow h-100 py-2">
-          <div class="card-body">
-            <div class="row no-gutters align-items-center">
-              <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Currently Active Clients</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->c;?></div>
-                          </div>
-                          <div class="col-auto">
-                              <i class="fas fa-tv fa-2x text-gray-300"></i>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div> 
-       
-
-            
-</div>
-  
-
-    <!-- Content Row -->
-    <div class="row">
-        <div class="col-md-6">
-            <!-- Area Chart -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Ixian DLT Nodes</h6>
+<section class="pageContainer">
+    <div class="pageLimitWrapper">
+        <div class="mb-5">
+            <h1 class="heading-4">Ixian Nodes</h1>
+            <p class="body-text">Explore the stats of IXI nodes and connected clients.</p>
+        </div>
+        <div class="cardGroup">
+            <div class="ixiCard">
+                <div>
+                    <p class="heading-5"><?php echo $this->m;?></p>
+                    <p class="small-title t-gray">Active IXI DLT Nodes</p>
                 </div>
-                <div class="card-body">
-                    <div class="table-aresponsive">
-                        <table id="tblocks" class="table table-sm table-fixed">
-                                    <thead class="">
-                                        <tr>
-                                            <th style="width: 80px">Count</th>
-                                            <th>Agent</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach($this->dltnodes as $nodeagent => $nodecount) {?>
-                                        <tr>
-                                            <td><?php echo $nodecount;?></td>
-                                            <td><?php echo $nodeagent;?></td>
-                                        </tr>
-                                        <?php } ?>
-                                    </tbody>
+                <div>
+                    <i class="fas fa-coins fa-2x"></i>
+                </div>
+            </div>
+            <div class="ixiCard">
+                <div>
+                    <p class="heading-5"><?php echo $this->r;?></p>
+                    <p class="small-title t-gray">Active IXI S2 Nodes</p>
+                </div>
+                <div>
+                    <i class="fas fa-coins fa-2x"></i>
+                </div>
+            </div>
+            <div class="ixiCard">
+                <div>
+                    <p class="heading-5"><?php echo $this->c;?></p>
+                    <p class="small-title t-gray">Currently Connected Clients</p>
+                </div>
+                <div>
+                    <i class="fas fa-coins fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-1">
+        <div class="nodeStatsContainer pageLimitWrapper">
+            <div class="nodeCard">
+                <div class="nodeCardHeader">
+                    <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
+                    <div>
+                        <h3 class="heading-5">IXI DLT Nodes</h3>
+                        <p class="body-text">Data bellow shows all currently active DLT nodes.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="table-responsive">
+                        <table id="tblocks" class="table myTable">
+                            <thead class="thead myTableHead">
+                            <tr>
+                                <th scope="col" class="myTh">Node Count</th>
+                                <th scope="col" class="myTh">Ixian Node Version</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach($this->dltnodes as $nodeagent => $nodecount) {?>
+                            <tr>
+                            <td><?php echo $nodecount;?></td>
+                            <td><?php echo $nodeagent;?></td>
+                            </tr>
+                            <?php } ?>
+                            </tbody>
                         </table>
                     </div>
-
-
                     <div class="chart-area" style="position: relative; height:30vh;">
                         <canvas id="chart-0"></canvas>
                     </div>
-                    <hr>
-                    <p>
-                        Data above shows all currently active DLT nodes.<br/>
-                    </p>                    
                 </div>
             </div>
-        </div>  
-        
-        
-        <div class="col-md-6">
-            <!-- Area Chart -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Ixian S2 Nodes</h6>
+            <div class="nodeCard">
+                <div class="nodeCardHeader">
+                    <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
+                    <div>
+                        <h3 class="heading-5">IXI S2 Nodes</h3>
+                        <p class="body-text">Data bellow shows all currently active S2 streaming nodes.</p>
+                    </div>
                 </div>
-                <div class="card-body">
+                <div>
                     <div class="table-aresponsive">
-                        <table id="tblocks" class="table table-sm table-fixed">
-                                    <thead class="">
-                                        <tr>
-                                            <th style="width: 80px">Count</th>
-                                            <th>Agent</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach($this->s2nodes as $nodeagent => $nodecount) {?>
-                                        <tr>
-                                            <td><?php echo $nodecount;?></td>
-                                            <td><?php echo $nodeagent;?></td>
-                                        </tr>
-                                        <?php } ?>
-                                    </tbody>
+                        <table id="tblocks" class="table myTable">
+                            <thead class="thead myTableHead">
+                            <tr>
+                                <th scope="col" class="myTh">Node Count</th>
+                                <th scope="col" class="myTh">Ixian Node Version</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach($this->s2nodes as $nodeagent => $nodecount) {?>
+                            <tr>
+                            <td><?php echo $nodecount;?></td>
+                            <td><?php echo $nodeagent;?></td>
+                            </tr>
+                            <?php } ?>
+                            </tbody>
                         </table>
                     </div>
-
                     <div class="chart-area" style="position: relative; height:30vh;">
-                        <canvas id="chart-1"></canvas>
+                        <canvas id="chart-0"></canvas>
                     </div>
-                    <hr>
-                    <p>
-                        Data above shows all currently active S2 streaming nodes.<br/>
-                    </p>
-                    
                 </div>
             </div>
-        </div>        
+        </div>
     </div>
-    
-
-
-        
-    
-    
-</div><!-- Page Content -->
-    
+</section>
 
 <script>
     var ctx = document.getElementById("chart-0");
@@ -184,7 +139,7 @@
         },
         cutoutPercentage: 70,
       },
-    }); 
+    });
 
     ctx = document.getElementById("chart-1");
     var s2Chart = new Chart(ctx, {
@@ -215,9 +170,6 @@
         },
         cutoutPercentage: 70,
       },
-    }); 
-
-
-
+    });
     </script>
     

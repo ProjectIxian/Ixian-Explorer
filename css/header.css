@@ -1,0 +1,27 @@
+@import "variables.css";
+
+.header {
+    background: var(--colors-surface-inverse);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px 16px !important;
+    border-bottom: 1px solid var(--colors-outline-inverse);
+}
+
+.headerUl {
+    justify-content: flex-end;
+    gap: 40px;
+}
+
+.headerItem {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    color: var(--colors-text-inverse);
+
+    &:hover {
+        text-decoration: none;
+        color: var(--colors-text-02)
+    }
+}

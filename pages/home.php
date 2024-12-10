@@ -4,7 +4,31 @@
 * Website: www.ixian.io 
 */
 
+$current_page = "home";
+
+if(isset($_GET['p']))
+{
+    $new_page = $_GET['p'];
+
+    if($new_page === 'search' || $new_page === 'address' || $new_page === 'block' || $new_page === 'transaction'
+        || $new_page === 'network' || $new_page === 'top' || $new_page === 'emissions'
+        || $new_page === 'devblocks' || $new_page === 'nodes' || $new_page === 'superblocks'
+    )
+    {
+        $current_page = $new_page;
+    }
+}
+
+db_connect();
+
+
 $page = new Template();
+
+$page->cpage = $current_page;
+
+$page->q = "";
+if(isset($_GET['q']))
+    $page->q = htmlspecialchars($_GET['q']);
 
 $laststat = db_fetch("SELECT * FROM ixi_nodestats ORDER BY blockheight DESC LIMIT 1", [])[0];
 if ($laststat != 0) {

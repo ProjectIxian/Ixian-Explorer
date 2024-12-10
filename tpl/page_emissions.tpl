@@ -1,174 +1,137 @@
 <script src="vendor/chart.js/Chart.min.js"></script>
-<!-- Begin Page Content -->
-<div class="container-fluid">
-            
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">IxiCash Emissions</h1>
-    <p class="mb-4"></p>           
-            
-    <div class="card shadow mb-4">
-        <div class="card-body">
-            This page contains all information regarding the IxiCash emission model, which includes the mining and
-            signing block rewards, as well as the projected number of total IXI in circulation at any given block height.<br/>
-        </div>
+<link rel="stylesheet" href="css/statistics.css"/>
+<link rel="stylesheet" href="css/emissions.css"/>
+
+<section class="pageContainer">
+    <div class="bg-2">
+        <section class="emissionsHeader pageLimitWrapper">
+            <h1 class="heading-4">IXI Emissions</h1>
+            <p class="body-text"> This page contains all information regarding the IxiCash emission model, which includes the mining and signing block rewards, as well as the projected number of total IXI in circulation at any given block height.</p>
+        </section>
     </div>
-       
-    <!-- Content Row -->
-    <div class="row">
-        <div class="col-xl-6">
-            <!-- Area Chart -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Mining Block Reward Chart</h6>
+    <div class="bg-1">
+        <section class="emissionBlocks pageLimitWrapper flexCGap32">
+            <div class="blockStatusCard">
+                <div class="blockStatusCardHeader">
+                    <div>
+                        <h3 class="heading-5">Mining Block Reward Chart</h3>
+                        <p class="body-text">Data bellow shows the mining reward for every block mined.</p>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div class="chart-area" style="position: relative; height:60vh;">
+                <div class="blockStatusCardBottomSection">
+                    <div class="chart-area">
                         <canvas id="chart-0"></canvas>
                     </div>
-                    <hr>
-                    <p>
-                        Data above shows the mining reward for every block mined.<br/>
-                    </p>
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="card shadow mb-4">
-                                <div class="card-body border-left-primary">
-                                    IxiCash emission model for mining rewards:<br/>
-                                    <ul>
-                                        <li>
-                                            Mining reward starts with 10 IXI and increases by 0.009 IXI with every block until block height #1051200.<br/>
-                                            Last block reward in this period is 4740 IXI.
-                                        </li>
-                                        <li>Mining reward is set to 4740 IXI per block until block height #1802000.</li>
-                                        <li>Mining reward is set to 2304 IXI per block until block height #6307200.</li>
-                                        <li>Mining reward is set to 1152 IXI per block until block height #9460800.</li>
-                                        <li>Mining reward is set to 576 IXI per block until block height #12614400.</li>
-                                        <li>Mining reward is set to 18 IXI per block until block height #105120000.</li>
-                                    </ul>
-                                    <br/>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="rewardsRules">
+                        <p class="small-title">IxiCash emission model for mining rewards:</p>
+                            <ul>
+                                <li>
+                                    Mining reward starts with 10 IXI and increases by 0.009 IXI with every block until block height #1051200.
+                                    Last block reward in this period is 4740 IXI.
+                                </li>
+                                <li>Mining reward is set to 4740 IXI per block until block height #1802000.</li>
+                                <li>Mining reward is set to 2304 IXI per block until block height #6307200.</li>
+                                <li>Mining reward is set to 1152 IXI per block until block height #9460800.</li>
+                                <li>Mining reward is set to 576 IXI per block until block height #12614400.</li>
+                                <li>Mining reward is set to 18 IXI per block until block height #105120000.</li>
+                            </ul>
                     </div>
                 </div>
             </div>
-        </div>  
-        
-        
-        <div class="col-xl-6">
-            <!-- Area Chart -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Signing Block Reward Chart</h6>
+
+            <div class="blockStatusCard">
+                <div class="blockStatusCardHeader">
+                    <div>
+                        <h3 class="heading-5">Signing Block Reward Chart</h3>
+                        <p class="body-text">Data bellow  shows the projected signing reward for every block signed.</p>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div class="chart-area" style="position: relative; height:60vh;">
+                <div class="blockStatusCardBottomSection">
+                    <div class="chart-area">
                         <canvas id="chart-1"></canvas>
                     </div>
-                    <hr>
-                    <p>
-                        Data above shows the projected signing reward for every block signed.<br/>
-                    </p>
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="card shadow mb-4">
-                                <div class="card-body border-left-primary">
-                                    Emission model for signing rewards:<br/>
-                                    <ul>
-                                        <li>
-                                            Signing reward is set to 0.1% of the total supply per year until block height #86400.<br/>
-                                            Last block reward in this period is 2 IXI.
-                                        </li>
-                                        <li>Signing reward is set to 5% of the total supply per year until block height #1802000.</li>
-                                        <li>Signing reward is set to 576 IXI per block until block height #6307200.</li>
-                                        <li>Signing reward is set to 288 IXI per block until block height #9460800.</li>
-                                        <li>Signing reward is set to 144 IXI per block until block height #12614400.</li>
-                                        <li>Signing reward is set to 72 IXI per block until block height #15768000.</li>
-                                        <li>Signing reward is fixed to 36 IXI per block after block height #15768000.</li>
-                                    </ul>
-                                </div>
-                            </div>
+                    <div class="rewardsRules">
+                        <p class="small-title">Emission model for signing rewards:</p>
+                            <ul>
+                                <li>
+                                    Signing reward is set to 0.1% of the total supply per year until block height #86400.
+                                    Last block reward in this period is 2 IXI.
+                                </li>
+                                <li>Signing reward is set to 5% of the total supply per year until block height #1802000.</li>
+                                <li>Signing reward is set to 576 IXI per block until block height #6307200.</li>
+                                <li>Signing reward is set to 288 IXI per block until block height #9460800.</li>
+                                <li>Signing reward is set to 144 IXI per block until block height #12614400.</li>
+                                <li>Signing reward is set to 72 IXI per block until block height #15768000.</li>
+                                <li>Signing reward is fixed to 36 IXI per block after block height #15768000.</li>
+                            </ul>
                         </div>
-                    </div>
                 </div>
             </div>
-        </div>        
-    </div>
-    
-    <div class="row">
-        <div class="col-12">
-            <!-- Area Chart -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Projected Total IxiCash in Circulation at Each Block Height</h6>
+
+            <div class="blockStatusCard">
+                <div class="blockStatusCardHeader">
+                    <div>
+                        <h3 class="heading-5">Projected Total IXI in Circulation at Each Block Height</h3>
+                        <p class="body-text" style="max-width: 640px"> Data bellow shows the projected total IXI in circulation at each block height. One block represents approximately 30 seconds. The supply increases according to the mining and signing rewards.</p>
+                    </div>
                 </div>
-                
-                <div class="card-body">
-                    <div class="chart-area" style="position: relative; height:60vh;">
+                <div class="blockStatusCardBottomSection">
+                    <div class="chart-area">
                         <canvas id="chart-2"></canvas>
                     </div>
-                    <hr>
-                    <p>
-                        Data above shows the projected total IxiCash in circulation at each block height. One block represents approximately 30 seconds. The supply increases according to the mining and signing rewards.<br/>
-                    </p>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card shadow mb-4">
-                                <div class="card-body border-left-primary">
-                                    IxiCash emission model total supply:<br/>
-                                    <ul class="emissions-list">
-                                        <li>
-                                            Block: <strong>#1</strong><br/>
-                                            Total supply: <strong>2,000,320,000 IXI</strong>
-                                        </li>
-                                        <li>
-                                            Block: <strong>#1051199</strong> (roughly one year later)<br/>
-                                            Supply increased in the period: <strong>+1,369,643,634 IXI</strong><br/>
-                                            Total supply: <strong>3,369,963,634 IXI</strong>
-                                        </li>
-                                        <li>
-                                            Block: <strong>#2102399</strong> (roughly one year later)<br/>
-                                            Supply increased in the period: <strong>+2,461,374,354 IXI</strong><br/>
-                                            Total supply: <strong>5,831,337,988 IXI</strong>
-                                        </li>
-                                        <li>
-                                            Block: <strong>#3153599</strong> (roughly one year later)<br/>
-                                            Supply increased in the period: <strong>+1,816,473,600 IXI</strong><br/>
-                                            Total supply: <strong>7,647,811,588 IXI</strong>
-                                        </li>
-                                        <li>
-                                            Block: <strong>#4204799</strong> (roughly one year later)<br/>
-                                            Supply increased in the period: <strong>+1,816,473,600 IXI</strong><br/>
-                                            Total supply: <strong>9,464,285,188 IXI</strong>
-                                        </li>
-                                        <li>
-                                            Block: <strong>#5256000</strong> (roughly one year later)<br/>
-                                            Supply increased in the period: <strong>+1,816,476,480 IXI</strong><br/>
-                                            Total supply: <strong>11,280,761,668 IXI</strong>
-                                        </li>
-                                        <li>
-                                            Block: <strong>#12614400</strong> (roughly 7 years later)<br/>
-                                            Supply increased in the period: <strong>+5,903,536,410 IXI</strong><br/>
-                                            Total supply: <strong>17,184,298,078 IXI</strong>
-                                        </li>
-                                        <li>
-                                            Block: <strong>#65174400</strong> (roughly 50 years later)<br/>
-                                            Supply increased in the period: <strong>+2,478,729,564 IXI</strong><br/>
-                                            Total supply: <strong>19,663,027,642 IXI</strong>
-                                        </li>
-                                        <li>
-                                            <strong>Target supply after 100 years (#105120000): 21,460,579,624 IXI</strong>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                    <div class="rewardsRules">
+                        <p class="small-title">IxiCash emission model total supply:</p>
+                            <ul class="emissions-list">
+                                <li>
+                                    Block: <strong>#1</strong><br/>
+                                    Total supply: <strong>2,000,320,000 IXI</strong>
+                                </li>
+                                <li>
+                                    Block: <strong>#1051199</strong> (roughly one year later)<br/>
+                                    Supply increased in the period: <strong>+1,369,643,634 IXI</strong><br/>
+                                    Total supply: <strong>3,369,963,634 IXI</strong>
+                                </li>
+                                <li>
+                                    Block: <strong>#2102399</strong> (roughly one year later)<br/>
+                                    Supply increased in the period: <strong>+2,461,374,354 IXI</strong><br/>
+                                    Total supply: <strong>5,831,337,988 IXI</strong>
+                                </li>
+                                <li>
+                                    Block: <strong>#3153599</strong> (roughly one year later)<br/>
+                                    Supply increased in the period: <strong>+1,816,473,600 IXI</strong><br/>
+                                    Total supply: <strong>7,647,811,588 IXI</strong>
+                                </li>
+                                <li>
+                                    Block: <strong>#4204799</strong> (roughly one year later)<br/>
+                                    Supply increased in the period: <strong>+1,816,473,600 IXI</strong><br/>
+                                    Total supply: <strong>9,464,285,188 IXI</strong>
+                                </li>
+                                <li>
+                                    Block: <strong>#5256000</strong> (roughly one year later)<br/>
+                                    Supply increased in the period: <strong>+1,816,476,480 IXI</strong><br/>
+                                    Total supply: <strong>11,280,761,668 IXI</strong>
+                                </li>
+                                <li>
+                                    Block: <strong>#12614400</strong> (roughly 7 years later)<br/>
+                                    Supply increased in the period: <strong>+5,903,536,410 IXI</strong><br/>
+                                    Total supply: <strong>17,184,298,078 IXI</strong>
+                                </li>
+                                <li>
+                                    Block: <strong>#65174400</strong> (roughly 50 years later)<br/>
+                                    Supply increased in the period: <strong>+2,478,729,564 IXI</strong><br/>
+                                    Total supply: <strong>19,663,027,642 IXI</strong>
+                                </li>
+                                <li>
+                                    <strong>Target supply after 100 years (#105120000): 21,460,579,624 IXI</strong>
+                                </li>
+                            </ul>
                         </div>
-                    </div>
                 </div>
             </div>
-        </div>  
-    </div> 
-</div>
+        </section>
+    </div>
+
+</section>
 
 <script>
 var blockHeight = <?php echo $this->bh; ?>;

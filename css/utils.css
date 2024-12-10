@@ -1,0 +1,166 @@
+/* REUSABLE UTILS STYLE */
+@import "variables.css";
+
+/*OTHERS*/
+.themeToggle {
+    cursor: pointer;
+
+    &:hover {
+        color: var(--colors-text-02) !important;
+        transform: scale(1.2);
+    }
+}
+
+.flexCGap32 {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.posSticky {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.pageLimitWrapper {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+.pageContainer {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/*TABLE*/
+.myTable {
+    width: 100%;
+    border-radius: var(--corner-radius-md);
+    border-collapse: separate;
+    overflow: hidden;
+    border: none;
+}
+
+.myTableHead {
+    background: var(--colors-surface-03);
+    border: none;
+}
+
+.myTh {
+    border-bottom: unset !important;
+}
+
+.myTd {
+    background: var(--colors-surface-01);
+    color: var(--colors-text-01);
+}
+
+#tblocks_paginate ul {
+    justify-content: flex-start;
+}
+
+/*INPUT*/
+.input {
+    width: 100%;
+    background: var(--colors-surface-01);
+    border: 1px solid var(--colors-outline-03);
+    padding: 16px;
+    border-radius: var(--corner-radius-lg);
+}
+
+/*BUTTON*/
+.button {
+    padding: 16px 24px;
+    border: none;
+    border-radius: var(--corner-radius-lg);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.btn-p {
+    background: var(--colors-surface-action);
+    color: var(--colors-text-on-action);
+}
+
+/* COLORS */
+
+.bg-1 {
+    background-color: var(--colors-surface-01);
+}
+
+.bg-2 {
+    background-color: var(--colors-surface-02);
+}
+
+.bg-3 {
+    background-color: var(--colors-surface-inverse);
+}
+
+.bg-s-i {
+    background-color: var(--colors-surface-inverse);
+}
+
+.t-gray {
+    color: var(--colors-text-02);
+}
+
+.t-gray-2 {
+    color: var(--colors-text-inverse-2);
+}
+
+.t-blue {
+    color: var(--colors-surface-info-inverse)
+}
+
+.t-light-blue {
+    color: var(--colors-surface-info)
+}
+
+/*TYPOGRAPHY*/
+
+.body-text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.small-title {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+.med-title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.heading-6 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.heading-5 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+}
+
+.heading-4 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 36px;
+}

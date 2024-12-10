@@ -1,30 +1,66 @@
+/* THIS FILE IS USED AS GLOBAL STYLING */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
-.largehash {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+@import "variables.css";
+@import "utils.css";
+
+html,
+body{
+    margin: 0;
+    font-family: "Space Grotesk", sans-serif;
+    color: var(--colors-text-01);
+    background: var(--colors-surface-02);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
 }
 
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
 
+a {
+    color: var(--colors-text-01);
+    text-decoration: none;
+}
+
+.largehash {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 
 #tblocks td:nth-child(2) {
-  max-width: 140px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+    max-width: 140px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 #ttx td:nth-child(2) {
-  max-width: 140px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+    max-width: 140px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .emissions-list li {
-  border-bottom: 1px solid black;
-  padding-bottom: 5px;
-  margin-bottom: 5px;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+}
+
+.mainContent{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 

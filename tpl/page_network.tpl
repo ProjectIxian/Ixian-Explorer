@@ -1,206 +1,136 @@
 <script src="vendor/chart.js/Chart.min.js"></script>
 <script src="vendor/chart.js/chartjs-plugin-zoom.min.js"></script>
-		
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+<link rel="stylesheet" href="css/statistics.css"/>
 
-        <!-- Mining status -->    
-        <h1 class="h3 mb-2 text-gray-800">Mining Statistics</h1>
-          
-         <div class="row">
-     
-            <!-- Card -->
-            <div class="col-xl-3 col-md-3 mb-3">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Network Blockheight</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">#<?php echo $this->bh;?></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>     
-             
-            <!-- Card -->
-            <div class="col-xl-3 col-md-3 mb-3">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div data-toggle="tooltip" title="This represents the percentage of unsolved blocks in the redacted window (up to last 20000 blocks). Every miner can choose to mine any block in the redacted window that hasn't been solved yet. Target ratio is 50%" class="text-xs font-weight-bold text-info text-uppercase mb-1">Unsolved Blocks
-                          
-                          <i  class="fas fa-info-circle"></i>
-                          
-                        </div>
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo number_format($this->blockratio,2);?>%</div>
-                        </div>
-                        <div class="col">
-                          <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="<?php echo $this->blockratio;?>" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+<section class="pageContainer">
+    <div class="pageLimitWrapper flexCGap32">
+        <div class="statsHeader">
+            <h1 class="heading-4">Ixian Stats</h1>
+            <p class="body-text">All ixian blok and mining stats</p>
+            <div class="ixiCard">
+                <div>
+                    <p class="heading-5"><?php echo $this->bh;?></p>
+                    <p class="small-title t-gray">Network Block Height</p>
                 </div>
-              </div>
+                <div>
+                    <i class="fas fa-coins fa-2x"></i>
+                </div>
             </div>
-             
-            <!-- Card -->
-            <div class="col-xl-3 col-md-3 mb-3">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Estimated Hashrate</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->hashrate;?> h/s</div>
-                                </div>
-                            </div>
-                        </div>
+        </div>
+        <div class="statsContent">
+            <p class="heading-6 t-gray">Block Signing Stats</p>
+            <div class="statsCardContainer">
+                <div class="ixiCard">
+                    <div>
+                        <p class="heading-5"><?php echo $this->stakers;?></p>
+                        <p class="small-title t-gray">Last Block Signer Count</p>
                     </div>
-                </div> 
-             
-            <!-- Card -->
-            <div class="col-xl-3 col-md-3 mb-3">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Block Mining Reward</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->miningreward;?> IXI</div>
-                                </div>
-                            </div>
-                        </div>
+                    <div>
+                        <i class="fas fa-coins fa-2x"></i>
                     </div>
-                </div>      
-                  
-</div>           
-
-        
-        <!-- Staking stats -->
-        <h1 class="h3 mb-2 text-gray-800">Block Signing Statistics</h1>
-
-            
-            <div class="row">
-     
-            <!-- Card -->
-            <div class="col-xl-4 col-md-4 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div data-toggle="tooltip" title="The block signing reward is split equally between up to 1000 signers of the block" class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Block Signing Reward
-                        <i class="fas fa-info-circle"></i>
-                        </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->blockstake;?> IXI</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>     
-             
-           
-            <!-- Card -->
-            <div class="col-xl-4 col-md-4 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div data-toggle="tooltip" title="The first 1000 signers receive rewards proportionally with their signing hashrate" class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Current Signers
-                        <i class="fas fa-info-circle"></i>
-                        </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->stakers;?></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-             
-     
-            <!-- Card -->
-            <div class="col-xl-4 col-md-4 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div data-toggle="tooltip" title="Minimum required signatures for the last block accepted" class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Required Signers
-                        <i class="fas fa-info-circle"></i>
-                      </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->requiredsigners;?> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-                
-</div>
-            
-            
-            
-            
-        <!-- Last blocks -->    
-        <h1 class="h3 mb-2 text-gray-800">Ixian Block Charts</h1>
-            
-          <div class="row">
-            <div class="col-12">
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Blocks Status</h6>
                 </div>
-                <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="chart-1"></canvas>
-                  </div>
-                  <hr>
-                  Showing data for last <code><?php echo $this->numblocks;?></code> blocks.
+                <div class="ixiCard">
+                    <div>
+                        <p class="heading-5"><?php echo $this->requiredsigners;?></p>
+                        <p class="small-title t-gray">Required Signers</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-coins fa-2x"></i>
+                    </div>
                 </div>
-              </div>
+                <div class="ixiCard">
+                    <div>
+                        <p class="heading-5"><?php echo $this->blockstake;?></p>
+                        <p class="small-title t-gray">Block Signing Reward</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-coins fa-2x"></i>
+                    </div>
+                </div>
             </div>
-          </div>  
-
-          <div class="row">
-            <div class="col-12">
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Blocks Signing Status</h6>
+        </div>
+        <div class="statsContent">
+            <p class="heading-6 t-gray">Mining Stats</p>
+            <div class="statsCardContainer">
+                <div class="ixiCard">
+                    <div>
+                        <p class="heading-5"><?php echo number_format($this->blockratio,2);?>%</p>
+                        <p class="small-title t-gray">Unsolved Blocks Ratio</p>
+                    </div>
+                    <div class="progress progress-sm" style="width: 100%;max-width: 100px;height: 20px;background: #ABAEFA">
+                        <div class="progress-bar t-blue" role="progressbar" style="width: <?php echo $this->blockratio;?>%" aria-valuenow="<?php echo $this->blockratio;?>" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
                 </div>
-                <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="chart-2"></canvas>
-                  </div>
-                  <hr>
-                  Showing data for last <code><?php echo $this->numblocks;?></code> blocks.
+                <div class="ixiCard">
+                    <div>
+                        <p class="heading-5"><?php echo $this->hashrate;?></p>
+                        <p class="small-title t-gray">Estimated Hash-rate (h/s)</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-coins fa-2x"></i>
+                    </div>
                 </div>
-              </div>
+                <div class="ixiCard">
+                    <div>
+                        <p class="heading-5"><?php echo $this->miningreward;?></p>
+                        <p class="small-title t-gray">Block Mining Reward</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-coins fa-2x"></i>
+                    </div>
+                </div>
             </div>
-          </div>             
-            
-          <div class="row">
-            <div class="col-12">
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Mining Status</h6>
+        </div>
+    </div>
+
+    <div class="bg-1">
+        <div class="blockCharts pageLimitWrapper">
+            <div class="blockStatusCard">
+                <div class="blockStatusCardHeader">
+                    <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
+                    <div>
+                        <h3 class="heading-5">Block Status</h3>
+                        <p class="body-text">Showing data for last <span class="t-blue small-title"><?php echo $this->numblocks;?></span> blocks.</p>
+                    </div>
                 </div>
-                <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="chart-0"></canvas>
-                  </div>
-                  <hr>
-                  Showing data for last <code><?php echo $this->numblocks;?></code> blocks.
+                <div>
+                    <div class="chart-area">
+                        <canvas id="chart-1"></canvas>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-            
-        <!-- /.container-fluid -->
+            <div class="blockStatusCard">
+                <div class="blockStatusCardHeader">
+                    <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
+                    <div>
+                        <h3 class="heading-5">Block Signing Status</h3>
+                        <p class="body-text">Showing data for last <span class="t-blue small-title"><?php echo $this->numblocks;?></span> blocks.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="chart-area">
+                        <canvas id="chart-2"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="blockStatusCard">
+                <div class="blockStatusCardHeader">
+                    <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
+                    <div>
+                        <h3 class="heading-5">Mining Status</h3>
+                        <p class="body-text">Showing data for last <span class="t-blue small-title"><?php echo $this->numblocks;?></span> blocks.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="chart-area">
+                        <canvas id="chart-0"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-      </div>
-      <!-- End of Main Content -->
-
+</section>
 
 <script>
    

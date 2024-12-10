@@ -1,0 +1,34 @@
+@import "compontents.css";
+@import "utils.css";
+
+.top20Header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.topCards{
+    width: 100%;
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+}
+
+.topCardsLeft{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.ixiDistribution {
+    background: var(--colors-surface-01) !important;
+    max-width: 670px !important;
+}
+
+.top20Wallets{
+    background: var(--colors-surface-01);
+    padding: 48px 16px 80px 16px;
+    min-height: 624px;
+}
