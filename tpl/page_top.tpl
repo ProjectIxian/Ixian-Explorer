@@ -16,7 +16,7 @@
                         <p class="small-title t-gray">IXI Circulating Supply</p>
                     </div>
                     <div>
-                        <i class="fas fa-coins fa-2x"></i>
+                        <img src="gfx/icons/ixian_logo.svg" alt="ixi" />
                     </div>
                 </div>
                 <div class="ixiCard">
@@ -25,7 +25,7 @@
                         <p class="small-title t-gray">Top 20 Wallet Amount (excluding foundation and exchange wallets)</p>
                     </div>
                     <div>
-                        <i class="fas fa-coins fa-2x"></i>
+                        <img src="gfx/icons/wallet.svg" alt="wallet" />
                     </div>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                     <tr>
                         <td class="myTd small-title">#<?php echo $pos;?></td>
                         <td class="text-truncate myTd" style="max-width: 300px;">
-                            <?php echo $tag;?> <a href="index.php?p=address&id=<?php echo $address;?>"><?php echo $address;?></a>
+                            <?php echo $tag;?> <a class="t-gray" href="index.php?p=address&id=<?php echo $address;?>"><?php echo $address;?></a>
                         </td>
                         <td class="text-right myTd t-gray"><?php echo number_format($addr["amount"], 8)." IXI";?></td>
                     </tr>

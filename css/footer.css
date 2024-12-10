@@ -11,19 +11,37 @@
     display: flex;
     flex-direction: column;
     gap: 64px;
+
+
+    @media (max-width: 768px) {
+        max-height: unset;
+        gap: 32px;
+        padding: 20px 16px !important;
+        overflow-x: hidden;
+    }
 }
 
 .footerTopContent {
     width: 100%;
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
 }
 
-.footerBottomContent{
+.footerBottomContent {
     display: flex;
     justify-content: space-between;
     border-top: 1px solid var(--colors-outline-inverse);
     padding-top: 12px;
+
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+        gap: 24px;
+    }
 }
 
 .topLeft {
@@ -35,26 +53,39 @@
     }
 }
 
-.topRight{
+.topRight {
     width: 100%;
     display: flex;
     gap: 32px;
     justify-content: flex-end;
+
+    @media (max-width: 768px) {
+        gap: 12px;
+    }
+
+    @media (max-width: 230px) {
+        flex-wrap: wrap;
+    }
 }
 
-.topLinks{
+.topLinks {
     width: 100%;
     max-width: 180px;
     display: flex;
     flex-direction: column;
     gap: 12px;
 
-    :first-child{
+    :first-child {
         margin-bottom: 12px;
     }
 }
 
-.bottomLinks{
+.bottomLinks {
     display: flex;
     gap: 32px;
+
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
 }

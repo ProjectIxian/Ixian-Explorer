@@ -15,7 +15,7 @@
                     <p class="small-title t-gray">Active IXI DLT Nodes</p>
                 </div>
                 <div>
-                    <i class="fas fa-coins fa-2x"></i>
+                    <img src="gfx/icons/linked_services.svg" alt="ixi" />
                 </div>
             </div>
             <div class="ixiCard">
@@ -24,7 +24,7 @@
                     <p class="small-title t-gray">Active IXI S2 Nodes</p>
                 </div>
                 <div>
-                    <i class="fas fa-coins fa-2x"></i>
+                    <img src="gfx/icons/s2.svg" alt="s2" />
                 </div>
             </div>
             <div class="ixiCard">
@@ -33,7 +33,7 @@
                     <p class="small-title t-gray">Currently Connected Clients</p>
                 </div>
                 <div>
-                    <i class="fas fa-coins fa-2x"></i>
+                    <img src="gfx/icons/spixi_logo.svg" alt="spixi" />
                 </div>
             </div>
         </div>

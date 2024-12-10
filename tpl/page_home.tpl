@@ -9,7 +9,7 @@
             <form class="inputContainer" method="get">
                 <input type="hidden" name="p" value="search"/>
                 <input class="input" aria-label="Search" name="q" value="<?php echo $this->q;?>" type="text" placeholder="Type or pate blocks, addresses or transaction ID"/>
-                <button type="submit" class="button btn-p">Go <i class="fas fa-arrow-right"></i></button>
+                <button type="submit" class="button btn-p">Go <i class="fa fa-arrow-right"></i></button>
             </form>
             <p class="small-title t-gray">Use the search bar to scan for transactions, wallets, names and blocks.</p>
         </div>
@@ -22,7 +22,7 @@
                     <p class="small-title t-gray">IXI Circulating Supply</p>
                 </div>
                 <div>
-                    <i class="fas fa-coins fa-2x"></i>
+                    <img src="gfx/icons/ixian_logo.svg" alt="ixi" />
                 </div>
             </div>
             <div class="ixiCard">
@@ -31,7 +31,7 @@
                     <p class="small-title t-gray">Active IXI DLT Nodes</p>
                 </div>
                 <div>
-                    <i class="fas fa-coins fa-2x"></i>
+                    <img src="gfx/icons/linked_services.svg" alt="linked_services" />
                 </div>
             </div>
             <div class="ixiCard">
@@ -40,7 +40,7 @@
                     <p class="small-title t-gray">Estimated Hash-rate (h/s)</p>
                 </div>
                 <div>
-                    <i class="fas fa-coins fa-2x"></i>
+                    <img src="gfx/icons/charger.svg" alt="charger" />
                 </div>
             </div>
 
@@ -50,7 +50,7 @@
                     <p class="small-title t-gray">Transactions Last 24H</p>
                 </div>
                 <div>
-                    <i class="fas fa-coins fa-2x"></i>
+                    <img src="gfx/icons/history.svg" alt="history" />
                 </div>
             </div>
             <div class="ixiCard">
@@ -59,7 +59,7 @@
                     <p class="small-title t-gray">Average Transactions Per Day</p>
                 </div>
                 <div>
-                    <i class="fas fa-coins fa-2x"></i>
+                    <img src="gfx/icons/avg_pace.svg" alt="avg_pace" />
                 </div>
             </div>
             <div class="ixiCard">
@@ -68,7 +68,7 @@
                     <p class="small-title t-gray">On-chain Transactions</p>
                 </div>
                 <div>
-                    <i class="fas fa-coins fa-2x"></i>
+                    <img src="gfx/icons/sync_alt.svg" alt="sync_alt" />
                 </div>
             </div>
         </div>
@@ -80,7 +80,7 @@
                 <h4 class="heading-5">Latest Blocks</h4>
                 <div class="what-are-blocks">
                     <p class="med-title">What are blocks</p>
-                    <i class="fas fa-question-circle"></i>
+                    <i class="fa fa-question-circle"></i>
                 </div>
             </div>
             <div class="table-responsive">

@@ -6,6 +6,11 @@
     display: grid;
     gap: 32px;
     grid-template-columns: 1fr 1fr 1fr;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
 }
 
 .ixiCard {
@@ -17,6 +22,10 @@
     justify-content: space-between;
     border: 1px solid var(--colors-outline-01);
     gap: 24px;
+
+    @media (max-width: 375px) {
+       flex-wrap: wrap;
+    }
 }
 
 .alertContainer{
@@ -26,6 +35,10 @@
     padding: 16px 64px;
     width: 100%;
     background: var(--colors-surface-02);
+
+    @media (max-width: 768px) {
+        padding: 16px;
+    }
 }
 
 .alertCardWarning {
@@ -40,4 +53,8 @@
     gap: 8px;
     font-size: 14px;
     color: var(--colors-text-01);
+
+    @media (max-width: 768px) {
+        max-width: unset;
+    }
 }

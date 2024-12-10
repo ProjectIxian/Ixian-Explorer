@@ -1,96 +1,56 @@
-<div class="container-fluid">
-    
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-</div>
-    
-<div class="row">
-    <div class="col-12">
+<link rel="stylesheet" href="css/address.css"/>
 
-    <div class="card mb-4">
-                <div class="card-header">
-                        <h1 class="h3 mb-0 text-gray-800">Address</h1>
-
-                </div>
-                <div class="card-body">
-
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <tbody>
-                    <tr>
-                      <td>Address</td>
-                      <?php
+<section class="pageContainer">
+    <div class="bg-1">
+        <section class="pageLimitWrapper addressPage">
+            <h1 class="med-title">Address Details</h1>
+            <div class="addressCard">
+                <p class="small-title t-gray">QR Code</p>
+                <div id="qrcode" class="qrCode"></div>
+                <div class="singleInfo">
+                    <?php
                       $tag = "";
                       // known_wallets
                       if(array_key_exists($this->walletid, $this->known_wallets)) {
-                        $tag_name = $this->known_wallets[$this->walletid][0];
-                        $tag_color = $this->known_wallets[$this->walletid][1];
-                        $tag = "<span class=\"badge badge-$tag_color\">$tag_name</span>";
-                      }
-                      ?>
-                        <td class="text-wrap" style="max-width: 100px;"><?php echo $tag;?> <b><code><?php echo $this->walletid; ?></code></b></td>
-                    </tr>
-                    <tr>
-                      <td>QR Code</td>
-                      <td><div id="qrcode" class="qrCode"></div></td>
-                    </tr>
-                    <tr>
-                      <td>Transactions</td>
-                      <td><?php echo number_format($this->txcount,0); ?></td>
-                    </tr>
-                    <!--<tr>
-                        <td>Total Received</td>
-                        <td><code><div class="text-success"><?php echo number_format($this->balance, 8);?> IXI</div></code></td>
-                    </tr>
-                    <tr>
-                        <td>Total Sent</td>
-                        <td><code><div class="text-danger"><?php echo number_format($this->balance, 8);?> IXI</div></code></td>
-                    </tr>-->
-                    <tr>
-                        <td><b>Final Balance</b></td>
-                        <td><code><div class="text-primary"><?php echo number_format($this->balance, 8);?> IXI</div></code></td>
-                    </tr>
-
-
-                    </tbody>
-                </table>
-            </div>
-                    
-                    
-                                        
-
-                    
-
-                    
+                    $tag_name = $this->known_wallets[$this->walletid][0];
+                    $tag_color = $this->known_wallets[$this->walletid][1];
+                    $tag = "<span class=\"badge badge-$tag_color\">$tag_name</span>";
+                    }
+                    ?>
+                    <p class="small-title t-gray">Address</p>
+                    <span><?php echo $tag;?> <b><code><?php echo $this->walletid; ?></code></b></span>
                 </div>
-              </div>    
-    
+                <div class="singleInfo">
+                    <p class="small-title t-gray">Balance</p>
+                    <p><?php echo number_format($this->balance, 8);?> IXI</p>
+                </div>
+            </div>
+            <div>
+                <h2 class="med-title">Transactions (<?php echo number_format($this->txcount,0); ?>)</h2>
+                <div class="table-responsive">
+                    <table id="ttx" class="table myTable">
+                        <thead class="thead myTableHead">
+                        <tr>
+                            <th scope="col" class="myTh" style="width: 150px">Date</th>
+                            <th scope="col" class="myTh">Hash</th>
+                            <th scope="col" class="myTh" style="width: 10%">Type</th>
+                            <th scope="col" class="myTh" style="width: 30%">Amount</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
     </div>
-</div>
-   
+</section>
+
     
 <script src="js/qrcode.min.js"></script>
 <script type="text/javascript">
     new QRCode(document.getElementById("qrcode"), "<?php echo $this->walletid; ?>");
 </script>
-  
-<h4>Transactions</h4>
-<div class="table-responsive">
-<table id="ttx" class="table table-sm1 ">
-            <thead class="thead-dark">
-                <tr>
-                    <th style="width: 150px">Date</th>                    
-                    <th>Hash</th>
-                    <th style="width: 10%">Type</th>
-                    <th style="width: 30%">Amount</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-</table>
-</div>        
-    
-</div><!-- Page Content -->
-
 <script src="vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
@@ -125,6 +85,5 @@
                                     
                                     
         });
-    }) 
-    
+    })
 </script>

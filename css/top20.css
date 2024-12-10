@@ -13,6 +13,10 @@
     display: flex;
     gap: 32px;
     justify-content: center;
+
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+    }
 }
 
 .topCardsLeft{

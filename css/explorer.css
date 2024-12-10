@@ -6,13 +6,17 @@
 
 html,
 body{
-    margin: 0;
     font-family: "Space Grotesk", sans-serif;
     color: var(--colors-text-01);
     background: var(--colors-surface-02);
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    min-height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -20,8 +24,12 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 a {
-    color: var(--colors-text-01);
+    color: var(--colors-text-inverse);
     text-decoration: none;
+
+    &:hover {
+        color: var(--colors-text-02)
+    }
 }
 
 .largehash {
@@ -51,16 +59,10 @@ a {
     margin-bottom: 5px;
 }
 
-.main {
-    width: 100%;
-    height: 100%;
-}
-
 .mainContent{
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    position: relative;
 }
 

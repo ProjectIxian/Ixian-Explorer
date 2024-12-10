@@ -1,135 +1,101 @@
-<div class="container-fluid">
-    
-    
-<div class="row">
-    <div class="col-12">
+<link rel="stylesheet" href="css/block.css"/>
 
-    <div class="card mb-4">
-                <div class="card-header">
-                    <div class="row">
-                    <div class="col-md">
-                        
-                        <h1 class="h3 mb-0 text-gray-800">Block #<?php echo $this->blocknum;?></h1>
+<section class="pageContainer">
+    <div class="bg-1">
+        <section class="pageLimitWrapper blockPage">
+            <h1 class="heading-4">Block Height</h1>
+            <div class="heightInfo">
+                <p class="heading-6">#<?php echo $this->blocknum;?></p>
+                <div class="blocks">
+                    <div class="singleBlock">
+                        <img src="gfx/icons/grid_view.svg" alt="grid_view" />
+                        <?php if($this->blocklasthash != "null") {?>
+                        <a href="?p=block&id=<?php echo $this->blocklastnum;?>" class="small-title prevNextText"><?php echo $this->blocklastnum;?></a>
+                        <?php } ?>
                     </div>
-                    <div class="col-md">
-                        
-                        <div style="float:right">
-                      <?php if($this->blocklasthash != "null") {?>
-
-<a class="text-secondary" href="?p=block&id=<?php echo $this->blocklastnum;?>">
-    <i class="fa fa-cube"></i> <?php echo $this->blocklastnum;?></a>
-                            ---
-                            <?php } ?>
-                            
-                            <span class="text-success"><i class="fa fa-cube"></i> <?php echo $this->blocknum;?></span> 
-                            
-                        <?php if($this->blocknextnum != 0) {?>
-                            ---
-<a class="text-secondary" href="?p=block&id=<?php echo $this->blocknextnum;?>">
-    <i class="fa fa-cube"></i> <?php echo $this->blocknextnum;?></a>
-                            <?php } ?>
-                        </div>
-                        
+                    <i class="fa fa-arrow-left-long t-gray"></i>
+                    <div class="singleBlock">
+                         <img src="gfx/icons/widgets.svg" alt="widgets" />
+                        <p class="small-title"><?php echo $this->blocknum;?></p>
                     </div>
-                        
+                    <i class="fa fa-arrow-right-long t-gray"></i>
+                    <div class="singleBlock">
+                        <img src="gfx/icons/grid_view.svg" alt="grid_view" />
+                        <?php if($this->blocknextnum != "null") {?>
+                        <a href="?p=block&id=<?php echo $this->blocknextnum;?>" class="small-title prevNextText"><?php echo $this->blocknextnum;?></a>
+                        <?php } ?>
                     </div>
                 </div>
-                <div class="card-body">
-
+            </div>
+            <h1 class="heading-4">Block Details</h1>
+            <div class="blockDetails">
+                <div class="singleDetail">
+                    <p>Block Hash</p>
+                    <div class="t-red maxHash"><?php echo $this->blockhash; ?></div>
+                </div>
+                <div class="singleDetail">
+                    <p>Age</p>
+                    <p><?php echo $this->blockage;?></p>
+                </div>
+                <div class="singleDetail">
+                    <p>Date</p>
+                    <p><?php echo $this->blockdate;?></p>
+                </div>
+                <div class="singleDetail">
+                    <p>Version</p>
+                    <p><?php echo $this->blockversion;?></p>
+                </div>
+                <div class="singleDetail">
+                    <p>Signatures</p>
+                    <p><?php echo $this->blocksigs;?></p>
+                </div>
+                <div class="singleDetail">
+                    <p>Signatures Required</p>
+                    <p><?php echo $this->requiredsigs;?></p>
+                </div>
+                <div class="singleDetail">
+                    <p>Transactions</p>
+                    <p><?php echo $this->blocktxs;?></p>
+                </div>
+                <div class="singleDetail">
+                    <p>Block Time</p>
+                    <p><?php echo $this->blocktime;?> seconds</p>
+                </div>
+                <div class="singleDetail">
+                    <p>Mining Reward</p>
+                    <p><?php echo $this->miningreward;?> IXI</p>
+                </div>
+                <div class="singleDetail">
+                    <p>Signing Difficulty</p>
+                    <p><?php echo $this->totalsignerdifficulty;?></p>
+                </div>
+                <div class="singleDetail">
+                    <p>Signing Difficulty Required</p>
+                    <p><?php echo $this->requiredsignerdifficulty;?></p>
+                </div>
+                <div class="singleDetail">
+                    <p>Previous Block</p>
+                    <a href="?p=block&id=<?php echo $this->blocklastnum;?>" class="t-blue maxHash"><?php echo $this->blocklasthash;?></a>
+                </div>
+            </div>
+            <h1 class="heading-4">Block Transactions (<?php echo $this->blocktxs;?>)</h1>
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <tbody>
+                <table id="ttx" class="table myTable">
+                    <thead class="thead myTableHead">
                     <tr>
-                      <td style="width: 100px">Hash</td>
-                        <td class="text-wrap" style="max-width: 100px"><b><code><?php echo $this->blockhash; ?></code></b></td>
+                        <th scope="col" class="myTh" style="width: 150px">Date</th>
+                        <th scope="col" class="myTh">Hash</th>
+                        <th scope="col" class="myTh" style="width: 10%">Type</th>
+                        <th scope="col" class="myTh" style="width: 30%">Amount</th>
                     </tr>
-                    <tr>
-                      <td>Age</td>
-                      <td><?php echo $this->blockage;?></td>
-                    </tr>
-                    <tr>
-                      <td>Date</td>
-                      <td><?php echo $this->blockdate;?></td>
-                    </tr>
-                    <tr>
-                      <td>Version</td>
-                      <td><?php echo $this->blockversion;?></td>
-                    </tr>
-                    <tr>
-                      <td>Signatures</td>
-                      <td><?php echo $this->blocksigs;?></td>
-                    </tr>   
-                    <tr>
-                      <td>Signatures Required</td>
-                      <td><?php echo $this->requiredsigs;?></td>
-                    </tr>   
-                    <tr>
-                      <td>Transactions</td>
-                      <td><?php echo $this->blocktxs;?></td>
-                    </tr>
-                    <tr>
-                      <td>Block Time</td>
-                      <td><?php echo $this->blocktime;?> seconds</td>
-                    </tr>
-                    <tr>
-                      <td>Mining Reward</td>
-                      <td><?php echo $this->miningreward;?> IXI</td>
-                    </tr>
-
-                    <?php if($this->blockversion >= 10) {?>
-                    <tr>
-                      <td>Signer Difficulty Total </td>
-                      <td><?php echo $this->totalsignerdifficulty;?></td>
-                    </tr>  
-                    <tr>
-                      <td>Signer Difficulty Required</td>
-                      <td><?php echo $this->requiredsignerdifficulty;?></td>
-                    </tr>
-                    <?php } ?>
-                      <?php if($this->blocklasthash != "null") {?>
-                    <tr>
-                      <td>Previous Block</td>
-                        <td class="text-wrap" style="max-width: 100px"><a href="?p=block&id=<?php echo $this->blocklastnum;?>"><?php echo $this->blocklasthash;?></a></td>
-                    </tr>
-                      <?php } ?>
+                    </thead>
+                    <tbody>
                     </tbody>
                 </table>
             </div>
-                    
-                    
-                                        
-
-                    
-
-                    
-                </div>
-              </div>    
-    
+        </section>
     </div>
-</div>
-    
-  
-<h4>Transactions</h4>
-<div class="table-responsive">
-<table id="ttx" class="table table-sm1 ">
-            <thead class="thead-dark">
-                <tr>
-                    <th style="width: 150px">Date</th>                    
-                    <th>Hash</th>
-                    <th style="width: 10%">Type</th>
-                    <th style="width: 30%">Amount</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-</table>
-</div>    
-    
-    
-    
-</div><!-- Page Content -->
-
-
+</section>
 
 <script src="vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
@@ -151,8 +117,7 @@
             'responsive': true,
             'ajax' : 'feeds/transactions.php?id=<?php echo $this->blocknum;?>'
         });
-    }) 
-    
+    })
 </script>
     
     

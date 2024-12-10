@@ -10,18 +10,21 @@
             <div class="topRight">
                 <div class="topLinks">
                     <p class="small-title t-gray-2">IXI Token</p>
-                    <p class="small-title">Emissions</p>
-                    <p class="small-title">Top 20</p>
+                    <a href="?p=emissions" class="small-title">Emissions</a>
+                    <a href="?p=top" class="small-title">Top 20</a>
                 </div>
                 <div class="topLinks">
-                    <p class="small-title t-gray-2">IXI Token</p>
-                    <p class="small-title">Emissions</p>
-                    <p class="small-title">Top 20</p>
+                    <a href="" class="small-title t-gray-2">Explorer</a>
+                    <a href="index.php" class="small-title">Blocks</a>
+                    <a href="?p=nodes" class="small-title">Nodes</a>
+                    <a href="?p=network" class="small-title">Statistics</a>
                 </div>
                 <div class="topLinks">
-                    <p class="small-title t-gray-2">IXI Token</p>
-                    <p class="small-title">Emissions</p>
-                    <p class="small-title">Top 20</p>
+                    <p class="small-title t-gray-2">Links</p>
+                    <a target="_blank" href="https://www.ixian.io/" class="small-title">Ixian <i class="fa fa-arrow-up-right-from-square fa-sm"></i></a>
+                    <a target="_blank" href="https://docs.ixian.io/" class="small-title">Documentation <i class="fa fa-arrow-up-right-from-square fa-sm"></i></a>
+                    <a target="_blank" href="https://www.ixian.io/?page=downloads" class="small-title">Downloads <i class="fa fa-arrow-up-right-from-square fa-sm"></i></a>
+                    <a target="_blank" href="https://github.com/projectixian" class="small-title">Github <i class="fa fa-arrow-up-right-from-square fa-sm"></i></a>
                 </div>
             </div>
         </div>
@@ -35,7 +38,6 @@
             </div>
         </div>
     </footer>
-</div>
     </div>
   </main>
 

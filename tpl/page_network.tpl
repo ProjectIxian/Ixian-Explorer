@@ -13,7 +13,7 @@
                     <p class="small-title t-gray">Network Block Height</p>
                 </div>
                 <div>
-                    <i class="fas fa-coins fa-2x"></i>
+                    <img src="gfx/icons/numbers.svg" alt="numbers" />
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
                         <p class="small-title t-gray">Last Block Signer Count</p>
                     </div>
                     <div>
-                        <i class="fas fa-coins fa-2x"></i>
+                        <img src="gfx/icons/all_match.svg" alt="all_match" />
                     </div>
                 </div>
                 <div class="ixiCard">
@@ -35,7 +35,7 @@
                         <p class="small-title t-gray">Required Signers</p>
                     </div>
                     <div>
-                        <i class="fas fa-coins fa-2x"></i>
+                        <img src="gfx/icons/orbit.svg" alt="orbit" />
                     </div>
                 </div>
                 <div class="ixiCard">
@@ -44,7 +44,7 @@
                         <p class="small-title t-gray">Block Signing Reward</p>
                     </div>
                     <div>
-                        <i class="fas fa-coins fa-2x"></i>
+                        <img src="gfx/icons/ixian_logo.svg" alt="ixi" />
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
                         <p class="small-title t-gray">Estimated Hash-rate (h/s)</p>
                     </div>
                     <div>
-                        <i class="fas fa-coins fa-2x"></i>
+                        <img src="gfx/icons/charger.svg" alt="charger" />
                     </div>
                 </div>
                 <div class="ixiCard">
@@ -76,7 +76,7 @@
                         <p class="small-title t-gray">Block Mining Reward</p>
                     </div>
                     <div>
-                        <i class="fas fa-coins fa-2x"></i>
+                        <img src="gfx/icons/ixian_logo.svg" alt="ixi" />
                     </div>
                 </div>
             </div>

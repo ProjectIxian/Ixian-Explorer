@@ -10,7 +10,7 @@
           content="Ixian is a fully scalable, decentralized platform that enables encrypted data streaming and high volume of micro-transactions.">
     <meta name="keywords" content="Ixian,DLT,Blockchain,Cryptocurrency,Crypto,IxiCash,Explorer,Spixi">
 
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/fontawesome-free-6.7.1-web/css/all.css" rel="stylesheet" type="text/css">
 
     <link href="css/sb-admin-2.css" rel="stylesheet">
     <link href="css/explorer.css" rel="stylesheet">
@@ -28,57 +28,81 @@
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
 </head>
-
-
-<body id="page-top">
-
-<main class="main">
-    <div class="mainContent">
+<body>
+    <main class="mainContent">
         <div class="bg-3 posSticky">
-            <nav class="navbar-expand-lg navbar-light header pageLimitWrapper">
+            <div class="navSearchMobile">
+                <form class="navSearchInput" method="get">
+                    <input type="hidden" name="p" value="search"/>
+                    <input class="input" aria-label="Search" name="q" value="<?php echo $this->q;?>" type="text" placeholder="Type or pate blocks, addresses or transaction ID"/>
+                    <button type="submit" class="button btn-p">Go <i class="fa fa-arrow-right"></i></button>
+                </form>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-light header pageLimitWrapper">
                 <a class="navbar-brand" href="index.php">
                     <img src="gfx/ixiscope-logotype.svg" alt="ixiscope-logo" width="118px" /></a>
-
-                <ul class="navbar-nav collapse navbar-collapse headerUl" id="navbarSupportedContent">
-                    <li>
-                        <a class="headerItem" href="index.php">Blocks</a>
-                    </li>
-                    <li>
-                        <a class="headerItem" href="?p=nodes">Nodes</a>
-                    </li>
-                    <li>
-                        <a class="headerItem" href="?p=network">Statistics</a>
-                    </li>
-                    <li>
-                        <a class="headerItem" href="?p=top">Top 20</a>
-                    </li>
-                    <li>
-                        <a class="headerItem" href="?p=emissions">IxiCash Emissions</a>
-                    </li>
-                    <li>
-                        <i class="fas fa-moon themeToggle" id="theme-toggle"></i>
-                    </li>
-                </ul>
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                    <ul class="navbar-nav headerUl">
+                        <li>
+                            <a class="headerItem" href="index.php">Blocks</a>
+                        </li>
+                        <li>
+                            <a class="headerItem" href="?p=nodes">Nodes</a>
+                        </li>
+                        <li>
+                            <a class="headerItem" href="?p=network">Statistics</a>
+                        </li>
+                        <li>
+                            <a class="headerItem" href="?p=top">Top 20</a>
+                        </li>
+                        <li>
+                            <a class="headerItem" href="?p=emissions">IxiCash Emissions</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-moon themeToggle" id="theme-toggle"></i>
+                        </li>
+                    </ul>
+                </div>
             </nav>
         </div>
 
 
             <script>
                 document.addEventListener('DOMContentLoaded', () => {
+                    const currentSearch = window.location.search;
                     const themeToggleButton = document.getElementById('theme-toggle');
                     const rootElement = document.documentElement;
+
+                    if (currentSearch === "") {
+                        // Select the element to hide
+                        const navSearchMobile = document.querySelector('.navSearchMobile');
+
+                        // Hide the element if it exists
+                        if (navSearchMobile) {
+                            navSearchMobile.style.display = 'none';
+                        }
+                    }
+
+                    const updateThemeIcon = () => {
+                        if (rootElement.classList.contains('dark-mode')) {
+                            themeToggleButton.classList.add('fa-sun');
+                            themeToggleButton.classList.remove('fa-moon');
+                        } else {
+                            themeToggleButton.classList.add('fa-moon');
+                            themeToggleButton.classList.remove('fa-sun');
+                        }
+                    };
 
                     // Load saved theme from localStorage
                     const savedTheme = localStorage.getItem('theme');
                     if (savedTheme) {
                         rootElement.classList.add(savedTheme);
                     }
+
+                    updateThemeIcon();
 
                     themeToggleButton.addEventListener('click', () => {
                         // Toggle the dark-mode class
@@ -90,6 +114,8 @@
                         } else {
                             localStorage.removeItem('theme');
                         }
+
+                        updateThemeIcon();
                     });
                 });
             </script>
@@ -97,7 +123,7 @@
             <?php if($this->alert > 0) {?>
             <div class="alertContainer">
             <div class="alertCardWarning">
-            <i class="fas fa-hourglass-start"></i>
+            <i class="fa fa-hourglass-start"></i>
             <p>IXIscope DLT Node is synchronizing. Data may be out of date, please try again later.</p>
             </div>
             </div>

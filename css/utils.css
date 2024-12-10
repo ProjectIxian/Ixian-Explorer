@@ -4,9 +4,9 @@
 /*OTHERS*/
 .themeToggle {
     cursor: pointer;
+    color: var(--colors-icon-inverse) !important;
 
     &:hover {
-        color: var(--colors-text-02) !important;
         transform: scale(1.2);
     }
 }
@@ -35,6 +35,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 /*TABLE*/
@@ -71,6 +72,7 @@
     border: 1px solid var(--colors-outline-03);
     padding: 16px;
     border-radius: var(--corner-radius-lg);
+    color: var(--colors-text-01);
 }
 
 /*BUTTON*/
@@ -115,16 +117,28 @@
     color: var(--colors-text-02);
 }
 
+.t-black {
+    color: var(--colors-text-01);
+}
+
 .t-gray-2 {
     color: var(--colors-text-inverse-2);
 }
 
 .t-blue {
-    color: var(--colors-surface-info-inverse)
+    color: var(--colors-text-info)
+}
+
+.t-green {
+    color: var(--colors-text-success);
 }
 
 .t-light-blue {
     color: var(--colors-surface-info)
+}
+
+.t-red {
+    color: var(--colors-text-error);
 }
 
 /*TYPOGRAPHY*/
