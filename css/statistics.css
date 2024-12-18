@@ -8,6 +8,13 @@
     gap: 12px;
 }
 
+.statsHero {
+    padding: 88px 16px 40px 16px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
 .statsContent {
     display: flex;
     flex-direction: column;
@@ -51,13 +58,17 @@
     padding-bottom: 16px;
 }
 
-.blockStatusCardBottomSection{
+.blockStatusCardBottomSection {
     display: flex;
     justify-content: space-between;
     gap: 12px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 }
 
-.rewardsRules{
+.rewardsRules {
     width: 100%;
     background-color: var(--colors-surface-01);
     padding: 24px;
@@ -65,8 +76,13 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    font-size: 14px;
-    line-height: 20px;
+
+    li {
+        font-size: var(--font-size-global-body-md);
+        line-height: var(--line-height-global-body-md);
+        letter-spacing: var(--tracking-global-body-md);
+        font-weight: 400;
+    }
 
     li:not(:last-child) {
         margin-bottom: 10px;

@@ -17,6 +17,12 @@
     gap: 32px;
 }
 
+.flexCGap8 {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 .posSticky {
     position: sticky;
     top: 0;
@@ -36,6 +42,62 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    background-image: var(--pattern);
+    background-position: top right;
+    background-repeat: no-repeat;
+}
+
+.tooltipWrapperHelper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: var(--colors-icon-02);
+    font-size: 14px;
+    overflow: visible;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--colors-surface-inverse);
+    color: var(--colors-text-inverse);
+    padding: 8px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+    z-index: 9999;
+    font-size: var(--font-size-global-body-md);
+    line-height: var(--line-height-global-body-md);
+    letter-spacing: var(--tracking-global-body-md);
+    font-weight: 400;
+}
+
+.tooltip-container:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+    z-index: 99999;
 }
 
 /*TABLE*/
@@ -54,6 +116,10 @@
 
 .myTh {
     border-bottom: unset !important;
+    font-size: var(--font-size-global-label-sm);
+    line-height: var(--line-height-global-label-sm);
+    letter-spacing: var(--tracking-global-label-sm);
+    font-weight: 700;
 }
 
 .myTd {
@@ -141,40 +207,136 @@
     color: var(--colors-text-error);
 }
 
+.walletBadge {
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: var(--font-size-global-label-md);
+    line-height: var(--line-height-global-label-md);
+    letter-spacing: var(--tracking-global-label-md);
+    font-weight: 700;
+}
+
+.wallet-tag-info {
+    color: var(--colors-text-01);
+    background: var(--colors-surface-brand-primary);
+}
+
+.wallet-tag-secondary {
+    color: var(--colors-text-01);
+    background: var(--colors-surface-brand-primary);
+}
+
+.wallet-tag-primary {
+    color: var(--colors-text-01);
+    background: var(--colors-surface-brand-secondary);
+}
+
 /*TYPOGRAPHY*/
 
-.body-text {
-    font-size: 16px;
+
+/* Display Classes */
+.display-lg {
+    font-family: var(--type-font-family-primary), sans-serif;
+    font-size: var(--font-size-display-display-lg);
+    line-height: var(--line-height-display-display-lg);
+    letter-spacing: var(--tracking-display-display-lg);
+    font-weight: 700;
+}
+
+.display-md {
+    font-family: var(--type-font-family-primary), sans-serif;
+    font-size: var(--font-size-display-display-md);
+    line-height: var(--line-height-display-display-md);
+    letter-spacing: var(--tracking-display-display-md);
+    font-weight: 700;
+}
+
+/* Heading Classes */
+.heading-lg {
+    font-family: var(--type-font-family-primary), sans-serif;
+    font-size: var(--font-size-heading-heading-lg);
+    line-height: var(--line-height-heading-heading-lg);
+    letter-spacing: var(--tracking-heading-heading-lg);
+    font-weight: 700;
+}
+
+.heading-md {
+    font-family: var(--type-font-family-primary), sans-serif;
+    font-size: var(--font-size-heading-heading-md);
+    line-height: var(--line-height-heading-heading-md);
+    letter-spacing: var(--tracking-heading-heading-md);
+    font: var(--type-font-family-primary);
+    font-weight: 700;
+}
+
+.heading-sm {
+    font-family: var(--type-font-family-primary), sans-serif;
+    font-size: var(--font-size-heading-heading-sm);
+    line-height: var(--line-height-heading-heading-sm);
+    letter-spacing: var(--tracking-heading-heading-sm);
+    font-weight: 700;
+}
+
+.heading-xs {
+    font-family: var(--type-font-family-primary), sans-serif;
+    font-size: var(--font-size-heading-heading-xs);
+    line-height: var(--line-height-heading-heading-xs);
+    letter-spacing: var(--tracking-heading-heading-xs);
+    font-weight: 700;
+}
+
+/* Label Classes */
+.label-lg {
+    font-size: var(--font-size-global-label-lg);
+    line-height: var(--line-height-global-label-lg);
+    letter-spacing: var(--tracking-global-label-lg);
+    font-weight: 700;
+}
+
+.label-md {
+    font-size: var(--font-size-global-label-md);
+    line-height: var(--line-height-global-label-md);
+    letter-spacing: var(--tracking-global-label-md);
+    font-weight: 700;
+}
+
+.label-sm {
+    font-size: var(--font-size-global-label-sm);
+    line-height: var(--line-height-global-label-sm);
+    letter-spacing: var(--tracking-global-label-sm);
+    font-weight: 700;
+}
+
+.label-xs {
+    font-size: var(--font-size-global-label-xs);
+    line-height: var(--line-height-global-label-xs);
+    letter-spacing: var(--tracking-global-label-xs);
+}
+
+/* Body Classes */
+.body-lg {
+    font-size: var(--font-size-global-body-lg);
+    line-height: var(--line-height-global-body-lg);
+    letter-spacing: var(--tracking-global-body-lg);
     font-weight: 400;
-    line-height: 24px;
 }
 
-.small-title {
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 20px;
+.body-md {
+    font-size: var(--font-size-global-body-md);
+    line-height: var(--line-height-global-body-md);
+    letter-spacing: var(--tracking-global-body-md);
+    font-weight: 400;
 }
 
-.med-title {
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 24px;
+.body-sm {
+    font-size: var(--font-size-global-body-sm);
+    line-height: var(--line-height-global-body-sm);
+    letter-spacing: var(--tracking-global-body-sm);
+    font-weight: 400;
 }
 
-.heading-6 {
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-}
-
-.heading-5 {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 32px;
-}
-
-.heading-4 {
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 36px;
+.body-xs {
+    font-size: var(--font-size-global-body-xs);
+    line-height: var(--line-height-global-body-xs);
+    letter-spacing: var(--tracking-global-body-xs);
 }

@@ -19,9 +19,6 @@
 }
 
 .headerItem {
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 20px;
     color: var(--colors-text-inverse);
 
     &:hover {
@@ -30,26 +27,54 @@
     }
 }
 
-.navSearchMobile{
+.navSearchMobile {
     padding: 8px;
     @media (min-width: 992px) {
         display: none;
     }
 }
 
-.navSearchInput{
+.menuButton{
+    background-color: var(--colors-text-inverse);;
+}
+
+.navSearchInput {
     width: 100%;
     display: flex;
     gap: 8px;
     max-height: 48px;
 
-    input{
+    input {
         padding: 4px 8px !important;
         font-size: 14px;
     }
 
-    button{
+    button {
         padding: 8px;
         gap: 4px;
+    }
+}
+
+.navLeftSide {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    max-width: 600px;
+
+    @media (max-width: 1180px) {
+        flex-direction: column;
+        max-width: 400px;
+    }
+
+    @media (max-width: 768px) {
+        display: inline-block;
+        max-width: unset;
+        width: unset;
+    }
+}
+
+.navLeftSideInput {
+    @media (max-width: 992px) {
+        display: none;
     }
 }

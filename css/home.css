@@ -16,6 +16,10 @@
     }
 }
 
+.homeHero{
+    padding: 88px 16px 40px 16px;
+}
+
 .home-search {
     width: 100%;
     display: flex;

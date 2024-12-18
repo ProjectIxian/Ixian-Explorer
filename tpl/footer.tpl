@@ -4,37 +4,37 @@
         <div class="footerTopContent">
             <div class="topLeft">
                 <img src="gfx/ixiscope-logotype.svg" alt="ixiscope-logo" width="118px" />
-                <p class="med-title">The official block explorer for the Ixian Platform.</p>
-                <p class="med-title t-gray-2">Powered by Ixian</p>
+                <p class="label-md">The official block explorer for the Ixian Platform.</p>
+                <p class="label-md t-gray-2">Powered by Ixian</p>
             </div>
             <div class="topRight">
                 <div class="topLinks">
-                    <p class="small-title t-gray-2">IXI Token</p>
-                    <a href="?p=emissions" class="small-title">Emissions</a>
-                    <a href="?p=top" class="small-title">Top 20</a>
+                    <p class="label-sm t-gray-2">IXI Token</p>
+                    <a href="?p=emissions" class="label-sm">Emissions</a>
+                    <a href="?p=top" class="label-sm">Top 20</a>
                 </div>
                 <div class="topLinks">
-                    <a href="" class="small-title t-gray-2">Explorer</a>
-                    <a href="index.php" class="small-title">Blocks</a>
-                    <a href="?p=nodes" class="small-title">Nodes</a>
-                    <a href="?p=network" class="small-title">Statistics</a>
+                    <p class="label-sm t-gray-2">Explorer</p>
+                    <a href="index.php" class="label-sm">Blocks</a>
+                    <a href="?p=nodes" class="label-sm">Nodes</a>
+                    <a href="?p=network" class="label-sm">Statistics</a>
                 </div>
                 <div class="topLinks">
-                    <p class="small-title t-gray-2">Links</p>
-                    <a target="_blank" href="https://www.ixian.io/" class="small-title">Ixian <i class="fa fa-arrow-up-right-from-square fa-sm"></i></a>
-                    <a target="_blank" href="https://docs.ixian.io/" class="small-title">Documentation <i class="fa fa-arrow-up-right-from-square fa-sm"></i></a>
-                    <a target="_blank" href="https://www.ixian.io/?page=downloads" class="small-title">Downloads <i class="fa fa-arrow-up-right-from-square fa-sm"></i></a>
-                    <a target="_blank" href="https://github.com/projectixian" class="small-title">Github <i class="fa fa-arrow-up-right-from-square fa-sm"></i></a>
+                    <p class="label-sm t-gray-2">Links</p>
+                    <a target="_blank" href="https://www.ixian.io/" class="label-sm">Ixian <i class="fa fa-arrow-up-right-from-square fa-sm"></i></a>
+                    <a target="_blank" href="https://docs.ixian.io/" class="label-sm">Documentation <i class="fa fa-arrow-up-right-from-square fa-sm"></i></a>
+                    <a target="_blank" href="https://www.ixian.io/?page=downloads" class="label-sm">Downloads <i class="fa fa-arrow-up-right-from-square fa-sm"></i></a>
+                    <a target="_blank" href="https://github.com/projectixian" class="label-sm">Github <i class="fa fa-arrow-up-right-from-square fa-sm"></i></a>
                 </div>
             </div>
         </div>
         <div class="footerBottomContent">
-            <p class="small-title">© Ixian Foundation, 2017 - <?php echo date("Y");?></p>
+            <p class="label-sm">© Ixian Foundation, 2017 - <?php echo date("Y");?></p>
             <div class="bottomLinks">
-                <p class="small-title">Terms of Use</p>
-                <p class="small-title">Privacy Policy</p>
-                <p class="small-title">Cookies</p>
-                <p class="small-title">MIT Licence</p>
+                <p class="label-sm">Terms of Use</p>
+                <p class="label-sm">Privacy Policy</p>
+                <p class="label-sm">Cookies</p>
+                <p class="label-sm">MIT Licence</p>
             </div>
         </div>
     </footer>

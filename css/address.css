@@ -1,6 +1,9 @@
 @import "compontents.css";
 @import "utils.css";
 
+.addressWrapper{
+    padding: 40px 16px 80px 16px;
+}
 
 .addressPage {
     height: 100%;
@@ -19,7 +22,7 @@
     flex-direction: column;
     gap: 12px;
     align-items: center;
-
+    margin-bottom: 40px;
 }
 
 .qrCode {
@@ -42,7 +45,9 @@
     flex-direction: column;
     gap: 12px;
     align-items: center;
-    overflow: hidden;
+    /*overflow: hidden;*/
+    word-break: break-word;
+    text-align: center;
 
     @media (max-width: 320px) {
         font-size: 10px;

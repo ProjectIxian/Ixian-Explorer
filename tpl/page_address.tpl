@@ -1,11 +1,17 @@
 <link rel="stylesheet" href="css/address.css"/>
 
 <section class="pageContainer">
-    <div class="bg-1">
+    <div class="bg-1 addressWrapper">
         <section class="pageLimitWrapper addressPage">
-            <h1 class="med-title">Address Details</h1>
+            <h1 class="heading-xs">Address Details</h1>
             <div class="addressCard">
-                <p class="small-title t-gray">QR Code</p>
+                <div class="tooltipWrapperHelper">
+                    <p class="label-sm t-gray">QR Code</p>
+                    <div class="tooltip-container">
+                        <i class="fa fa-question-circle"></i>
+                        <span class="tooltip">Helper tooltip content...</span>
+                    </div>
+                </div>
                 <div id="qrcode" class="qrCode"></div>
                 <div class="singleInfo">
                     <?php
@@ -14,15 +20,27 @@
                       if(array_key_exists($this->walletid, $this->known_wallets)) {
                     $tag_name = $this->known_wallets[$this->walletid][0];
                     $tag_color = $this->known_wallets[$this->walletid][1];
-                    $tag = "<span class=\"badge badge-$tag_color\">$tag_name</span>";
+                    $tag = "<span class=\"walletBadge wallet-tag-$tag_color \">$tag_name</span>";
                     }
                     ?>
-                    <p class="small-title t-gray">Address</p>
-                    <span><?php echo $tag;?> <b><code><?php echo $this->walletid; ?></code></b></span>
+                    <div class="tooltipWrapperHelper">
+                        <p class="label-sm t-gray">Address</p>
+                        <div class="tooltip-container">
+                            <i class="fa fa-question-circle"></i>
+                            <span class="tooltip">Helper tooltip content...</span>
+                        </div>
+                    </div>
+                    <span class="label-md"><?php echo $tag;?> <b><code><?php echo $this->walletid; ?></code></b></span>
                 </div>
                 <div class="singleInfo">
-                    <p class="small-title t-gray">Balance</p>
-                    <p><?php echo number_format($this->balance, 8);?> IXI</p>
+                    <div class="tooltipWrapperHelper">
+                        <p class="label-sm t-gray">Balance</p>
+                        <div class="tooltip-container">
+                            <i class="fa fa-question-circle"></i>
+                            <span class="tooltip">Helper tooltip content...</span>
+                        </div>
+                    </div>
+                    <p class="heading-xs"><?php echo number_format($this->balance, 8);?> IXI</p>
                 </div>
             </div>
             <div>

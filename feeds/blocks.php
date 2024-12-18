@@ -31,10 +31,10 @@ $data = &$ret["data"];
 foreach($data as &$block)
 {
     $blockheight = $block[0];
-    $block[0] = "<a href='index.php?p=block&id=$blockheight'>$blockheight</a>";
-    $block[1] = "<a href='index.php?p=block&id=$blockheight'>$block[1]</a>";
-    $block[2] = humanTiming($block[2])." ago"; //date("Y-m-d",$block[3]);
-    $block[3] = number_format($block[3]);
+    $block[0] = "<span class='label-md t-black'>$blockheight</span>";
+    $block[1] = "<a class='body-sm t-blue' href='index.php?p=block&id=$blockheight'>$block[1]</a>";
+    $block[2] = "<span class='label-sm t-gray'>" . humanTiming($block[2]) . " ago</span>"; //date("Y-m-d",$block[3]);
+    $block[3] =  "<span class='body-sm t-black'>".number_format($block[3])."</span>";
 /*    $address = $worker[0];
     $address = "<a href='?p=address&id=$address'>$address</a>";
     $worker[0] = $address;

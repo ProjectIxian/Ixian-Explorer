@@ -10,6 +10,15 @@
     flex-wrap: wrap;
 }
 
+.nodesHero{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 88px 16px 40px 16px !important;
+    gap: 64px;
+}
+
+
 .nodeCard {
     width: 100%;
     max-width: 600px;

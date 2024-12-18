@@ -5,24 +5,36 @@
 <section class="pageContainer">
     <div class="top20Header pageLimitWrapper">
         <div>
-            <h1 class="heading-4">Top 20 Addresses</h1>
-            <p class="body-text">List of 20 wallet addresses that contain most IXI tokens</p>
+            <h1 class="heading-lg">Top 20 Addresses</h1>
+            <p class="body-md">List of 20 wallet addresses that contain most IXI tokens</p>
         </div>
         <div class="topCards">
             <div class="topCardsLeft">
                 <div class="ixiCard">
-                    <div>
-                        <p class="heading-5"><?php echo $this->supply;?></p>
-                        <p class="small-title t-gray">IXI Circulating Supply</p>
+                    <div class="flexCGap8">
+                        <p class="heading-sm"><?php echo $this->supply;?></p>
+                        <div class="tooltipWrapperHelper">
+                            <p class="label-sm t-gray">IXI Circulating Supply</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="tooltip">Helper tooltip content...</span>
+                            </div>
+                        </div>
                     </div>
                     <div>
                         <img src="gfx/icons/ixian_logo.svg" alt="ixi" />
                     </div>
                 </div>
                 <div class="ixiCard">
-                    <div>
-                        <p class="heading-5"><?php echo $this->totalAmount;?></p>
-                        <p class="small-title t-gray">Top 20 Wallet Amount (excluding foundation and exchange wallets)</p>
+                    <div class="flexCGap8">
+                        <p class="heading-sm"><?php echo $this->totalAmount;?></p>
+                        <div class="tooltipWrapperHelper">
+                            <p class="label-sm t-gray">Top 20 Wallet Amount (excluding foundation and exchange wallets)</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="tooltip">Helper tooltip content...</span>
+                            </div>
+                        </div>
                     </div>
                     <div>
                         <img src="gfx/icons/wallet.svg" alt="wallet" />
@@ -33,8 +45,8 @@
                     <div class="blockStatusCardHeader">
                         <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
                         <div>
-                            <h3 class="heading-5">IXI Distribution</h3>
-                            <p class="body-text">Data bellow shows distribution with genesis and exchange wallets included.</p>
+                            <h3 class="heading-sm">IXI Distribution</h3>
+                            <p class="body-md">Data bellow shows distribution with genesis and exchange wallets included.</p>
                         </div>
                     </div>
                     <div>
@@ -47,7 +59,7 @@
     </div>
     <div class="bg-1">
         <section class="top20Wallets pageLimitWrapper flexCGap32">
-            <h4 class="heading-5">Top 20 Wallets</h4>
+            <h4 class="heading-sm">Top 20 Wallets</h4>
             <div class="table-responsive">
                 <table id="ttx" class="table myTable">
                     <thead class="thead myTableHead">
@@ -67,15 +79,15 @@
                     if(array_key_exists($address, $this->known_wallets)) {
                     $tag_name = $this->known_wallets[$address][0];
                     $tag_color = $this->known_wallets[$address][1];
-                    $tag = "<span class=\"badge badge-$tag_color\">$tag_name</span>";
+                    $tag = "<span class=\"walletBadge wallet-tag-$tag_color \">$tag_name</span>";
                     }
                     ?>
                     <tr>
-                        <td class="myTd small-title">#<?php echo $pos;?></td>
+                        <td class="myTd label-md">#<?php echo $pos;?></td>
                         <td class="text-truncate myTd" style="max-width: 300px;">
-                            <?php echo $tag;?> <a class="t-gray" href="index.php?p=address&id=<?php echo $address;?>"><?php echo $address;?></a>
+                            <span class="label-md mr-1"><?php echo $tag;?></span><a class="body-sm t-blue" href="index.php?p=address&id=<?php echo $address;?>"><?php echo $address;?></a>
                         </td>
-                        <td class="text-right myTd t-gray"><?php echo number_format($addr["amount"], 8)." IXI";?></td>
+                        <td class="text-right myTd label-sm t-gray"><?php echo number_format($addr["amount"], 8)." IXI";?></td>
                     </tr>
 
                     <?php

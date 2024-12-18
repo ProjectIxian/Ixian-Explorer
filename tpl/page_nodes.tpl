@@ -3,34 +3,52 @@
 <!-- Begin Page Content -->
 
 <section class="pageContainer">
-    <div class="pageLimitWrapper">
-        <div class="mb-5">
-            <h1 class="heading-4">Ixian Nodes</h1>
-            <p class="body-text">Explore the stats of IXI nodes and connected clients.</p>
+    <div class="pageLimitWrapper nodesHero">
+        <div>
+            <h1 class="heading-lg">Ixian Nodes</h1>
+            <p class="body-md">Explore the stats of IXI nodes and connected clients.</p>
         </div>
         <div class="cardGroup">
             <div class="ixiCard">
-                <div>
-                    <p class="heading-5"><?php echo $this->m;?></p>
-                    <p class="small-title t-gray">Active IXI DLT Nodes</p>
+                <div class="flexCGap8">
+                    <p class="heading-sm"><?php echo $this->m;?></p>
+                    <div class="tooltipWrapperHelper">
+                        <p class="label-sm t-gray">Active IXI DLT Nodes</p>
+                        <div class="tooltip-container">
+                            <i class="fa fa-question-circle"></i>
+                            <span class="tooltip">Helper tooltip content...</span>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <img src="gfx/icons/linked_services.svg" alt="ixi" />
                 </div>
             </div>
             <div class="ixiCard">
-                <div>
-                    <p class="heading-5"><?php echo $this->r;?></p>
-                    <p class="small-title t-gray">Active IXI S2 Nodes</p>
+                <div class="flexCGap8">
+                    <p class="heading-sm"><?php echo $this->r;?></p>
+                    <div class="tooltipWrapperHelper">
+                        <p class="label-sm t-gray">Active IXI S2 Nodes</p>
+                        <div class="tooltip-container">
+                            <i class="fa fa-question-circle"></i>
+                            <span class="tooltip">Helper tooltip content...</span>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <img src="gfx/icons/s2.svg" alt="s2" />
                 </div>
             </div>
             <div class="ixiCard">
-                <div>
-                    <p class="heading-5"><?php echo $this->c;?></p>
-                    <p class="small-title t-gray">Currently Connected Clients</p>
+                <div class="flexCGap8">
+                    <p class="heading-sm"><?php echo $this->c;?></p>
+                    <div class="tooltipWrapperHelper">
+                        <p class="label-sm t-gray">Currently Connected Clients</p>
+                        <div class="tooltip-container">
+                            <i class="fa fa-question-circle"></i>
+                            <span class="tooltip">Helper tooltip content...</span>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <img src="gfx/icons/spixi_logo.svg" alt="spixi" />
@@ -45,8 +63,8 @@
                 <div class="nodeCardHeader">
                     <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
                     <div>
-                        <h3 class="heading-5">IXI DLT Nodes</h3>
-                        <p class="body-text">Data bellow shows all currently active DLT nodes.</p>
+                        <h3 class="heading-sm">IXI DLT Nodes</h3>
+                        <p class="body-md">Data bellow shows all currently active DLT nodes.</p>
                     </div>
                 </div>
                 <div>
@@ -77,8 +95,8 @@
                 <div class="nodeCardHeader">
                     <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
                     <div>
-                        <h3 class="heading-5">IXI S2 Nodes</h3>
-                        <p class="body-text">Data bellow shows all currently active S2 streaming nodes.</p>
+                        <h3 class="heading-sm">IXI S2 Nodes</h3>
+                        <p class="body-md">Data bellow shows all currently active S2 streaming nodes.</p>
                     </div>
                 </div>
                 <div>

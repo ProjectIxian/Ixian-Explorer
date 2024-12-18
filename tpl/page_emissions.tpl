@@ -3,19 +3,17 @@
 <link rel="stylesheet" href="css/emissions.css"/>
 
 <section class="pageContainer">
-    <div class="bg-2">
         <section class="emissionsHeader pageLimitWrapper">
-            <h1 class="heading-4">IXI Emissions</h1>
-            <p class="body-text"> This page contains all information regarding the IxiCash emission model, which includes the mining and signing block rewards, as well as the projected number of total IXI in circulation at any given block height.</p>
+            <h1 class="heading-lg">IXI Emissions</h1>
+            <p class="body-md"> This page contains all information regarding the IxiCash emission model, which includes the mining and signing block rewards, as well as the projected number of total IXI in circulation at any given block height.</p>
         </section>
-    </div>
     <div class="bg-1">
         <section class="emissionBlocks pageLimitWrapper flexCGap32">
             <div class="blockStatusCard">
                 <div class="blockStatusCardHeader">
                     <div>
-                        <h3 class="heading-5">Mining Block Reward Chart</h3>
-                        <p class="body-text">Data bellow shows the mining reward for every block mined.</p>
+                        <h3 class="heading-sm">Mining Block Reward Chart</h3>
+                        <p class="body-md">Data bellow shows the mining reward for every block mined.</p>
                     </div>
                 </div>
                 <div class="blockStatusCardBottomSection">
@@ -23,7 +21,7 @@
                         <canvas id="chart-0"></canvas>
                     </div>
                     <div class="rewardsRules">
-                        <p class="small-title">IxiCash emission model for mining rewards:</p>
+                        <p class="label-md">IxiCash emission model for mining rewards:</p>
                             <ul>
                                 <li>
                                     Mining reward starts with 10 IXI and increases by 0.009 IXI with every block until block height #1051200.
@@ -42,8 +40,8 @@
             <div class="blockStatusCard">
                 <div class="blockStatusCardHeader">
                     <div>
-                        <h3 class="heading-5">Signing Block Reward Chart</h3>
-                        <p class="body-text">Data bellow  shows the projected signing reward for every block signed.</p>
+                        <h3 class="heading-sm">Signing Block Reward Chart</h3>
+                        <p class="body-md">Data bellow  shows the projected signing reward for every block signed.</p>
                     </div>
                 </div>
                 <div class="blockStatusCardBottomSection">
@@ -51,7 +49,7 @@
                         <canvas id="chart-1"></canvas>
                     </div>
                     <div class="rewardsRules">
-                        <p class="small-title">Emission model for signing rewards:</p>
+                        <p class="label-md">Emission model for signing rewards:</p>
                             <ul>
                                 <li>
                                     Signing reward is set to 0.1% of the total supply per year until block height #86400.
@@ -71,8 +69,8 @@
             <div class="blockStatusCard">
                 <div class="blockStatusCardHeader">
                     <div>
-                        <h3 class="heading-5">Projected Total IXI in Circulation at Each Block Height</h3>
-                        <p class="body-text" style="max-width: 640px"> Data bellow shows the projected total IXI in circulation at each block height. One block represents approximately 30 seconds. The supply increases according to the mining and signing rewards.</p>
+                        <h3 class="heading-sm">Projected Total IXI in Circulation at Each Block Height</h3>
+                        <p class="body-md" style="max-width: 640px"> Data bellow shows the projected total IXI in circulation at each block height. One block represents approximately 30 seconds. The supply increases according to the mining and signing rewards.</p>
                     </div>
                 </div>
                 <div class="blockStatusCardBottomSection">
@@ -80,8 +78,8 @@
                         <canvas id="chart-2"></canvas>
                     </div>
                     <div class="rewardsRules">
-                        <p class="small-title">IxiCash emission model total supply:</p>
-                            <ul class="emissions-list">
+                        <p class="label-md">IxiCash emission model total supply:</p>
+                            <ul>
                                 <li>
                                     Block: <strong>#1</strong><br/>
                                     Total supply: <strong>2,000,320,000 IXI</strong>

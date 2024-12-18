@@ -3,14 +3,20 @@
 <link rel="stylesheet" href="css/statistics.css"/>
 
 <section class="pageContainer">
-    <div class="pageLimitWrapper flexCGap32">
+    <div class="pageLimitWrapper statsHero">
         <div class="statsHeader">
-            <h1 class="heading-4">Ixian Stats</h1>
-            <p class="body-text">All ixian blok and mining stats</p>
+            <h1 class="heading-lg">Ixian Stats</h1>
+            <p class="body-md">All ixian blok and mining stats</p>
             <div class="ixiCard">
-                <div>
-                    <p class="heading-5"><?php echo $this->bh;?></p>
-                    <p class="small-title t-gray">Network Block Height</p>
+                <div class="flexCGap8">
+                    <p class="heading-sm"><?php echo $this->bh;?></p>
+                    <div class="tooltipWrapperHelper">
+                        <p class="label-sm t-gray">Network Block Height</p>
+                        <div class="tooltip-container">
+                            <i class="fa fa-question-circle"></i>
+                            <span class="tooltip">Helper tooltip content...</span>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <img src="gfx/icons/numbers.svg" alt="numbers" />
@@ -18,30 +24,48 @@
             </div>
         </div>
         <div class="statsContent">
-            <p class="heading-6 t-gray">Block Signing Stats</p>
+            <p class="heading-sm t-gray">Block Signing Stats</p>
             <div class="statsCardContainer">
                 <div class="ixiCard">
-                    <div>
-                        <p class="heading-5"><?php echo $this->stakers;?></p>
-                        <p class="small-title t-gray">Last Block Signer Count</p>
+                    <div class="flexCGap8">
+                        <p class="heading-sm"><?php echo $this->stakers;?></p>
+                        <div class="tooltipWrapperHelper">
+                            <p class="label-sm t-gray">Last Block Signer Count</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="tooltip">Helper tooltip content...</span>
+                            </div>
+                        </div>
                     </div>
                     <div>
                         <img src="gfx/icons/all_match.svg" alt="all_match" />
                     </div>
                 </div>
                 <div class="ixiCard">
-                    <div>
-                        <p class="heading-5"><?php echo $this->requiredsigners;?></p>
-                        <p class="small-title t-gray">Required Signers</p>
+                    <div class="flexCGap8">
+                        <p class="heading-sm"><?php echo $this->requiredsigners;?></p>
+                        <div class="tooltipWrapperHelper">
+                            <p class="label-sm t-gray">Required Signers</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="tooltip">Helper tooltip content...</span>
+                            </div>
+                        </div>
                     </div>
                     <div>
                         <img src="gfx/icons/orbit.svg" alt="orbit" />
                     </div>
                 </div>
                 <div class="ixiCard">
-                    <div>
-                        <p class="heading-5"><?php echo $this->blockstake;?></p>
-                        <p class="small-title t-gray">Block Signing Reward</p>
+                    <div class="flexCGap8">
+                        <p class="heading-sm"><?php echo $this->blockstake;?></p>
+                        <div class="tooltipWrapperHelper">
+                            <p class="label-sm t-gray">Block Signing Reward</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="tooltip">Helper tooltip content...</span>
+                            </div>
+                        </div>
                     </div>
                     <div>
                         <img src="gfx/icons/ixian_logo.svg" alt="ixi" />
@@ -50,30 +74,48 @@
             </div>
         </div>
         <div class="statsContent">
-            <p class="heading-6 t-gray">Mining Stats</p>
+            <p class="heading-sm t-gray">Mining Stats</p>
             <div class="statsCardContainer">
                 <div class="ixiCard">
-                    <div>
-                        <p class="heading-5"><?php echo number_format($this->blockratio,2);?>%</p>
-                        <p class="small-title t-gray">Unsolved Blocks Ratio</p>
+                    <div class="flexCGap8">
+                        <p class="heading-sm"><?php echo number_format($this->blockratio,2);?>%</p>
+                        <div class="tooltipWrapperHelper">
+                            <p class="label-sm t-gray">Unsolved Blocks Ratio</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="tooltip">Helper tooltip content...</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="progress progress-sm" style="width: 100%;max-width: 100px;height: 20px;background: #ABAEFA">
                         <div class="progress-bar t-blue" role="progressbar" style="width: <?php echo $this->blockratio;?>%" aria-valuenow="<?php echo $this->blockratio;?>" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
                 <div class="ixiCard">
-                    <div>
-                        <p class="heading-5"><?php echo $this->hashrate;?></p>
-                        <p class="small-title t-gray">Estimated Hash-rate (h/s)</p>
+                    <div class="flexCGap8">
+                        <p class="heading-sm"><?php echo $this->hashrate;?></p>
+                        <div class="tooltipWrapperHelper">
+                            <p class="label-sm t-gray">Estimated Hash-rate (h/s)</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="tooltip">Helper tooltip content...</span>
+                            </div>
+                        </div>
                     </div>
                     <div>
                         <img src="gfx/icons/charger.svg" alt="charger" />
                     </div>
                 </div>
                 <div class="ixiCard">
-                    <div>
-                        <p class="heading-5"><?php echo $this->miningreward;?></p>
-                        <p class="small-title t-gray">Block Mining Reward</p>
+                    <div class="flexCGap8">
+                        <p class="heading-sm"><?php echo $this->miningreward;?></p>
+                        <div class="tooltipWrapperHelper">
+                            <p class="label-sm t-gray">Block Mining Reward</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="tooltip">Helper tooltip content...</span>
+                            </div>
+                        </div>
                     </div>
                     <div>
                         <img src="gfx/icons/ixian_logo.svg" alt="ixi" />
@@ -89,8 +131,8 @@
                 <div class="blockStatusCardHeader">
                     <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
                     <div>
-                        <h3 class="heading-5">Block Status</h3>
-                        <p class="body-text">Showing data for last <span class="t-blue small-title"><?php echo $this->numblocks;?></span> blocks.</p>
+                        <h3 class="heading-sm">Block Status</h3>
+                        <p class="body-md">Showing data for last <span class="t-blue label-sm"><?php echo $this->numblocks;?></span> blocks.</p>
                     </div>
                 </div>
                 <div>
@@ -103,8 +145,8 @@
                 <div class="blockStatusCardHeader">
                     <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
                     <div>
-                        <h3 class="heading-5">Block Signing Status</h3>
-                        <p class="body-text">Showing data for last <span class="t-blue small-title"><?php echo $this->numblocks;?></span> blocks.</p>
+                        <h3 class="heading-sm">Block Signing Status</h3>
+                        <p class="body-md">Showing data for last <span class="t-blue label-sm"><?php echo $this->numblocks;?></span> blocks.</p>
                     </div>
                 </div>
                 <div>
@@ -117,8 +159,8 @@
                 <div class="blockStatusCardHeader">
                     <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
                     <div>
-                        <h3 class="heading-5">Mining Status</h3>
-                        <p class="body-text">Showing data for last <span class="t-blue small-title"><?php echo $this->numblocks;?></span> blocks.</p>
+                        <h3 class="heading-sm">Mining Status</h3>
+                        <p class="body-md">Showing data for last <span class="t-blue label-sm"><?php echo $this->numblocks;?></span> blocks.</p>
                     </div>
                 </div>
                 <div>

@@ -1,14 +1,15 @@
 @import "compontents.css";
 @import "utils.css";
 
-.top20Header{
+.top20Header {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 32px;
+    padding: 88px 16px 40px 16px !important;
 }
 
-.topCards{
+.topCards {
     width: 100%;
     display: flex;
     gap: 32px;
@@ -19,7 +20,7 @@
     }
 }
 
-.topCardsLeft{
+.topCardsLeft {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -31,7 +32,7 @@
     max-width: 670px !important;
 }
 
-.top20Wallets{
+.top20Wallets {
     background: var(--colors-surface-01);
     padding: 48px 16px 80px 16px;
     min-height: 624px;

@@ -18,7 +18,7 @@ $db_name = "explorer01"; // Database name
 
 // Ixian Node configuration
 $dlt_connect_mode = "http"; // http or ssh
-$dlt_host = "http://localhost:8080"; // DLT Node that the explorer connects to
+$dlt_host = "http://localhost:8081"; // DLT Node that the explorer connects to
 
 // Uncomment when using ssh mode
 /*
