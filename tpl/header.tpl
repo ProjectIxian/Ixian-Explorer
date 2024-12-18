@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Ixian Block Explorer</title>
+    <title>IXIscope</title>
     <meta name="description"
           content="Ixian is a fully scalable, decentralized platform that enables encrypted data streaming and high volume of micro-transactions.">
     <meta name="keywords" content="Ixian,DLT,Blockchain,Cryptocurrency,Crypto,IxiCash,Explorer,Spixi">
@@ -33,7 +33,7 @@
             <div class="navSearchMobile">
                 <form class="navSearchInput" method="get">
                     <input type="hidden" name="p" value="search"/>
-                    <input class="input" aria-label="Search" name="q" value="<?php echo $this->q;?>" type="text" placeholder="Type or pate blocks, addresses or transaction ID"/>
+                    <input class="input" aria-label="Search" name="q" value="<?php echo $this->q;?>" type="text" placeholder="Type or paste blocks, addresses or transaction ID"/>
                     <button type="submit" class="button btn-p">Go <i class="fa fa-arrow-right"></i></button>
                 </form>
             </div>
@@ -44,7 +44,7 @@
                     </a>
                     <form class="navSearchInput navLeftSideInput" method="get">
                         <input type="hidden" name="p" value="search"/>
-                        <input class="input" aria-label="Search" name="q" value="<?php echo $this->q;?>" type="text" placeholder="Type or pate blocks, addresses or transaction ID"/>
+                        <input class="input" aria-label="Search" name="q" value="<?php echo $this->q;?>" type="text" placeholder="Type or paste blocks, addresses or transaction ID"/>
                         <button type="submit" class="button btn-p">Go <i class="fa fa-arrow-right"></i></button>
                     </form>
                 </div>

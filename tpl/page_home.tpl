@@ -4,11 +4,11 @@
 <section class="pageContainer">
     <div class="pageLimitWrapper homeHero">
         <div class="home-search">
-            <h1 class="heading-lg">Welcome to Ixiscope</h1>
+            <h1 class="heading-lg">Welcome to ixiscope</h1>
             <p class="body-lg">The official <span class="label-lg">Block Explorer</span> for the Ixian Platform.</p>
             <form class="inputContainer" method="get">
                 <input type="hidden" name="p" value="search"/>
-                <input class="input" aria-label="Search" name="q" value="<?php echo $this->q;?>" type="text" placeholder="Type or pate blocks, addresses or transaction ID"/>
+                <input class="input" aria-label="Search" name="q" value="<?php echo $this->q;?>" type="text" placeholder="Type or paste blocks, addresses or transaction ID"/>
                 <button type="submit" class="button btn-p label-md">Go <i class="fa fa-arrow-right"></i></button>
             </form>
             <p class="label-sm t-gray">Use the search bar to scan for transactions, wallets, names and blocks.</p>

@@ -6,7 +6,7 @@
     <div class="pageLimitWrapper statsHero">
         <div class="statsHeader">
             <h1 class="heading-lg">Ixian Stats</h1>
-            <p class="body-md">All ixian blok and mining stats</p>
+            <p class="body-md">All ixian block and mining stats</p>
             <div class="ixiCard">
                 <div class="flexCGap8">
                     <p class="heading-sm"><?php echo $this->bh;?></p>
