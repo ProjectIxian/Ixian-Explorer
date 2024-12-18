@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="footerBottomContent">
-            <p class="label-sm">© Ixian Foundation, 2017 - <?php echo date("Y");?></p>
+            <p class="label-sm">© Ixian, 2017 - <?php echo date("Y");?></p>
             <div class="bottomLinks">
                 <a href="https://www.ixian.io/?page=terms" target="_blank" class="label-sm">Terms of Use</a>
                 <a href="https://www.ixian.io/?page=privacy" target="_blank" class="label-sm">Privacy Policy</a>

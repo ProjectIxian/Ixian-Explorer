@@ -46,7 +46,7 @@
                         <p>Age</p>
                         <div class="tooltip-container">
                             <i class="fa fa-question-circle"></i>
-                            <span class="myTooltip">Determines how long ago was the block signed and added to the blockchain.</span>
+                            <span class="myTooltip">Determines how long ago the block was signed and added to the blockchain.</span>
                         </div>
                     </div>
                     <p><?php echo $this->blockage;?></p>
@@ -76,7 +76,7 @@
                         <p>Signatures</p>
                         <div class="tooltip-container">
                             <i class="fa fa-question-circle"></i>
-                            <span class="myTooltip">How many Ixian DLT nodes have signed this block.</span>
+                            <span class="myTooltip">Number of Ixian DLT nodes have signed this block.</span>
                         </div>
                     </div>
                     <p><?php echo $this->blocksigs;?></p>
@@ -106,7 +106,7 @@
                         <p>Block Time</p>
                         <div class="tooltip-container">
                             <i class="fa fa-question-circle"></i>
-                            <span class="myTooltip">How much time was required for this block to be processed by the network.</span>
+                            <span class="myTooltip">Amount of time that was required for this block to be processed by the network.</span>
                         </div>
                     </div>
                     <p><?php echo $this->blocktime;?> seconds</p>

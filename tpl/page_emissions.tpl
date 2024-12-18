@@ -13,7 +13,7 @@
                 <div class="blockStatusCardHeader">
                     <div>
                         <h3 class="heading-sm">Mining Block Reward Chart</h3>
-                        <p class="body-md">Data bellow shows the mining reward for every block mined.</p>
+                        <p class="body-md">Data below shows the mining reward for every block mined.</p>
                     </div>
                 </div>
                 <div class="blockStatusCardBottomSection">
@@ -41,7 +41,7 @@
                 <div class="blockStatusCardHeader">
                     <div>
                         <h3 class="heading-sm">Signing Block Reward Chart</h3>
-                        <p class="body-md">Data bellow  shows the projected signing reward for every block signed.</p>
+                        <p class="body-md">Data below  shows the projected signing reward for every block signed.</p>
                     </div>
                 </div>
                 <div class="blockStatusCardBottomSection">
@@ -70,7 +70,7 @@
                 <div class="blockStatusCardHeader">
                     <div>
                         <h3 class="heading-sm">Projected Total IXI in Circulation at Each Block Height</h3>
-                        <p class="body-md" style="max-width: 640px"> Data bellow shows the projected total IXI in circulation at each block height. One block represents approximately 30 seconds. The supply increases according to the mining and signing rewards.</p>
+                        <p class="body-md" style="max-width: 640px"> Data below shows the projected total IXI in circulation at each block height. One block represents approximately 30 seconds. The supply increases according to the mining and signing rewards.</p>
                     </div>
                 </div>
                 <div class="blockStatusCardBottomSection">

@@ -22,6 +22,7 @@ body {
     /*LIGHT*/
     --pattern: url("../gfx/pattern-light.svg");
     /*DARK*/
+
     html.dark & {
         --pattern: url("../gfx/pattern-dark.svg");
     }
@@ -48,6 +49,16 @@ a {
     text-overflow: ellipsis;
 }
 
+#tblocks,
+#ttx {
+    td, tr, th {
+        border: none !important;
+    }
+
+    td {
+        border-bottom: 1px solid var(--colors-outline-02) !important;
+    }
+}
 
 #tblocks td:nth-child(2) {
     max-width: 140px;

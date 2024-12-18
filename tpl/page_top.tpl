@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div>
-                        <img src="gfx/icons/ixian_logo.svg" alt="ixi" />
+                        <img class="theme-dependent" data-icon="ixian_logo.svg" alt="ixi" />
                     </div>
                 </div>
                 <div class="ixiCard">
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div>
-                        <img src="gfx/icons/wallet.svg" alt="wallet" />
+                        <img class="theme-dependent" data-icon="wallet.svg" alt="wallet" />
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                         <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
                         <div>
                             <h3 class="heading-sm">IXI Distribution</h3>
-                            <p class="body-md">Data bellow shows distribution with genesis and exchange wallets included.</p>
+                            <p class="body-md">Data below shows distribution with genesis and exchange wallets included.</p>
                         </div>
                     </div>
                     <div>

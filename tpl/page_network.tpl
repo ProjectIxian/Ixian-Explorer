@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div>
-                    <img src="gfx/icons/numbers.svg" alt="numbers" />
+                    <img class="theme-dependent" data-icon="numbers.svg" alt="numbers" />
                 </div>
             </div>
         </div>
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <div>
-                        <img src="gfx/icons/all_match.svg" alt="all_match" />
+                        <img class="theme-dependent" data-icon="all_match.svg" alt="all_match" />
                     </div>
                 </div>
                 <div class="ixiCard">
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     <div>
-                        <img src="gfx/icons/orbit.svg" alt="orbit" />
+                        <img class="theme-dependent" data-icon="orbit.svg" alt="orbit" />
                     </div>
                 </div>
                 <div class="ixiCard">
@@ -65,12 +65,12 @@
                             <p class="label-sm t-gray">Block Signing Reward</p>
                             <div class="tooltip-container">
                                 <i class="fa fa-question-circle"></i>
-                                <span class="myTooltip">The block signing reward is split equally between up to 1000 signers of the block.</span>
+                                <span class="myTooltip">The block signing reward is split between up to 1000 signers of the block.</span>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <img src="gfx/icons/ixian_logo.svg" alt="ixi" />
+                        <img class="theme-dependent" data-icon="ixian_logo.svg" alt="ixi" />
                     </div>
                 </div>
             </div>
@@ -105,7 +105,7 @@
                         </div>
                     </div>
                     <div>
-                        <img src="gfx/icons/charger.svg" alt="charger" />
+                        <img class="theme-dependent" data-icon="charger.svg" alt="charger" />
                     </div>
                 </div>
                 <div class="ixiCard">
@@ -115,12 +115,12 @@
                             <p class="label-sm t-gray">Block Mining Reward</p>
                             <div class="tooltip-container">
                                 <i class="fa fa-question-circle"></i>
-                                <span class="myTooltip">The block mining reward is split equally between miners that participated in PoW required for the block.</span>
+                                <span class="myTooltip">The block mining reward is split between miners that participated in PoW required for the block.</span>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <img src="gfx/icons/ixian_logo.svg" alt="ixi" />
+                        <img class="theme-dependent" data-icon="ixian_logo.svg" alt="ixi" />
                     </div>
                 </div>
             </div>

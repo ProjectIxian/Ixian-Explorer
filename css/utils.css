@@ -70,7 +70,6 @@
 
 .myTooltip {
     width: 256px;
-    /*word-break: break-word;*/
     position: absolute;
     bottom: 100%;
     left: 50%;
@@ -88,9 +87,9 @@
     line-height: var(--line-height-global-body-md);
     letter-spacing: var(--tracking-global-body-md);
     font-weight: 400;
-    white-space: normal; /* Allow text to wrap naturally */
-    overflow-wrap: break-word; /* Break words to prevent overflow */
-    box-sizing: border-box; /* Ensures padding is included in width/height */
+    white-space: normal;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
 }
 
 .tooltip-container:hover .myTooltip {

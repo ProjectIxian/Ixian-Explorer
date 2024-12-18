@@ -103,6 +103,7 @@
                             themeToggleButton.classList.add('fa-moon');
                             themeToggleButton.classList.remove('fa-sun');
                         }
+                        updateImagesForTheme()
                     };
 
                     // Load saved theme from localStorage
@@ -126,8 +127,22 @@
 
                         updateThemeIcon();
                     });
+
+                    function getThemePath() {
+                        const theme = localStorage.getItem('theme');
+                        return theme === 'dark-mode' ? 'gfx/icons/dark' : 'gfx/icons/light';
+                    }
+
+                    function updateImagesForTheme() {
+                        const themePath = getThemePath();
+                        document.querySelectorAll('.theme-dependent').forEach(img => {
+                            const iconName = img.getAttribute('data-icon');
+                            img.src = `${themePath}/${iconName}`;
+                        });
+                    }
                 });
-            </script>
+
+        </script>
 
             <?php if($this->alert > 0) {?>
             <div class="alertContainer">

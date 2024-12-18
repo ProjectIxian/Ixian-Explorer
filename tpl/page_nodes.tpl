@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div>
-                    <img src="gfx/icons/linked_services.svg" alt="ixi" />
+                    <img class="theme-dependent" data-icon="linked_services.svg" alt="linked_services" />
                 </div>
             </div>
             <div class="ixiCard">
@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div>
-                    <img src="gfx/icons/s2.svg" alt="s2" />
+                    <img class="theme-dependent" data-icon="s2_mark.svg" alt="s2" />
                 </div>
             </div>
             <div class="ixiCard">
@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <div>
-                    <img src="gfx/icons/spixi_logo.svg" alt="spixi" />
+                    <img class="theme-dependent" data-icon="spixi_logo.svg" alt="spixi" />
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
                     <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
                     <div class="flexCGap8">
                         <h3 class="heading-sm">IXI DLT Nodes</h3>
-                        <p class="body-md">Data bellow shows all currently active DLT nodes.</p>
+                        <p class="body-md">Data below shows all currently active DLT nodes.</p>
                     </div>
                 </div>
                 <div>
@@ -96,7 +96,7 @@
                     <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
                     <div>
                         <h3 class="heading-sm">IXI S2 Nodes</h3>
-                        <p class="body-md">Data bellow shows all currently active S2 streaming nodes.</p>
+                        <p class="body-md">Data below shows all currently active S2 streaming nodes.</p>
                     </div>
                 </div>
                 <div>

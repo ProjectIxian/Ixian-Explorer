@@ -26,10 +26,9 @@
                             <span class="myTooltip">The entire amount of IXI in circulation including the Genesis wallets with vesting amounts.</span>
                         </div>
                     </div>
-
                 </div>
                 <div>
-                    <img src="gfx/icons/ixian_logo.svg" alt="ixi" />
+                    <img class="theme-dependent" data-icon="ixian_logo.svg" src="" alt="ixi" />
                 </div>
             </div>
             <div class="ixiCard">
@@ -44,7 +43,7 @@
                     </div>
                 </div>
                 <div>
-                    <img src="gfx/icons/linked_services.svg" alt="linked_services" />
+                    <img class="theme-dependent" data-icon="linked_services.svg" alt="linked_services" />
                 </div>
             </div>
             <div class="ixiCard">
@@ -59,7 +58,7 @@
                     </div>
                 </div>
                 <div>
-                    <img src="gfx/icons/charger.svg" alt="charger" />
+                    <img class="theme-dependent" data-icon="charger.svg"alt="charger" />
                 </div>
             </div>
 
@@ -69,7 +68,7 @@
                     <p class="label-sm t-gray">Transactions Last 24H</p>
                 </div>
                 <div>
-                    <img src="gfx/icons/history.svg" alt="history" />
+                    <img class="theme-dependent" data-icon="history.svg" alt="history" />
                 </div>
             </div>
             <div class="ixiCard">
@@ -79,12 +78,12 @@
                         <p class="label-sm t-gray">Average Transactions Per Day</p>
                         <div class="tooltip-container">
                             <i class="fa fa-question-circle"></i>
-                            <span class="myTooltip">Average number of transactions per day (since the first block was added to the blockchain.</span>
+                            <span class="myTooltip">Average number of transactions per day (since the first block was added to the blockchain).</span>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <img src="gfx/icons/avg_pace.svg" alt="avg_pace" />
+                    <img class="theme-dependent" data-icon="avg_pace.svg" alt="avg_pace" />
                 </div>
             </div>
             <div class="ixiCard">
@@ -93,7 +92,7 @@
                     <p class="label-sm t-gray">On-chain Transactions</p>
                 </div>
                 <div>
-                    <img src="gfx/icons/sync_alt.svg" alt="sync_alt" />
+                    <img class="theme-dependent" data-icon="sync_alt.svg" alt="sync_alt" />
                 </div>
             </div>
         </div>
@@ -117,10 +116,10 @@
                 <table id="tblocks" class="table myTable">
                     <thead class="myTableHead">
                     <tr>
-                        <th scope="col" class="myTh" style="width: 100px">Block Height</th>
+                        <th scope="col" class="myTh" style="width: 100px">Height</th>
                         <th scope="col" class="myTh" >Hash</th>
-                        <th scope="col" class="myTh" style="max-width: 28px">Added to Blockchain</th>
-                        <th scope="col" class="myTh" style="max-width: 28px">Transactions</th>
+                        <th scope="col" class="myTh" style="max-width: 28px">Added</th>
+                        <th scope="col" class="myTh" style="max-width: 28px">TXs</th>
                     </tr>
                     </thead>
                     <tbody>
