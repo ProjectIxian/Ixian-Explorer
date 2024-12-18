@@ -23,7 +23,7 @@
                         <p class="label-sm t-gray">IXI Circulating Supply</p>
                         <div class="tooltip-container">
                             <i class="fa fa-question-circle"></i>
-                            <span class="myTooltip">The entire amount of IXI in circulation including the Genesis wallets with vesting amounts..</span>
+                            <span class="myTooltip">The entire amount of IXI in circulation including the Genesis wallets with vesting amounts.</span>
                         </div>
                     </div>
 
