@@ -43,7 +43,6 @@
             </div>
                 <div class="blockStatusCard ixiDistribution">
                     <div class="blockStatusCardHeader">
-                        <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
                         <div>
                             <h3 class="heading-sm">IXI Distribution</h3>
                             <p class="body-md">Data below shows distribution with genesis and exchange wallets included.</p>

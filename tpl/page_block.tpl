@@ -6,24 +6,21 @@
             <div class="maxW822 flexCGap8">
                 <h1 class="heading-xs">Block Height</h1>
                 <div class="heightInfo">
-                    <p class="heading-sm">#<?php echo $this->blocknum;?></p>
+                    <p class="heading-sm">#<?php echo number_format($this->blocknum);?></p>
                     <div class="blocks">
                         <?php if($this->blocklasthash != "null") {?>
                         <div class="singleBlock">
-                        <img src="gfx/icons/grid_view.svg" alt="grid_view" />
-                        <a href="?p=block&id=<?php echo $this->blocklastnum;?>" class="label-sm prevNextText"><?php echo $this->blocklastnum;?></a>
+                        <a href="?p=block&id=<?php echo $this->blocklastnum;?>" class="label-sm prevNextText"><?php echo number_format($this->blocklastnum);?></a>
                         </div>
                         <i class="fa fa-arrow-left-long t-gray"></i>
                         <?php } ?>
                         <div class="singleBlock">
-                            <img src="gfx/icons/widgets.svg" alt="widgets" />
                             <p class="label-sm"><?php echo $this->blocknum;?></p>
                         </div>
                         <?php if($this->blocknextnum != 0) {?>
                         <i class="fa fa-arrow-right-long t-gray"></i>
                         <div class="singleBlock">
-                        <img src="gfx/icons/grid_view.svg" alt="grid_view" />
-                        <a href="?p=block&id=<?php echo $this->blocknextnum;?>" class="label-sm prevNextText"><?php echo $this->blocknextnum;?></a>
+                        <a href="?p=block&id=<?php echo $this->blocknextnum;?>" class="label-sm prevNextText"><?php echo number_format($this->blocknextnum);?></a>
                         </div>
                         <?php } ?>
                     </div>

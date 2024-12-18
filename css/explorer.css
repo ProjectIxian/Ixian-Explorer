@@ -21,12 +21,13 @@ body {
     /*Custom theme variables*/
     /*LIGHT*/
     --pattern: url("../gfx/pattern-light.svg");
+    --menu-img: url("../gfx/icons/light/menu-light.svg");
+
     /*DARK*/
-
-    html.dark & {
+    html.dark-mode & {
         --pattern: url("../gfx/pattern-dark.svg");
+        --menu-img: url("../gfx/icons/dark/menu-dark.svg");
     }
-
 }
 
 

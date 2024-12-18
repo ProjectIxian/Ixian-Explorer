@@ -6,7 +6,7 @@
     <div class="bg-1">
         <section class="pageLimitWrapper transactionPage">
             <div class="flexCGap8 maxW822">
-                <h1 class="heading-xs">Transaction Details</h1>
+                <h1 class="heading-xs mb-2">Transaction Details</h1>
                 <div class="blockDetails">
                     <div class="singleDetail">
                         <div class="tooltipWrapperHelper">
@@ -56,8 +56,8 @@
                                 <span class="myTooltip">Exact block that contains this transaction.</span>
                             </div>
                         </div>
-                        <a href="?p=block&id=<?php echo $this->txapplied;?>" class="t-blue maxHash"><?php echo $this->
-                            txapplied;?></a>
+                        <a href="?p=block&id=<?php echo $this->txapplied;?>" class="t-blue maxHash"><?php echo number_format($this->
+                            txapplied);?></a>
                     </div>
                     <div class="singleDetail">
                         <div class="tooltipWrapperHelper">

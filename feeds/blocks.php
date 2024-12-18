@@ -31,7 +31,7 @@ $data = &$ret["data"];
 foreach($data as &$block)
 {
     $blockheight = $block[0];
-    $block[0] = "<span class='label-md t-black'>$blockheight</span>";
+    $block[0] = "<span class='label-md t-black'>".number_format($blockheight)."</span>";
     $block[1] = "<a class='body-sm t-blue' href='index.php?p=block&id=$blockheight'>$block[1]</a>";
     $block[2] = "<span class='label-sm t-gray'>" . humanTiming($block[2]) . " ago</span>"; //date("Y-m-d",$block[3]);
     $block[3] =  "<span class='body-sm t-black'>".number_format($block[3])."</span>";

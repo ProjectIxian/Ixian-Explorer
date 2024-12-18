@@ -11,7 +11,7 @@
             </div>
             <div class="ixiCard">
                 <div class="flexCGap8">
-                    <p class="heading-sm"><?php echo $this->bh;?></p>
+                    <p class="heading-sm"><?php echo number_format($this->bh);?></p>
                     <div class="tooltipWrapperHelper">
                         <p class="label-sm t-gray">Network Block Height</p>
                         <div class="tooltip-container">
@@ -131,7 +131,6 @@
         <div class="blockCharts pageLimitWrapper">
             <div class="blockStatusCard">
                 <div class="blockStatusCardHeader">
-                    <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
                     <div>
                         <h3 class="heading-sm">Block Status</h3>
                         <p class="body-md">Showing data for last <span class="t-blue label-sm"><?php echo $this->numblocks;?></span> blocks.</p>
@@ -145,7 +144,6 @@
             </div>
             <div class="blockStatusCard">
                 <div class="blockStatusCardHeader">
-                    <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
                     <div>
                         <h3 class="heading-sm">Block Signing Status</h3>
                         <p class="body-md">Showing data for last <span class="t-blue label-sm"><?php echo $this->numblocks;?></span> blocks.</p>
@@ -159,7 +157,6 @@
             </div>
             <div class="blockStatusCard">
                 <div class="blockStatusCardHeader">
-                    <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
                     <div>
                         <h3 class="heading-sm">Mining Status</h3>
                         <p class="body-md">Showing data for last <span class="t-blue label-sm"><?php echo $this->numblocks;?></span> blocks.</p>

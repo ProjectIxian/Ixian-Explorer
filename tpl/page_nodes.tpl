@@ -61,7 +61,6 @@
         <div class="nodeStatsContainer pageLimitWrapper">
             <div class="nodeCard">
                 <div class="nodeCardHeader">
-                    <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
                     <div class="flexCGap8">
                         <h3 class="heading-sm">IXI DLT Nodes</h3>
                         <p class="body-md">Data below shows all currently active DLT nodes.</p>
@@ -93,7 +92,6 @@
             </div>
             <div class="nodeCard">
                 <div class="nodeCardHeader">
-                    <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
                     <div>
                         <h3 class="heading-sm">IXI S2 Nodes</h3>
                         <p class="body-md">Data below shows all currently active S2 streaming nodes.</p>

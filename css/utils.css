@@ -266,12 +266,12 @@
 
 .wallet-tag-info {
     color: var(--colors-text-01);
-    background: var(--colors-surface-brand-primary);
+    background: var(--colors-surface-success);
 }
 
 .wallet-tag-secondary {
     color: var(--colors-text-01);
-    background: var(--colors-surface-brand-primary);
+    background: var(--colors-surface-success);
 }
 
 .wallet-tag-primary {

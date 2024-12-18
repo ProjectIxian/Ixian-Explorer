@@ -33,8 +33,13 @@
     }
 }
 
-.menuButton{
-    background-color: var(--colors-text-inverse);;
+.menuButton {
+    outline: none !important;
+    background-color: var(--colors-surface-01);
+
+    > span{
+        background-image: var(--menu-img) !important;
+    }
 }
 
 .navSearchInput {
