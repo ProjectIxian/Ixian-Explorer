@@ -19,7 +19,7 @@
                             <img src="gfx/icons/widgets.svg" alt="widgets" />
                             <p class="label-sm"><?php echo $this->blocknum;?></p>
                         </div>
-                        <?php if($this->blocknextnum != "null" || $this->blocknextnum != 0) {?>
+                        <?php if($this->blocknextnum != 0) {?>
                         <i class="fa fa-arrow-right-long t-gray"></i>
                         <div class="singleBlock">
                         <img src="gfx/icons/grid_view.svg" alt="grid_view" />
