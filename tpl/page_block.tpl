@@ -36,7 +36,7 @@
                         <p>Block Hash</p>
                         <div class="tooltip-container">
                             <i class="fa fa-question-circle"></i>
-                            <span class="myTooltip">Block hash is a cryptographic hash function that outputs a fixed-size block of data after taking in a block of data. This output is a distinct string of characters that acts as the block's digital fingerprint.</span>
+                            <span class="myTooltip">Block hash is a unique identifier for a block, generated using cryptographic hash functions.</span>
                         </div>
                     </div>
                     <div class="t-red maxHash label-xs"><?php echo $this->blockhash; ?></div>
