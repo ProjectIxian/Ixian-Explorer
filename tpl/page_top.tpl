@@ -17,7 +17,7 @@
                             <p class="label-sm t-gray">IXI Circulating Supply</p>
                             <div class="tooltip-container">
                                 <i class="fa fa-question-circle"></i>
-                                <span class="tooltip">Helper tooltip content...</span>
+                                <span class="myTooltip">The entire amount of IXI in circulation including the Genesis wallets with vesting amounts..</span>
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                             <p class="label-sm t-gray">Top 20 Wallet Amount (excluding foundation and exchange wallets)</p>
                             <div class="tooltip-container">
                                 <i class="fa fa-question-circle"></i>
-                                <span class="tooltip">Helper tooltip content...</span>
+                                <span class="myTooltip">The amount of IXI held by top 20 wallets. This includes locked genesis amount and IXI held on exchange wallets.</span>
                             </div>
                         </div>
                     </div>

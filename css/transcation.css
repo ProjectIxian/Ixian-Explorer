@@ -4,13 +4,14 @@
 .transactionPage {
     width: 100%;
     display: flex;
-    max-width: 822px;
     flex-direction: column;
     gap: 16px;
     padding: 60px 16px;
+    align-items: center;
 }
 
 .fromToSection {
+    width: 100%;
     display: flex;
     gap: 32px;
     justify-content: space-between;
@@ -26,14 +27,13 @@
     flex-direction: column;
     gap: 16px;
 
-    :first-child{
+    :first-child {
         margin-bottom: 8px;
     }
 }
 
 .smallTxInfo {
     width: 100%;
-    max-width: 394px;
     padding: 16px;
     border: 1px solid var(--colors-outline-02);
     background: var(--colors-surface-01);
@@ -47,6 +47,10 @@
     overflow: hidden;
     word-break: break-all;
     box-sizing: border-box;
+
+    > * {
+        text-align: left;
+    }
 
     @media (max-width: 320px) {
         font-size: 10px;

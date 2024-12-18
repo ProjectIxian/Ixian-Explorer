@@ -67,7 +67,7 @@ foreach($data as &$tx)
 {
     $tx[0] = "<span class='body-sm'>".timestampToDate($tx[0])."</span>";
     $txid = $tx[1];
-    $tx[1] = "<a class='body-sm t-blue' href='index.php?p=transaction&id=$txid'>view hash <i class='fa fa-arrow-right t-blue' /></a>";
+    $tx[1] = "<a class='body-sm t-blue' href='index.php?p=transaction&id=$txid'>$txid</a>";
     if($tx[2] == 0)
         $tx[2] = "<span class='label-sm t-gray'>Normal</span>";
     else if($tx[2] == 1)

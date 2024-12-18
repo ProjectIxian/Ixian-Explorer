@@ -5,7 +5,7 @@
 <section class="pageContainer">
         <section class="emissionsHeader pageLimitWrapper">
             <h1 class="heading-lg">IXI Emissions</h1>
-            <p class="body-md"> This page contains all information regarding the IxiCash emission model, which includes the mining and signing block rewards, as well as the projected number of total IXI in circulation at any given block height.</p>
+            <p class="body-md"> This page contains all information regarding the IXI emission model, which includes the mining and signing block rewards, as well as the projected number of total IXI in circulation at any given block height.</p>
         </section>
     <div class="bg-1">
         <section class="emissionBlocks pageLimitWrapper flexCGap32">
@@ -21,7 +21,7 @@
                         <canvas id="chart-0"></canvas>
                     </div>
                     <div class="rewardsRules">
-                        <p class="label-md">IxiCash emission model for mining rewards:</p>
+                        <p class="label-md">IXI emission model for mining rewards:</p>
                             <ul>
                                 <li>
                                     Mining reward starts with 10 IXI and increases by 0.009 IXI with every block until block height #1051200.
@@ -78,7 +78,7 @@
                         <canvas id="chart-2"></canvas>
                     </div>
                     <div class="rewardsRules">
-                        <p class="label-md">IxiCash emission model total supply:</p>
+                        <p class="label-md">IXI emission model total supply:</p>
                             <ul>
                                 <li>
                                     Block: <strong>#1</strong><br/>
@@ -376,7 +376,7 @@ var myLineChart2 = new Chart(ctx2, {
     labels: blockProjectedLabels,
     datasets: [
         {
-          label: "Projected IxiCash in circulation",
+          label: "Projected IXI in circulation",
           lineTension: 0,
           backgroundColor: "rgba(78, 115, 223, 0.05)",
           borderColor: "rgba(78, 115, 223, 1)",
@@ -463,7 +463,7 @@ var myLineChart2 = new Chart(ctx2, {
           },
           label: ctx => {
             var value = ctx.dataset.data[ctx.dataIndex];
-            return "Projected IxiCash in circulation: " + value + " IXI";
+            return "Projected IXI in circulation: " + value + " IXI";
           }
         },
       }

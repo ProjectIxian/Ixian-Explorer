@@ -7,13 +7,15 @@
 
 .addressPage {
     height: 100%;
-    max-width: 822px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 16px;
 }
 
 .addressCard {
+    width: 100%;
+    max-width: 822px;
     background: var(--colors-surface-02);
     border-radius: var(--corner-radius-lg);
     padding: 24px;

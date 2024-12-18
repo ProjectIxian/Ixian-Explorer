@@ -31,10 +31,9 @@
         <div class="footerBottomContent">
             <p class="label-sm">© Ixian Foundation, 2017 - <?php echo date("Y");?></p>
             <div class="bottomLinks">
-                <p class="label-sm">Terms of Use</p>
-                <p class="label-sm">Privacy Policy</p>
-                <p class="label-sm">Cookies</p>
-                <p class="label-sm">MIT Licence</p>
+                <a href="https://www.ixian.io/?page=terms" target="_blank" class="label-sm">Terms of Use</a>
+                <a href="https://www.ixian.io/?page=privacy" target="_blank" class="label-sm">Privacy Policy</a>
+                <a href="https://www.ixian.io/?page=cookie" target="_blank" class="label-sm">Cookies</a>
             </div>
         </div>
     </footer>

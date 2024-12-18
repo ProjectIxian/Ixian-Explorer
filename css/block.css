@@ -4,13 +4,14 @@
 .blockPage {
     width: 100%;
     display: flex;
-    max-width: 822px;
     flex-direction: column;
     gap: 16px;
     padding: 60px 16px;
+    align-items: center;
 }
 
 .heightInfo {
+    width: 100%;
     border: 1px solid var(--colors-outline-01);
     border-radius: var(--corner-radius-lg);
     padding: 16px;

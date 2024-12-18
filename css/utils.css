@@ -23,10 +23,16 @@
     gap: 8px;
 }
 
+.maxW822 {
+    width: 100%;
+    max-width: 822px;
+}
+
 .posSticky {
     position: sticky;
     top: 0;
     z-index: 999;
+    border-bottom: 1px solid var(--colors-outline-inverse);
 }
 
 .pageLimitWrapper {
@@ -62,7 +68,9 @@
     overflow: visible;
 }
 
-.tooltip {
+.myTooltip {
+    width: 256px;
+    /*word-break: break-word;*/
     position: absolute;
     bottom: 100%;
     left: 50%;
@@ -71,7 +79,6 @@
     color: var(--colors-text-inverse);
     padding: 8px 10px;
     border-radius: 8px;
-    white-space: nowrap;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -81,14 +88,17 @@
     line-height: var(--line-height-global-body-md);
     letter-spacing: var(--tracking-global-body-md);
     font-weight: 400;
+    white-space: normal; /* Allow text to wrap naturally */
+    overflow-wrap: break-word; /* Break words to prevent overflow */
+    box-sizing: border-box; /* Ensures padding is included in width/height */
 }
 
-.tooltip-container:hover .tooltip {
+.tooltip-container:hover .myTooltip {
     opacity: 1;
     visibility: visible;
 }
 
-.tooltip::after {
+.myTooltip::after {
     content: '';
     position: absolute;
     top: 100%;
@@ -235,6 +245,15 @@
 
 .t-red {
     color: var(--colors-text-error);
+}
+
+.t-icon-1 {
+    color: var(--colors-icon-01);
+    cursor: pointer;
+
+    &:hover{
+        color: var(--colors-icon-02);
+    }
 }
 
 .walletBadge {

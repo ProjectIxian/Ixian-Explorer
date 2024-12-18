@@ -16,7 +16,7 @@
                         <p class="label-sm t-gray">Active IXI DLT Nodes</p>
                         <div class="tooltip-container">
                             <i class="fa fa-question-circle"></i>
-                            <span class="tooltip">Helper tooltip content...</span>
+                            <span class="myTooltip">Number of all active Ixian DLT Nodes connected to the network.</span>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                         <p class="label-sm t-gray">Active IXI S2 Nodes</p>
                         <div class="tooltip-container">
                             <i class="fa fa-question-circle"></i>
-                            <span class="tooltip">Helper tooltip content...</span>
+                            <span class="myTooltip">Number of all active Ixian S2 Nodes connected to the network.</span>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                         <p class="label-sm t-gray">Currently Connected Clients</p>
                         <div class="tooltip-container">
                             <i class="fa fa-question-circle"></i>
-                            <span class="tooltip">Helper tooltip content...</span>
+                            <span class="myTooltip">Number of all active clients (such as Spixi clients) currently online and connected to the network.</span>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
             <div class="nodeCard">
                 <div class="nodeCardHeader">
                     <img src="gfx/dlt-nodes.svg" width="64px" alt="dlt-nodes"/>
-                    <div>
+                    <div class="flexCGap8">
                         <h3 class="heading-sm">IXI DLT Nodes</h3>
                         <p class="body-md">Data bellow shows all currently active DLT nodes.</p>
                     </div>

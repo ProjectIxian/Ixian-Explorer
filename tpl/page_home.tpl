@@ -23,7 +23,7 @@
                         <p class="label-sm t-gray">IXI Circulating Supply</p>
                         <div class="tooltip-container">
                             <i class="fa fa-question-circle"></i>
-                            <span class="tooltip">Helper tooltip content...</span>
+                            <span class="myTooltip">The entire amount of IXI in circulation including the Genesis wallets with vesting amounts..</span>
                         </div>
                     </div>
 
@@ -39,7 +39,7 @@
                     <p class="label-sm t-gray">Active IXI DLT Nodes</p>
                         <div class="tooltip-container">
                             <i class="fa fa-question-circle"></i>
-                            <span class="tooltip">Helper tooltip content...</span>
+                            <span class="myTooltip">Number of all active Ixian DLT Nodes connected to the network.</span>
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                         <p class="label-sm t-gray">Estimated Hash-rate (h/s)</p>
                         <div class="tooltip-container">
                             <i class="fa fa-question-circle"></i>
-                            <span class="tooltip">Helper tooltip content...</span>
+                            <span class="myTooltip">Current network hash-rate.</span>
                         </div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                         <p class="label-sm t-gray">Average Transactions Per Day</p>
                         <div class="tooltip-container">
                             <i class="fa fa-question-circle"></i>
-                            <span class="tooltip">Helper tooltip content...</span>
+                            <span class="myTooltip">Average number of transactions per day (since the first block was added to the blockchain.</span>
                         </div>
                     </div>
                 </div>
@@ -100,12 +100,17 @@
     </div>
 
     <div class="bg-1">
-        <section class="blocks-wrapper pageLimitWrapper">
+        <section class="blocks-wrapper pageLimitWrapper flexCGap8">
             <div class="blocks-wrapper-header">
                 <h4 class="heading-sm">Latest Blocks</h4>
                 <div class="what-are-blocks">
                     <p class="label-md">What are blocks</p>
-                    <i class="fa fa-question-circle"></i>
+                    <div class="tooltipWrapperHelper">
+                        <div class="tooltip-container">
+                            <i class="fa fa-question-circle t-green"></i>
+                            <span class="myTooltip">A block is a fundamental component of the Ixian DLT technology. Each block contains IDs of transactions and links to the previous block and to its associated Wallet State through its checksum fields. These verify that all of the transactions included in that particular block have been successfully applied, and also that the given block logically follows from the previous block.</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="table-responsive">

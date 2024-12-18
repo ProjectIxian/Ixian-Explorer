@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>IXIscope</title>
+    <title>ixiscope</title>
     <meta name="description"
           content="Ixian is a fully scalable, decentralized platform that enables encrypted data streaming and high volume of micro-transactions.">
-    <meta name="keywords" content="Ixian,DLT,Blockchain,Cryptocurrency,Crypto,IxiCash,Explorer,Spixi">
+    <meta name="keywords" content="Ixian,DLT,Blockchain,Cryptocurrency,Crypto,IXI,Explorer,Spixi">
 
     <link href="vendor/fontawesome-free-6.7.1-web/css/all.css" rel="stylesheet" type="text/css">
     <link href="css/sb-admin-2.css" rel="stylesheet">
@@ -67,7 +67,7 @@
                             <a class="headerItem label-sm" href="?p=top">Top 20</a>
                         </li>
                         <li>
-                            <a class="headerItem label-sm" href="?p=emissions">IxiCash Emissions</a>
+                            <a class="headerItem label-sm" href="?p=emissions">IXI Emissions</a>
                         </li>
                         <li>
                             <i class="fa fa-moon themeToggle" id="theme-toggle"></i>
@@ -133,7 +133,7 @@
             <div class="alertContainer">
             <div class="alertCardWarning">
             <i class="fa fa-hourglass-start"></i>
-            <p class="body-sm"><span class="label-sm">IXIscope DLT Node is synchronizing.</span> Data may be out of date, please try again later.</p>
+            <p class="body-sm"><span class="label-sm">ixiscope DLT Node is synchronizing.</span> Data may be out of date, please try again later.</p>
             </div>
             </div>
             <?php }?>

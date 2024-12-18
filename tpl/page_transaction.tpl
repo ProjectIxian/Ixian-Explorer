@@ -5,88 +5,90 @@
 <section class="pageContainer">
     <div class="bg-1">
         <section class="pageLimitWrapper transactionPage">
-            <h1 class="heading-xs">Transaction Details</h1>
-            <div class="blockDetails">
-                <div class="singleDetail">
-                    <div class="tooltipWrapperHelper">
-                        <p>Hash</p>
-                        <div class="tooltip-container">
-                            <i class="fa fa-question-circle"></i>
-                            <span class="tooltip">Helper tooltip content...</span>
+            <div class="flexCGap8 maxW822">
+                <h1 class="heading-xs">Transaction Details</h1>
+                <div class="blockDetails">
+                    <div class="singleDetail">
+                        <div class="tooltipWrapperHelper">
+                            <p>Hash</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="myTooltip">This hash represents the ID (TxID) of this transaction.</span>
+                            </div>
                         </div>
+                        <div class="t-red maxHash label-xs"><?php echo $this->txid; ?></div>
                     </div>
-                    <div class="t-red maxHash label-xs"><?php echo $this->txid; ?></div>
-                </div>
-                <div class="singleDetail">
-                    <div class="tooltipWrapperHelper">
-                        <p>Age</p>
-                        <div class="tooltip-container">
-                            <i class="fa fa-question-circle"></i>
-                            <span class="tooltip">Helper tooltip content...</span>
+                    <div class="singleDetail">
+                        <div class="tooltipWrapperHelper">
+                            <p>Age</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="myTooltip">Determines how long ago this transaction was processed and added to the block.</span>
+                            </div>
                         </div>
+                        <p><?php echo $this->txage;?></p>
                     </div>
-                    <p><?php echo $this->txage;?></p>
-                </div>
-                <div class="singleDetail">
-                    <div class="tooltipWrapperHelper">
-                        <p>Date</p>
-                        <div class="tooltip-container">
-                            <i class="fa fa-question-circle"></i>
-                            <span class="tooltip">Helper tooltip content...</span>
+                    <div class="singleDetail">
+                        <div class="tooltipWrapperHelper">
+                            <p>Date</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="myTooltip">Exact timestamp of when the block was added to the blockchain.</span>
+                            </div>
                         </div>
+                        <p><?php echo $this->txdate;?></p>
                     </div>
-                    <p><?php echo $this->txdate;?></p>
-                </div>
-                <div class="singleDetail">
-                    <div class="tooltipWrapperHelper">
-                        <p>Version</p>
-                        <div class="tooltip-container">
-                            <i class="fa fa-question-circle"></i>
-                            <span class="tooltip">Helper tooltip content...</span>
+                    <div class="singleDetail">
+                        <div class="tooltipWrapperHelper">
+                            <p>Version</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="myTooltip">Current version of TX.</span>
+                            </div>
                         </div>
+                        <p><?php echo $this->txversion;?></p>
                     </div>
-                    <p><?php echo $this->txversion;?></p>
-                </div>
-                <div class="singleDetail">
-                    <div class="tooltipWrapperHelper">
-                        <p>Block</p>
-                        <div class="tooltip-container">
-                            <i class="fa fa-question-circle"></i>
-                            <span class="tooltip">Helper tooltip content...</span>
+                    <div class="singleDetail">
+                        <div class="tooltipWrapperHelper">
+                            <p>Block</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="myTooltip">Exact block that contains this transaction.</span>
+                            </div>
                         </div>
+                        <a href="?p=block&id=<?php echo $this->txapplied;?>" class="t-blue maxHash"><?php echo $this->
+                            txapplied;?></a>
                     </div>
-                    <a href="?p=block&id=<?php echo $this->txapplied;?>" class="t-blue maxHash"><?php echo $this->
-                        txapplied;?></a>
-                </div>
-                <div class="singleDetail">
-                    <div class="tooltipWrapperHelper">
-                        <p>Type</p>
-                        <div class="tooltip-container">
-                            <i class="fa fa-question-circle"></i>
-                            <span class="tooltip">Helper tooltip content...</span>
+                    <div class="singleDetail">
+                        <div class="tooltipWrapperHelper">
+                            <p>Type</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="myTooltip">Determines the type of this particular transaction.</span>
+                            </div>
                         </div>
+                        <p><?php echo $this->txtype;?></p>
                     </div>
-                    <p><?php echo $this->txtype;?></p>
-                </div>
-                <div class="singleDetail">
-                    <div class="tooltipWrapperHelper">
-                        <p>Amount</p>
-                        <div class="tooltip-container">
-                            <i class="fa fa-question-circle"></i>
-                            <span class="tooltip">Helper tooltip content...</span>
+                    <div class="singleDetail">
+                        <div class="tooltipWrapperHelper">
+                            <p>Amount</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="myTooltip">Full amount of this transaction.</span>
+                            </div>
                         </div>
+                        <p class="t-red"><?php echo $this->txamount;?></p>
                     </div>
-                    <p class="t-red"><?php echo $this->txamount;?></p>
-                </div>
-                <div class="singleDetail">
-                    <div class="tooltipWrapperHelper">
-                        <p>Fee</p>
-                        <div class="tooltip-container">
-                            <i class="fa fa-question-circle"></i>
-                            <span class="tooltip">Helper tooltip content...</span>
+                    <div class="singleDetail">
+                        <div class="tooltipWrapperHelper">
+                            <p>Fee</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="myTooltip">The calculated fee that was required to process this transaction.</span>
+                            </div>
                         </div>
+                        <p><?php echo $this->txfee;?></p>
                     </div>
-                    <p><?php echo $this->txfee;?></p>
                 </div>
             </div>
             <div class="fromToSection">

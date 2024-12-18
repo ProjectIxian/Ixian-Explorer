@@ -3,48 +3,50 @@
 <section class="pageContainer">
     <div class="bg-1 addressWrapper">
         <section class="pageLimitWrapper addressPage">
-            <h1 class="heading-xs">Address Details</h1>
-            <div class="addressCard">
-                <div class="tooltipWrapperHelper">
-                    <p class="label-sm t-gray">QR Code</p>
-                    <div class="tooltip-container">
-                        <i class="fa fa-question-circle"></i>
-                        <span class="tooltip">Helper tooltip content...</span>
+            <div class="maxW822 flexCGap8">
+                <h1 class="heading-xs">Address Details</h1>
+                <div class="addressCard">
+                    <div class="tooltipWrapperHelper">
+                        <p class="label-sm t-gray">QR Code</p>
+                        <div class="tooltip-container">
+                            <i class="fa fa-question-circle"></i>
+                            <span class="myTooltip">This QR code contains the IXI address. You can scan it using your IXI wallet.</span>
+                        </div>
                     </div>
-                </div>
-                <div id="qrcode" class="qrCode"></div>
-                <div class="singleInfo">
-                    <?php
+                    <div id="qrcode" class="qrCode"></div>
+                    <div class="singleInfo">
+                        <?php
                       $tag = "";
                       // known_wallets
                       if(array_key_exists($this->walletid, $this->known_wallets)) {
-                    $tag_name = $this->known_wallets[$this->walletid][0];
-                    $tag_color = $this->known_wallets[$this->walletid][1];
-                    $tag = "<span class=\"walletBadge wallet-tag-$tag_color \">$tag_name</span>";
-                    }
-                    ?>
-                    <div class="tooltipWrapperHelper">
-                        <p class="label-sm t-gray">Address</p>
-                        <div class="tooltip-container">
-                            <i class="fa fa-question-circle"></i>
-                            <span class="tooltip">Helper tooltip content...</span>
+                        $tag_name = $this->known_wallets[$this->walletid][0];
+                        $tag_color = $this->known_wallets[$this->walletid][1];
+                        $tag = "<span class=\"walletBadge wallet-tag-$tag_color \">$tag_name</span>";
+                        }
+                        ?>
+                        <div class="tooltipWrapperHelper">
+                            <p class="label-sm t-gray">Address</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="myTooltip">The address in alpha-numeric form.</span>
+                            </div>
                         </div>
+                        <span class="label-md"><?php echo $tag;?> <b><code id="walletAddress"><?php echo $this->walletid; ?></code></b> <i onclick="copyToClipboard()" class="fa fa-copy t-icon-1 ml-1"></i></span>
                     </div>
-                    <span class="label-md"><?php echo $tag;?> <b><code><?php echo $this->walletid; ?></code></b></span>
-                </div>
-                <div class="singleInfo">
-                    <div class="tooltipWrapperHelper">
-                        <p class="label-sm t-gray">Balance</p>
-                        <div class="tooltip-container">
-                            <i class="fa fa-question-circle"></i>
-                            <span class="tooltip">Helper tooltip content...</span>
+                    <div class="singleInfo">
+                        <div class="tooltipWrapperHelper">
+                            <p class="label-sm t-gray">Balance</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="myTooltip">Current IXI balance of this address.</span>
+                            </div>
                         </div>
+                        <p class="heading-xs"><?php echo number_format($this->balance, 8);?> IXI</p>
                     </div>
-                    <p class="heading-xs"><?php echo number_format($this->balance, 8);?> IXI</p>
                 </div>
             </div>
-            <div>
-                <h2 class="med-title">Transactions (<?php echo number_format($this->txcount,0); ?>)</h2>
+            <div class="w-100 flexCGap8">
+                <h2 class="heading-xs">Transactions (<?php echo number_format($this->txcount,0); ?>)</h2>
                 <div class="table-responsive">
                     <table id="ttx" class="table myTable">
                         <thead class="thead myTableHead">
@@ -71,7 +73,19 @@
 </script>
 <script src="vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<script>
+    function copyToClipboard() {
+        const walletAddress = document.getElementById('walletAddress').innerText;
 
+        navigator.clipboard.writeText(walletAddress)
+            .then(() => {
+                return;
+            })
+            .catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+    }
+</script>
 <script>
     var etbl;
     $(function () {

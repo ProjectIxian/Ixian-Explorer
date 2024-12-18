@@ -5,8 +5,10 @@
 <section class="pageContainer">
     <div class="pageLimitWrapper statsHero">
         <div class="statsHeader">
-            <h1 class="heading-lg">Ixian Stats</h1>
-            <p class="body-md">All ixian block and mining stats</p>
+            <div class="flexCGap8">
+                <h1 class="heading-lg">Ixian Stats</h1>
+                <p class="body-md">All ixian block and mining stats</p>
+            </div>
             <div class="ixiCard">
                 <div class="flexCGap8">
                     <p class="heading-sm"><?php echo $this->bh;?></p>
@@ -14,7 +16,7 @@
                         <p class="label-sm t-gray">Network Block Height</p>
                         <div class="tooltip-container">
                             <i class="fa fa-question-circle"></i>
-                            <span class="tooltip">Helper tooltip content...</span>
+                            <span class="myTooltip">The last block that was added to the blockchain.</span>
                         </div>
                     </div>
                 </div>
@@ -33,7 +35,7 @@
                             <p class="label-sm t-gray">Last Block Signer Count</p>
                             <div class="tooltip-container">
                                 <i class="fa fa-question-circle"></i>
-                                <span class="tooltip">Helper tooltip content...</span>
+                                <span class="myTooltip">Amount of nodes that signed the last valid block.</span>
                             </div>
                         </div>
                     </div>
@@ -48,7 +50,7 @@
                             <p class="label-sm t-gray">Required Signers</p>
                             <div class="tooltip-container">
                                 <i class="fa fa-question-circle"></i>
-                                <span class="tooltip">Helper tooltip content...</span>
+                                <span class="myTooltip">Minimum required signatures for the last block accepted</span>
                             </div>
                         </div>
                     </div>
@@ -63,7 +65,7 @@
                             <p class="label-sm t-gray">Block Signing Reward</p>
                             <div class="tooltip-container">
                                 <i class="fa fa-question-circle"></i>
-                                <span class="tooltip">Helper tooltip content...</span>
+                                <span class="myTooltip">The block signing reward is split equally between up to 1000 signers of the block.</span>
                             </div>
                         </div>
                     </div>
@@ -83,7 +85,7 @@
                             <p class="label-sm t-gray">Unsolved Blocks Ratio</p>
                             <div class="tooltip-container">
                                 <i class="fa fa-question-circle"></i>
-                                <span class="tooltip">Helper tooltip content...</span>
+                                <span class="myTooltip">This represents the percentage of unsolved blocks in the redacted window (up to last 20000 blocks). Every miner can choose to mine any block in the redacted window that hasn't been solved yet. Target ratio is 50%</span>
                             </div>
                         </div>
                     </div>
@@ -98,7 +100,7 @@
                             <p class="label-sm t-gray">Estimated Hash-rate (h/s)</p>
                             <div class="tooltip-container">
                                 <i class="fa fa-question-circle"></i>
-                                <span class="tooltip">Helper tooltip content...</span>
+                                <span class="myTooltip">Combined hash-rate of all Ixian DLT nodes currently connected to the network.</span>
                             </div>
                         </div>
                     </div>
@@ -113,7 +115,7 @@
                             <p class="label-sm t-gray">Block Mining Reward</p>
                             <div class="tooltip-container">
                                 <i class="fa fa-question-circle"></i>
-                                <span class="tooltip">Helper tooltip content...</span>
+                                <span class="myTooltip">The block mining reward is split equally between miners that participated in PoW required for the block.</span>
                             </div>
                         </div>
                     </div>
