@@ -65,19 +65,19 @@ $data = &$ret["data"];
 
 foreach($data as &$tx)
 {
-    $tx[0] = timestampToDate($tx[0]);
+    $tx[0] = "<span class='body-sm'>".timestampToDate($tx[0])."</span>";
     $txid = $tx[1];
-    $tx[1] = "<a href='index.php?p=transaction&id=$txid'>$txid</a>";
+    $tx[1] = "<a class='body-sm t-blue' href='index.php?p=transaction&id=$txid'>$txid</a>";
     if($tx[2] == 0)
-        $tx[2] = "Normal";
+        $tx[2] = "<span class='label-sm t-gray'>Normal</span>";
     else if($tx[2] == 1)
-        $tx[2] = "PoW";    
+        $tx[2] = "<span class='label-sm t-gray'>PoW</span>";
     else if($tx[2] == 2)
-        $tx[2] = "Signing";
+        $tx[2] = "<span class='label-sm t-gray'>Signing</span>";
     else if($tx[2] == 3)
-        $tx[2] = "Genesis";    
+        $tx[2] = "<span class='label-sm t-gray'>Genesis</span>";
     
-    $tx[3] = number_format($tx[3],8)." IXI";
+    $tx[3] = "<span class='body-sm t-black'>".number_format($tx[3],8)." IXI</span>";
 }
 
 echo json_encode($ret);

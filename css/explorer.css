@@ -1,30 +1,100 @@
+/* THIS FILE IS USED AS GLOBAL STYLING */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
-.largehash {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+@import "variables.css";
+@import "utils.css";
+
+html,
+body {
+    font-family: "Space Grotesk", sans-serif;
+    color: var(--colors-text-01);
+    background: var(--colors-surface-02);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    min-height: 100%;
+
+    /*Custom theme variables*/
+    /*LIGHT*/
+    --pattern: url("../gfx/pattern-light.svg");
+    --menu-img: url("../gfx/icons/light/menu-light.svg");
+
+    /*DARK*/
+    html.dark-mode & {
+        --pattern: url("../gfx/pattern-dark.svg");
+        --menu-img: url("../gfx/icons/dark/menu-dark.svg");
+    }
 }
 
 
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
 
+a {
+    color: var(--colors-text-inverse);
+    text-decoration: none;
+
+    &:hover {
+        color: var(--colors-text-02)
+    }
+}
+
+.largehash {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#tblocks,
+#ttx {
+    td, tr, th {
+        border: none !important;
+    }
+
+    td {
+        border-bottom: 1px solid var(--colors-outline-02) !important;
+    }
+}
 
 #tblocks td:nth-child(2) {
-  max-width: 140px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+    max-width: 140px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#tblocks td:nth-child(3) {
+    max-width: 80px;
+}
+
+#tblocks td:nth-child(4) {
+    max-width: 80px;
 }
 
 #ttx td:nth-child(2) {
-  max-width: 140px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+    max-width: 140px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .emissions-list li {
-  border-bottom: 1px solid black;
-  padding-bottom: 5px;
-  margin-bottom: 5px;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
 }
+
+.mainContent {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 

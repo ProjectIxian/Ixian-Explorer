@@ -4,7 +4,15 @@
 * Website: www.ixian.io 
 */
 
+$current_page = "home";
+
 $page = new Template();
+
+$page->cpage = $current_page;
+
+$page->q = "";
+if(isset($_GET['q']))
+    $page->q = htmlspecialchars($_GET['q']);
 
 $laststat = db_fetch("SELECT * FROM ixi_nodestats ORDER BY blockheight DESC LIMIT 1", [])[0];
 if ($laststat != 0) {

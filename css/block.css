@@ -1,0 +1,114 @@
+@import "compontents.css";
+@import "utils.css";
+
+.blockPage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 60px 16px;
+    align-items: center;
+}
+
+.heightInfo {
+    width: 100%;
+    border: 1px solid var(--colors-outline-01);
+    border-radius: var(--corner-radius-lg);
+    padding: 16px;
+    background: var(--colors-surface-01);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+    }
+
+}
+
+.blocks {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+    }
+
+    > :nth-child(3) {
+        background: var(--colors-surface-03);
+        padding: 8px 16px;
+        border-radius: var(--corner-radius-lg);
+    }
+}
+
+.singleBlock {
+    color: var(--colors-text-action-hover);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    img {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+.prevNextText {
+    color: var(--colors-text-action) !important;
+}
+
+.blockDetails {
+    background: var(--colors-surface-02);
+    border-radius: var(--corner-radius-lg);
+    padding: 24px;
+    border: 1px solid var(--colors-outline-02);
+    margin-bottom: 40px;
+}
+
+.singleDetail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    border-bottom: 1px solid var(--colors-outline-02);
+    color: var(--colors-text-02);
+    font-size: var(--font-size-global-label-sm);
+    line-height: var(--line-height-global-label-sm);
+    letter-spacing: var(--tracking-global-label-sm);
+    font-weight: 700;
+    padding: 18px 0;
+
+    @media (max-width: 768px) {
+        align-items: flex-start;
+    }
+
+    @media (max-width: 320px) {
+        flex-direction: column;
+
+        a {
+            text-align: left;
+        }
+    }
+
+    &:first-child {
+        padding-top: 0;
+    }
+
+    &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+
+.maxHash {
+    width: 100%;
+    max-width: 600px;
+    word-break: break-all;
+    text-align: right;
+}

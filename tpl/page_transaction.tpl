@@ -1,118 +1,122 @@
-<div class="container-fluid">
-    
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-</div>
+<link rel="stylesheet" href="css/block.css"/>
+<link rel="stylesheet" href="css/transcation.css"/>
 
-    
-<div class="row">
-    <div class="col-12">
 
-    <div class="card mb-4">
-                <div class="card-header">
-                        <h1 class="h3 mb-0 text-gray-800">Transaction</h1>
+<section class="pageContainer">
+    <div class="bg-1">
+        <section class="pageLimitWrapper transactionPage">
+            <div class="flexCGap8 maxW822">
+                <h1 class="heading-xs mb-2">Transaction Details</h1>
+                <div class="blockDetails">
+                    <div class="singleDetail">
+                        <div class="tooltipWrapperHelper">
+                            <p>Hash</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="myTooltip">This hash represents the ID (TxID) of this transaction.</span>
+                            </div>
+                        </div>
+                        <div class="t-red maxHash label-xs"><?php echo $this->txid; ?></div>
+                    </div>
+                    <div class="singleDetail">
+                        <div class="tooltipWrapperHelper">
+                            <p>Age</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="myTooltip">Determines how long ago this transaction was processed and added to the block.</span>
+                            </div>
+                        </div>
+                        <p><?php echo $this->txage;?></p>
+                    </div>
+                    <div class="singleDetail">
+                        <div class="tooltipWrapperHelper">
+                            <p>Date</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="myTooltip">Exact timestamp of when the block was added to the blockchain.</span>
+                            </div>
+                        </div>
+                        <p><?php echo $this->txdate;?></p>
+                    </div>
+                    <div class="singleDetail">
+                        <div class="tooltipWrapperHelper">
+                            <p>Version</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="myTooltip">Current version of TX.</span>
+                            </div>
+                        </div>
+                        <p><?php echo $this->txversion;?></p>
+                    </div>
+                    <div class="singleDetail">
+                        <div class="tooltipWrapperHelper">
+                            <p>Block</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="myTooltip">Exact block that contains this transaction.</span>
+                            </div>
+                        </div>
+                        <a href="?p=block&id=<?php echo $this->txapplied;?>" class="t-blue maxHash"><?php echo number_format($this->
+                            txapplied);?></a>
+                    </div>
+                    <div class="singleDetail">
+                        <div class="tooltipWrapperHelper">
+                            <p>Type</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="myTooltip">Determines the type of this particular transaction.</span>
+                            </div>
+                        </div>
+                        <p><?php echo $this->txtype;?></p>
+                    </div>
+                    <div class="singleDetail">
+                        <div class="tooltipWrapperHelper">
+                            <p>Amount</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="myTooltip">Full amount of this transaction.</span>
+                            </div>
+                        </div>
+                        <p class="t-red"><?php echo $this->txamount;?></p>
+                    </div>
+                    <div class="singleDetail">
+                        <div class="tooltipWrapperHelper">
+                            <p>Fee</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="myTooltip">The calculated fee that was required to process this transaction.</span>
+                            </div>
+                        </div>
+                        <p><?php echo $this->txfee;?></p>
+                    </div>
                 </div>
-                <div class="card-body">
-
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <tbody>
-                    <tr>
-                      <td style="width: 100px">Hash</td>
-                        <td class="text-wrap" style="max-width: 100px"><b><code><?php echo $this->txid; ?></code></b></td>
-                    </tr>
-                    <tr>
-                      <td>Age</td>
-                      <td><?php echo $this->txage;?></td>
-                    </tr>
-                    <tr>
-                      <td>Date</td>
-                      <td><?php echo $this->txdate;?></td>
-                    </tr>
-                    <tr>
-                      <td>Version</td>
-                      <td><?php echo $this->txversion;?></td>
-                    </tr>
-                    <tr>
-                      <td>Block</td>
-                        <td><a href="?p=block&id=<?php echo $this->txapplied;?>"><?php echo $this->txapplied;?></a></td>
-                    </tr>   
-                    <tr>
-                      <td>Type</td>
-                      <td><?php echo $this->txtype;?></td>
-                    </tr>
-                    <tr>
-                      <td>Amount</td>
-                        <td><code><b><?php echo $this->txamount;?></b></code></td>
-                    </tr>
-                    <tr>
-                      <td>Fee</td>
-                      <td><?php echo $this->txfee;?></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>                    
-                                       
-                </div>
-              </div>    
-    
-    </div>
-</div>    
-    
-    
-<div class="row">
-    <div class="col-6">
-
-        <div class="card mb-4">
-                <div class="card-header text-right">
-                        From
-                </div>
-                <div class="card-body">
-                    <?php 
+            </div>
+            <div class="fromToSection">
+                <div class="singleColumn">
+                    <h2 class="heading-xs">From</h2>
+                    <?php
                         foreach ($this->fromArr as $key => $value) { ?>
-                        <div class="row">
-                            <div class="col text-truncate text-right">
-                            <b><a href="?p=address&id=<?php echo $key; ?>"><?php echo $key; ?></a></b>
-                            <code><div class="text-danger">-<?php echo number_format($value,8); ?> IXI</div></code>
-                            </div>
-                        </div>
-                    
-                        <hr/>
-                    <?php 
-                        } 
+                    <div class="smallTxInfo">
+                        <a href="?p=address&id=<?php echo $key; ?>" class="t-blue maxHash label-sm"><?php echo $key; ?></a>
+                        <p class="t-red label-sm"><?php echo number_format($value,8); ?> IXI</p>
+                    </div>
+                    <?php
+                        }
                     ?>
-                    
-                    
-                    
-                </div>    
-        </div>
-    </div>
-    
-    <div class="col-6">
-
-        <div class="card mb-4">
-                <div class="card-header">
-                        To
                 </div>
-                <div class="card-body">
-                    <?php 
+                <div class="singleColumn">
+                    <h2 class="heading-xs">To</h2>
+                    <?php
                         foreach ($this->toArr as $key => $value) { ?>
-                        <div class="row">
-                            <div class="col text-truncate">
-                            <b><a href="?p=address&id=<?php echo $key; ?>"><?php echo $key; ?></a></b>
-                                <code><div class="text-success"><?php echo number_format($value,8); ?> IXI</div></code>
-                            </div>
-                        </div>
-                        <hr/>
-                    <?php 
-                        } 
+                    <div class="smallTxInfo">
+                        <a href="?p=address&id=<?php echo $key; ?>" class="t-blue maxHash label-sm"><?php echo $key; ?></a>
+                        <p class="t-green label-sm"><?php echo number_format($value,8); ?> IXI</p>
+                    </div>
+                    <?php
+                        }
                     ?>
-                </div>    
-        </div>
-    </div>    
-    
-</div>
-    
-    
-    
-</div><!-- Page Content -->
-
+                </div>
+            </div>
+        </section>
+    </div>
+</section>

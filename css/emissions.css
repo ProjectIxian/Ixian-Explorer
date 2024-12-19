@@ -1,0 +1,19 @@
+@import "compontents.css";
+@import "utils.css";
+
+.emissionsHeader{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 88px 16px 16px 40px;
+
+    p {
+        max-width: 600px;
+    }
+}
+
+.emissionBlocks{
+    background: var(--colors-surface-01);
+    padding: 64px 16px;
+}

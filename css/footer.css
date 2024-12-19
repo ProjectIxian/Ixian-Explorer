@@ -1,0 +1,99 @@
+@import "variables.css";
+@import "utils.css";
+
+.mainFooter {
+    width: 100%;
+    height: 100%;
+    max-height: 320px;
+    background: var(--colors-surface-inverse);
+    color: var(--colors-text-inverse);
+    padding: 40px 16px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+
+
+    @media (max-width: 768px) {
+        max-height: unset;
+        gap: 32px;
+        padding: 20px 16px !important;
+        overflow-x: hidden;
+    }
+}
+
+.footerTopContent {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 425px) {
+        gap: 64px;
+    }
+}
+
+.footerBottomContent {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--colors-outline-inverse);
+    padding-top: 12px;
+
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+}
+
+.topLeft {
+    display: flex;
+    flex-direction: column;
+
+    img {
+        margin-bottom: 12px;
+    }
+}
+
+.topRight {
+    width: 100%;
+    display: flex;
+    gap: 32px;
+    justify-content: flex-end;
+
+    @media (max-width: 768px) {
+        gap: 12px;
+        justify-content: flex-start;
+    }
+
+    @media (max-width: 425px) {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+}
+
+.topLinks {
+    width: 100%;
+    max-width: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    :first-child {
+        margin-bottom: 12px;
+    }
+}
+
+.bottomLinks {
+    display: flex;
+    gap: 32px;
+
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+}

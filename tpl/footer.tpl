@@ -1,24 +1,45 @@
-<br>
 
-<footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="text-center my-auto">
-              <p>
-                  <a href="https://ixian.io" target="_blank"><i class="fas fa-link fa-fw"></i>Ixian.io</a> |
-                  <a href="https://docs.ixian.io" target="_blank"><i class="fas fa-book fa-fw"></i>Documentation</a> |
-                  <a href="https://ixian.io?page=downloads" target="_blank"><i class="fas fa-download fa-fw"></i>Downloads</a>
-                  
-              </p>
-            <span>Ixian OÜ</span>
-              <p>© COPYRIGHT IXIAN.IO<br>ALL RIGHTS RESERVED </p>
-          </div>
+<div class="bg-3">
+    <footer class="pageLimitWrapper mainFooter">
+        <div class="footerTopContent">
+            <div class="topLeft">
+                <img src="gfx/ixiscope-logotype.svg" alt="ixiscope-logo" width="118px" />
+                <p class="label-md">The official block explorer for the Ixian Platform.</p>
+                <p class="label-md t-gray-2">Powered by Ixian</p>
+            </div>
+            <div class="topRight">
+                <div class="topLinks">
+                    <p class="label-sm t-gray-2">IXI Token</p>
+                    <a href="?p=emissions" class="label-sm">Emissions</a>
+                    <a href="?p=top" class="label-sm">Top 20</a>
+                </div>
+                <div class="topLinks">
+                    <p class="label-sm t-gray-2">Explorer</p>
+                    <a href="index.php" class="label-sm">Blocks</a>
+                    <a href="?p=nodes" class="label-sm">Nodes</a>
+                    <a href="?p=network" class="label-sm">Statistics</a>
+                </div>
+                <div class="topLinks">
+                    <p class="label-sm t-gray-2">Links</p>
+                    <a target="_blank" href="https://www.ixian.io/" class="label-sm">Ixian <i class="fa fa-arrow-up-right-from-square fa-sm"></i></a>
+                    <a target="_blank" href="https://docs.ixian.io/" class="label-sm">Documentation <i class="fa fa-arrow-up-right-from-square fa-sm"></i></a>
+                    <a target="_blank" href="https://www.ixian.io/?page=downloads" class="label-sm">Downloads <i class="fa fa-arrow-up-right-from-square fa-sm"></i></a>
+                    <a target="_blank" href="https://github.com/projectixian" class="label-sm">Github <i class="fa fa-arrow-up-right-from-square fa-sm"></i></a>
+                </div>
+            </div>
         </div>
-      </footer>
+        <div class="footerBottomContent">
+            <p class="label-sm">© Ixian, 2017 - <?php echo date("Y");?></p>
+            <div class="bottomLinks">
+                <a href="https://www.ixian.io/?page=terms" target="_blank" class="label-sm">Terms of Use</a>
+                <a href="https://www.ixian.io/?page=privacy" target="_blank" class="label-sm">Privacy Policy</a>
+                <a href="https://www.ixian.io/?page=cookie" target="_blank" class="label-sm">Cookies</a>
+            </div>
+        </div>
+    </footer>
+    </div>
+  </main>
 
-        </div> <!-- Main content -->
-    </div> <!-- Content wrapper -->
-  </div>
-  <!-- End of Page Wrapper -->
 
 
 

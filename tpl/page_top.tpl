@@ -1,114 +1,105 @@
 <script src="vendor/chart.js/Chart.min.js"></script>
+<link rel="stylesheet" href="css/top20.css"/>
+<link rel="stylesheet" href="css/statistics.css"/>
 
-
-<div class="container-fluid">
-
- <div class="row">
-            <div class="col-6">
-                <div class="row">
-            <!-- Card -->
-            <div class="col-12 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">IxiCash Supply</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->supply;?> IXI</div>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-coins fa-2x text-gray-300"></i>
-                                </div>
+<section class="pageContainer">
+    <div class="top20Header pageLimitWrapper">
+        <div>
+            <h1 class="heading-lg">Top 20 Addresses</h1>
+            <p class="body-md">List of 20 wallet addresses that contain most IXI tokens</p>
+        </div>
+        <div class="topCards">
+            <div class="topCardsLeft">
+                <div class="ixiCard">
+                    <div class="flexCGap8">
+                        <p class="heading-sm"><?php echo $this->supply;?></p>
+                        <div class="tooltipWrapperHelper">
+                            <p class="label-sm t-gray">IXI Circulating Supply</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="myTooltip">The entire amount of IXI in circulation including the Genesis wallets with vesting amounts.</span>
                             </div>
                         </div>
                     </div>
+                    <div>
+                        <img class="theme-dependent" data-icon="ixian_logo.svg" alt="ixi" />
+                    </div>
                 </div>
-                </div>
-                <div class="row">
-
-                
-            <!-- Card -->
-            <div class="col-12 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Top 20 Amount</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->totalAmount;?> IXI</div>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-trophy fa-2x text-gray-300"></i>
-                                </div>
+                <div class="ixiCard">
+                    <div class="flexCGap8">
+                        <p class="heading-sm"><?php echo $this->totalAmount;?></p>
+                        <div class="tooltipWrapperHelper">
+                            <p class="label-sm t-gray">Top 20 Wallet Amount (excluding foundation and exchange wallets)</p>
+                            <div class="tooltip-container">
+                                <i class="fa fa-question-circle"></i>
+                                <span class="myTooltip">The amount of IXI held by top 20 wallets. This includes locked genesis amount and IXI held on exchange wallets.</span>
                             </div>
                         </div>
                     </div>
-                </div>
-                </div>
-     </div>
-            <!-- Card -->
-            <div class="col-6 mb-4">
-              <div class="card border-left-secondary shadow h-100 py-2">
-                <div class="card-body">
-                     <div class="row no-gutters align-items-center">
-                    <div class="col ">
-                      <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">IXI Distribution</div>
-                        <canvas id="chart-0" style="max-height: 150px;"></canvas>
-
-                         </div>
+                    <div>
+                        <img class="theme-dependent" data-icon="wallet.svg" alt="wallet" />
                     </div>
-    
-                    
-
-                </div>
                 </div>
             </div>
-          
-     
-</div>
-    
-<h4>Top 20 Wallets</h4>
-<div class="table-responsive">
-<table id="ttx" class="table table-sm1 table-hover">
-            <thead class="thead-dark">
-                <tr>
-                    <th style="width: 30px">Rank</th>
-                    <th>Address</th>
-                    <th class="text-right">Balance</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
+                <div class="blockStatusCard ixiDistribution">
+                    <div class="blockStatusCardHeader">
+                        <div>
+                            <h3 class="heading-sm">IXI Distribution</h3>
+                            <p class="body-md">Data below shows distribution with genesis and exchange wallets included.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="chart-area">
+                            <canvas id="chart-0"></canvas>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="bg-1">
+        <section class="top20Wallets pageLimitWrapper flexCGap32">
+            <h4 class="heading-sm">Top 20 Wallets</h4>
+            <div class="table-responsive">
+                <table id="ttx" class="table myTable">
+                    <thead class="thead myTableHead">
+                    <tr>
+                        <th scope="col" class="myTh" style="width: 30px">Rank</th>
+                        <th scope="col" class="myTh">Address</th>
+                        <th scope="col" class="text-right myTh">Balance</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
                     $pos = 1;
-                    foreach($this->data as $addr) { 
-                      $tag = "";
-                      // known_wallets
-                      $address = $addr['address'];
-                      if(array_key_exists($address, $this->known_wallets)) {
-                        $tag_name = $this->known_wallets[$address][0];
-                        $tag_color = $this->known_wallets[$address][1];
-                        $tag = "<span class=\"badge badge-$tag_color\">$tag_name</span>";
-                      }
-                      ?>
-                        <tr>
-                            <td>#<?php echo $pos;?></td>
-                            <td class="text-truncate" style="max-width: 300px;">
-                              <?php echo $tag;?> <a href="index.php?p=address&id=<?php echo $address;?>"><?php echo $address;?></a>
-                              </td>
-                            <td class="text-right"><?php echo number_format($addr["amount"], 8)." IXI";?></td>
-                        </tr>
+                    foreach($this->data as $addr) {
+                    $tag = "";
+                    // known_wallets
+                    $address = $addr['address'];
+                    if(array_key_exists($address, $this->known_wallets)) {
+                    $tag_name = $this->known_wallets[$address][0];
+                    $tag_color = $this->known_wallets[$address][1];
+                    $tag = "<span class=\"walletBadge wallet-tag-$tag_color \">$tag_name</span>";
+                    }
+                    ?>
+                    <tr>
+                        <td class="myTd label-md">#<?php echo $pos;?></td>
+                        <td class="text-truncate myTd" style="max-width: 300px;">
+                            <span class="label-md mr-1"><?php echo $tag;?></span><a class="body-sm t-blue" href="index.php?p=address&id=<?php echo $address;?>"><?php echo $address;?></a>
+                        </td>
+                        <td class="text-right myTd label-sm t-gray"><?php echo number_format($addr["amount"], 8)." IXI";?></td>
+                    </tr>
 
-                <?php 
+                    <?php
                         $pos++;
                     }
                 ?>
-            </tbody>
-</table>
-</div>
-    
-    
-    
-    
-</div><!-- Page Content -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
 
+</section>
 
 <script>
 

@@ -1,152 +1,146 @@
 <link rel="stylesheet" href="vendor/bootstrap-cookie-alert/cookiealert.css">
+<link rel="stylesheet" href="css/home.css"/>
 
-<div class="container-fluid"> 
-    
-    
-    
- <div class="row">
+<section class="pageContainer">
+    <div class="pageLimitWrapper homeHero">
+        <div class="home-search">
+            <h1 class="heading-lg">Welcome to ixiscope</h1>
+            <p class="body-lg">The official <span class="label-lg">Block Explorer</span> for the Ixian Platform.</p>
+            <form class="inputContainer" method="get">
+                <input type="hidden" name="p" value="search"/>
+                <input class="input" aria-label="Search" name="q" value="<?php echo $this->q;?>" type="text" placeholder="Type or paste blocks, addresses or transaction ID"/>
+                <button type="submit" class="button btn-p label-md">Go <i class="fa fa-arrow-right"></i></button>
+            </form>
+            <p class="label-sm t-gray">Use the search bar to scan for transactions, wallets, names and blocks.</p>
+        </div>
 
-            <!-- Card -->
-            <div class="col-xl-4 col-md-4 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">IxiCash Supply</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->supply;?> IXI</div>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-coins fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
+        <!-- Statistics data cards -->
+        <div class="cardGroup">
+            <div class="ixiCard">
+                <div class="flexCGap8">
+                    <p class="heading-sm"><?php echo $this->supply;?></p>
+                    <div class="tooltipWrapperHelper">
+                        <p class="label-sm t-gray">IXI Circulating Supply</p>
+                        <div class="tooltip-container">
+                            <i class="fa fa-question-circle"></i>
+                            <span class="myTooltip">The entire amount of IXI in circulation including the Genesis wallets with vesting amounts.</span>
                         </div>
                     </div>
                 </div>
-     
-            <!-- Card -->
-            <div class="col-xl-4 col-md-4 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Active DLT Nodes</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->m;?></div>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-server fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
+                <div>
+                    <img class="theme-dependent" data-icon="ixian_logo.svg" src="" alt="ixi" />
+                </div>
+            </div>
+            <div class="ixiCard">
+                <div class="flexCGap8">
+                    <p class="heading-sm"><?php echo $this->m;?></p>
+                    <div class="tooltipWrapperHelper">
+                    <p class="label-sm t-gray">Active IXI DLT Nodes</p>
+                        <div class="tooltip-container">
+                            <i class="fa fa-question-circle"></i>
+                            <span class="myTooltip">Number of all active Ixian DLT Nodes connected to the network.</span>
                         </div>
                     </div>
-                </div>     
-     
-              
-            <!-- Card -->
-            <div class="col-xl-4 col-md-4 mb-4">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Estimated Hashrate</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->hashrate;?> h/s</div>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-bolt fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
+                </div>
+                <div>
+                    <img class="theme-dependent" data-icon="linked_services.svg" alt="linked_services" />
+                </div>
+            </div>
+            <div class="ixiCard">
+                <div class="flexCGap8">
+                    <p class="heading-sm"><?php echo $this->hashrate;?></p>
+                    <div class="tooltipWrapperHelper">
+                        <p class="label-sm t-gray">Estimated Hash-rate (h/s)</p>
+                        <div class="tooltip-container">
+                            <i class="fa fa-question-circle"></i>
+                            <span class="myTooltip">Current network hash-rate.</span>
                         </div>
                     </div>
-                </div>       
-</div>
-    
-    
-        <!-- Transaction stats -->
-          <p class="mb-4"></p>
-            
-            <div class="row">
-     
-            <!-- Card -->
-            <div class="col-xl-4 col-md-4 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div data-toggle="tooltip" title="The total amount of transactions recorded by the block explorer" class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Total Transactions
-                        <i class="fas fa-info-circle"></i>
-                        </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->txtotal;?></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>     
-             
-           
-            <!-- Card -->
-            <div class="col-xl-4 col-md-4 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div data-toggle="tooltip" title="The number of transactions in the past 24 hours" class="text-xs font-weight-bold text-secondary text-uppercase mb-1">24h Transactions
-                        <i class="fas fa-info-circle"></i>
-                        </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->tx24;?></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-             
-     
-            <!-- Card -->
-            <div class="col-xl-4 col-md-4 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div data-toggle="tooltip" title="The average number of transactions per day for the past 30 days" class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Average transactions per Day
-                        <i class="fas fa-info-circle"></i>
-                        </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $this->txavg;?></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-                
-</div>
+                </div>
+                <div>
+                    <img class="theme-dependent" data-icon="charger.svg"alt="charger" />
+                </div>
+            </div>
 
+            <div class="ixiCard">
+                <div class="flexCGap8">
+                    <p class="heading-sm"><?php echo $this->tx24;?></p>
+                    <p class="label-sm t-gray">Transactions Last 24H</p>
+                </div>
+                <div>
+                    <img class="theme-dependent" data-icon="history.svg" alt="history" />
+                </div>
+            </div>
+            <div class="ixiCard">
+                <div class="flexCGap8">
+                    <p class="heading-sm"><?php echo $this->txavg;?></p>
+                    <div class="tooltipWrapperHelper">
+                        <p class="label-sm t-gray">Average Transactions Per Day</p>
+                        <div class="tooltip-container">
+                            <i class="fa fa-question-circle"></i>
+                            <span class="myTooltip">Average number of transactions per day (since the first block was added to the blockchain).</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img class="theme-dependent" data-icon="avg_pace.svg" alt="avg_pace" />
+                </div>
+            </div>
+            <div class="ixiCard">
+                <div class="flexCGap8">
+                    <p class="heading-sm"><?php echo $this->txtotal;?></p>
+                    <p class="label-sm t-gray">On-chain Transactions</p>
+                </div>
+                <div>
+                    <img class="theme-dependent" data-icon="sync_alt.svg" alt="sync_alt" />
+                </div>
+            </div>
+        </div>
+    </div>
 
-    
-<h4>Blocks</h4>
-<div class="table-aresponsive">
-<table id="tblocks" class="table table-sm1 table-fixed">
-            <thead class="thead-dark">
-                <tr>
-                    <th style="width: 60px">Height</th>
-                    <th>Hash</th>
-                    <th style="width: 22%">Added</th> 
-                    <th style="width: 12%">Txs</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-</table>
-</div>
-    
+    <div class="bg-1">
+        <section class="blocks-wrapper pageLimitWrapper flexCGap8">
+            <div class="blocks-wrapper-header">
+                <h4 class="heading-sm">Latest Blocks</h4>
+                <div class="what-are-blocks">
+                    <p class="label-md">What are blocks</p>
+                    <div class="tooltipWrapperHelper">
+                        <div class="tooltip-container">
+                            <i class="fa fa-question-circle t-green"></i>
+                            <span class="myTooltip">A block is a fundamental component of the Ixian DLT technology. Each block contains IDs of transactions and links to the previous block and to its associated Wallet State through its checksum fields. These verify that all of the transactions included in that particular block have been successfully applied, and also that the given block logically follows from the previous block.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table id="tblocks" class="table myTable">
+                    <thead class="myTableHead">
+                    <tr>
+                        <th scope="col" class="myTh" style="width: 100px">Height</th>
+                        <th scope="col" class="myTh" >Hash</th>
+                        <th scope="col" class="myTh" style="max-width: 28px">Added</th>
+                        <th scope="col" class="myTh" style="max-width: 28px">TXs</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
 
-<!-- START Bootstrap-Cookie-Alert -->
-<div class="alert text-center cookiealert" role="alert">
-    <b>Do you like cookies?</b> &#x1F36A; We use cookies to ensure you get the best experience on our website. <a href="https://www.ixian.io/?page=cookie" target="_blank">Learn more</a>
-
-    <button type="button" class="btn btn-primary btn-sm acceptcookies">
-        I agree
-    </button>
-</div>
-<!-- END Bootstrap-Cookie-Alert -->    
-    
-</div><!-- Page Content -->
+    <!-- START Bootstrap-Cookie-Alert -->
+    <div class="alert text-center cookiealert d-flex flex-column justify-content-center align-items-center" role="alert">
+        <div>
+            <p class="label-md">&#x1F36A; We use cookies to ensure you get the best experience on our website.</p>
+            <a href="https://www.ixian.io/?page=cookie" target="_blank">Learn more</a>
+        </div>
+        <button type="button" class="button btn-p label-md acceptcookies">
+            I agree
+        </button>
+    </div>
+    <!-- END Bootstrap-Cookie-Alert -->
+</section><!-- Page Content -->
 
 
 <script src="vendor/bootstrap-cookie-alert/cookiealert.js"></script>
@@ -157,18 +151,17 @@
     var etbl;
     $(function () {
         $etbl = $('#tblocks').DataTable({
-            'paging' : true,
+            'paging': true,
             'pagingType': 'numbers',
-            'lengthChange' : false,
-            'info' : false,
-            'ordering' : true,
-			'order': [[ 0, "desc" ]],
-            'searching' : false,
-            'serverSide' : true,
-            'processing' : true,
+            'lengthChange': false,
+            'info': false,
+            'ordering': true,
+            'order': [[0, "desc"]],
+            'searching': false,
+            'serverSide': true,
+            'processing': true,
             'autoWidth': false,
-            'ajax' : 'feeds/blocks.php'
+            'ajax': 'feeds/blocks.php'
         });
-    }) 
-    
+    })
 </script>

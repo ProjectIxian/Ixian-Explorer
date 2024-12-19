@@ -33,11 +33,11 @@ if($nodestats)
     {
         if(str_starts_with($nodeagent, "xdc-"))
         {
-            $dltnodes[$nodeagent] = $nodecount; 
+            $dltnodes[$nodeagent] = $nodecount;
         }
         else if(str_starts_with($nodeagent, "xs2c-"))
         {
-            $s2nodes[$nodeagent] = $nodecount; 
+            $s2nodes[$nodeagent] = $nodecount;
         }
     }
 }

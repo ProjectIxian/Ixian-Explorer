@@ -1,0 +1,37 @@
+@import "compontents.css";
+@import "utils.css";
+
+.nodeStatsContainer {
+    background: var(--colors-surface-01);
+    padding: 40px 16px 180px 16px;
+    display: flex;
+    gap: 32px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.nodesHero{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 88px 16px 40px 16px !important;
+    gap: 64px;
+}
+
+
+.nodeCard {
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid var(--colors-outline-02);
+    border-radius: var(--corner-radius-lg);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.nodeCardHeader {
+    display: flex;
+    gap: 12px;
+    min-height: 80px;
+}

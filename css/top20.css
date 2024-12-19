@@ -1,0 +1,39 @@
+@import "compontents.css";
+@import "utils.css";
+
+.top20Header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 88px 16px 40px 16px !important;
+}
+
+.topCards {
+    width: 100%;
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+    }
+}
+
+.topCardsLeft {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.ixiDistribution {
+    background: var(--colors-surface-01) !important;
+    max-width: 670px !important;
+}
+
+.top20Wallets {
+    background: var(--colors-surface-01);
+    padding: 48px 16px 80px 16px;
+    min-height: 624px;
+}
