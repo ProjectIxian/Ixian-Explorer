@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/home.css"/>
+<link rel="stylesheet" href="<?php echo versionedAsset('css/home.css'); ?>"/>
 
 <div class="pageContainer">
     <div class="text-center p-4">

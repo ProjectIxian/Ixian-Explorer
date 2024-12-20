@@ -11,10 +11,10 @@
     <meta name="keywords" content="Ixian,DLT,Blockchain,Cryptocurrency,Crypto,IXI,Explorer,Spixi">
 
     <link href="vendor/fontawesome-free-6.7.1-web/css/all.css" rel="stylesheet" type="text/css">
-    <link href="css/sb-admin-2.css" rel="stylesheet">
-    <link href="css/explorer.css" rel="stylesheet">
-    <link href="css/header.css" rel="stylesheet">
-    <link href="css/footer.css" rel="stylesheet">
+    <link href="<?php echo versionedAsset('css/sb-admin-2.css'); ?>" rel="stylesheet">
+    <link href="<?php echo versionedAsset('css/explorer.css'); ?>"  rel="stylesheet">
+    <link href="<?php echo versionedAsset('css/header.css'); ?>"  rel="stylesheet">
+    <link href="<?php echo versionedAsset('css/footer.css'); ?>"  rel="stylesheet">
 
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 

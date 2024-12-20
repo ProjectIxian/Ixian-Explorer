@@ -1,6 +1,6 @@
 <script src="vendor/chart.js/Chart.min.js"></script>
-<link rel="stylesheet" href="css/top20.css"/>
-<link rel="stylesheet" href="css/statistics.css"/>
+<link rel="stylesheet" href="<?php echo versionedAsset('css/top20.css'); ?>"/>
+<link rel="stylesheet" href="<?php echo versionedAsset('css/statistics.css'); ?>"/>
 
 <section class="pageContainer">
     <div class="top20Header pageLimitWrapper">

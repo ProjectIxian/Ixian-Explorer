@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/address.css"/>
+<link rel="stylesheet" href="<?php echo versionedAsset('css/address.css'); ?>" />
 
 <section class="pageContainer">
     <div class="bg-1 addressWrapper">

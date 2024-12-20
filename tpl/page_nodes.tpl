@@ -1,5 +1,5 @@
 <script src="vendor/chart.js/Chart.min.js"></script>
-<link rel="stylesheet" href="css/nodes.css"/>
+<link rel="stylesheet" href="<?php echo versionedAsset('css/nodes.css'); ?>"/>
 <!-- Begin Page Content -->
 
 <section class="pageContainer">

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/block.css"/>
+<link rel="stylesheet"  href="<?php echo versionedAsset('css/block.css'); ?>"/>
 
 <section class="pageContainer">
     <div class="bg-1">
