@@ -1,6 +1,6 @@
 <script src="vendor/chart.js/Chart.min.js"></script>
-<link rel="stylesheet" href="css/statistics.css"/>
-<link rel="stylesheet" href="css/emissions.css"/>
+<link rel="stylesheet" href="<?php echo versionedAsset('css/statistics.css'); ?>"/>
+<link rel="stylesheet" href="<?php echo versionedAsset('css/emissions.css'); ?>"/>
 
 <section class="pageContainer">
         <section class="emissionsHeader pageLimitWrapper">

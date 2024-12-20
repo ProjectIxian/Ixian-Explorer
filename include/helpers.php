@@ -81,4 +81,13 @@ function calculateRewardForBlock($blockNum)
     return $pow_reward / 1000;
 }
 
+function versionedAsset($path) {
+    if (file_exists($path)) {
+        //appends file modification time
+        return $path . '?v=' . filemtime($path);
+    } else {
+        return $path;
+    }
+}
+
 ?>

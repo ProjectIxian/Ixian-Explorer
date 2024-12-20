@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="css/block.css"/>
-<link rel="stylesheet" href="css/transcation.css"/>
+<link rel="stylesheet" href="<?php echo versionedAsset('css/block.css'); ?>"/>
+<link rel="stylesheet" href="<?php echo versionedAsset('css/transaction.css'); ?>"/>
 
 
 <section class="pageContainer">
