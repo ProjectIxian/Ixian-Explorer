@@ -51,6 +51,10 @@
     background-image: var(--pattern);
     background-position: top right;
     background-repeat: no-repeat;
+
+    @media (max-width: 768px) {
+        background-image: unset;
+    }
 }
 
 .tooltipWrapperHelper {
@@ -359,6 +363,7 @@
     font-size: var(--font-size-global-label-xs);
     line-height: var(--line-height-global-label-xs);
     letter-spacing: var(--tracking-global-label-xs);
+    font-weight: 700;
 }
 
 /* Body Classes */
@@ -387,4 +392,5 @@
     font-size: var(--font-size-global-body-xs);
     line-height: var(--line-height-global-body-xs);
     letter-spacing: var(--tracking-global-body-xs);
+    font-weight: 400;
 }

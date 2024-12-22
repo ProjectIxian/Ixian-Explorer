@@ -31,6 +31,8 @@ $ssh_private_key = "/path/to/file/key.ppk";
 $ssh_password = "password";
 */
 
+//ixiscope version
+$ixiscope_version = "0.1";
 
 $nodestatus_url = "https://www.ixian.io/nodeStatus.txt"; // URL to node status
 
