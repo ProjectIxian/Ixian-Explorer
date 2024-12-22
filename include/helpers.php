@@ -82,9 +82,10 @@ function calculateRewardForBlock($blockNum)
 }
 
 function versionedAsset($path) {
+    global $ixiscope_version;
     if (file_exists($path)) {
         //appends file modification time
-        return $path . '?v=' . filemtime($path);
+        return $path . '?v=' . $ixiscope_version;
     } else {
         return $path;
     }
