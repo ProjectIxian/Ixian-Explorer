@@ -16,7 +16,7 @@ if(isset($_GET['p']))
     
     if($new_page === 'search' || $new_page === 'address' || $new_page === 'block' || $new_page === 'transaction'
       || $new_page === 'network' || $new_page === 'top' || $new_page === 'emissions'
-      || $new_page === 'devblocks' || $new_page === 'nodes' || $new_page === 'superblocks'   
+      || $new_page === 'devblocks' || $new_page === 'superblocks' || $new_page === 'nodes'   
       )
     {
         $current_page = $new_page;
@@ -30,9 +30,11 @@ $page = new Template();
 $page->cpage = $current_page;
 
 $page->q = "";
-if(isset($_GET['q']))
+if(isset($_GET['q'])) {
     $page->q = htmlspecialchars($_GET['q']);
-
+    include_once('pages/search.php');
+    exit;
+}
 
 // Fetch the current network blockheight
 $laststat = db_fetch("SELECT * FROM ixi_nodestats ORDER BY blockheight DESC LIMIT 1", []);
@@ -64,6 +66,7 @@ if($explorerbh < $networkbh - 10)
 {
     $page->alert = 1; // Synchronizing
 }
+
 $page->render('header.tpl'); 
 
 include_once('pages/'.$current_page.'.php');
