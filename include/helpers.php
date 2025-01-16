@@ -81,6 +81,31 @@ function calculateRewardForBlock($blockNum)
     return $pow_reward / 1000;
 }
 
+function redirectSearch($query)
+{
+    if(!ctype_digit($query))
+    {      
+        $data = db_fetch("SELECT * FROM ixi_addresses WHERE BINARY address = :1  LIMIT 1", [ ":1" => $query ]);
+        if ($data != false && count($data) > 0) {
+            header("Location: index.php?p=address&id=$query");
+            exit;
+        }
+    
+        $data = db_fetch("SELECT * FROM ixi_transactions WHERE txid LIKE :1  LIMIT 1", [ ":1" => $query ]);
+        if ($data != false && count($data) > 0) {
+            header("Location: index.php?p=transaction&id=$query");
+            exit;
+        }
+    }
+    else {
+        $data = db_fetch("SELECT * FROM ixi_blocks WHERE id = :1  LIMIT 1", [ ":1" => $query ]);
+        if ($data != false && count($data) > 0) {
+            header("Location: index.php?p=block&id=$query");
+            exit;
+        }
+    }
+}
+
 function versionedAsset($path) {
     global $ixiscope_version;
     if (file_exists($path)) {

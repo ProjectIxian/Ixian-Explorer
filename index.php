@@ -30,10 +30,16 @@ $page = new Template();
 $page->cpage = $current_page;
 
 $page->q = "";
-if(isset($_GET['q'])) {
-    $page->q = htmlspecialchars($_GET['q']);
-    include_once('pages/search.php');
-    exit;
+if(isset($_GET['q'])) {  
+    if($current_page === 'search' && $_GET['q'] != "") 
+    {
+        $page->q = htmlspecialchars($_GET['q']);
+        redirectSearch($page->q);
+    }
+    else {
+        header("Location: index.php");
+        exit;
+    }
 }
 
 // Fetch the current network blockheight
@@ -48,7 +54,7 @@ else
 }
 $networkbh = $laststat['blockheight'];
 
-// Fetch tha lastest stored block
+// Fetch the lastest stored block
 $laststat = db_fetch("SELECT * FROM ixi_blocks ORDER BY id DESC LIMIT 1", []);
 if ($laststat == null)
 {
