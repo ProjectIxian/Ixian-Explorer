@@ -34,7 +34,7 @@ $ssh_password = "password";
 //ixiscope version
 $ixiscope_version = "0.1";
 
-$nodestatus_url = "https://www.ixian.io/nodeStatus.txt"; // URL to node status
+$nodestatus_url = "https://resources.ixian.io/nodeStatus.txt"; // URL to node status
 
 // Convenience configuration and failsafes
 $sql_details = array('user' => $db_user,'pass' => $db_pass,'db' => $db_name,'host' => $db_host);
