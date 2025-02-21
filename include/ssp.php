@@ -288,9 +288,7 @@ class SSP {
 	{
 		$bindings = array();
 		$db = self::db( $conn );
-		$localWhereResult = array();
-		$localWhereAll = array();
-		$whereAllSql = '';
+
 		// Build the SQL query string from the request
 		$limit = self::limit( $request, $columns );
 		$order = self::order( $request, $columns );
@@ -307,17 +305,7 @@ class SSP {
 			$where = $where ?
 				$where .' AND '.$whereAll :
 				'WHERE '.$whereAll;
-			$whereAllSql = 'WHERE '.$whereAll;
 		}
-   /*     echo "SELECT `".implode("`, `", self::pluck($columns, 'db'))."`
-			 FROM `$table`
-             $special
-			 $where
-			 $order
-			 $limit";
-        die();
-     */   
-        
 
 		$recordsFiltered = 10;
         
@@ -327,9 +315,13 @@ class SSP {
             //$where2 = str_replace("aidx =", "id =", $where);
             $resFilterLength = self::sql_exec( $db, $bindings,
                 "SELECT count(*)
-                 FROM   `ixi_txidx` $where LIMIT 1"
+                 FROM   `ixi_txidx` 
+				 $where 
+				 LIMIT 1"
             );
+
             $recordsFiltered = $resFilterLength[0][0];
+			$order = "ORDER BY `timestamp` DESC, `txid`";
             
         } else {
             $resFilterLength = self::sql_exec( $db, $bindings,
@@ -340,7 +332,7 @@ class SSP {
 		  );
 		  $recordsFiltered = $resFilterLength[0][0];
         }
-
+		
 		// Main query to actually get the data
 		$data = self::sql_exec( $db, $bindings,
 			"SELECT `".implode("`, `", self::pluck($columns, 'db'))."`
@@ -350,20 +342,6 @@ class SSP {
              $order
              $limit");
 
-        
-/*		// Total data set length
-		$resTotalLength = self::sql_exec( $db, $bindings,
-			"SELECT COUNT(`{$primaryKey}`)
-			 FROM   `$table` $special ".
-			$whereAllSql
-		);
-		$recordsTotal = $resTotalLength[0][0];*/
-
-        //$recordsTotal = 100;
-
-		/*
-		 * Output
-		 */
 		return array(
 			"draw"            => isset ( $request['draw'] ) ?
 				intval( $request['draw'] ) :
